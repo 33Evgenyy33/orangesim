@@ -17,6 +17,7 @@ class WACF_Funcitons {
     /**
 	 * Function to add Custom Fee
 	 */
+
 	public static function add_fee() {
         global $woocommerce;
         if( get_option('wacf_enable', 'no' ) != 'yes' )
