@@ -1,0 +1,25 @@
+2018-04-16T13:43:47+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in F:\OpenServer\domains\orangesim\wp-includes\wp-db.php:3182. Try to use ob_start() and don't use flush(). in F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.
+
+2018-04-16T13:43:59+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in F:\OpenServer\domains\orangesim\wp-includes\wp-db.php:3182. Try to use ob_start() and don't use flush(). in F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.
+
+2018-04-16T13:44:04+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in F:\OpenServer\domains\orangesim\wp-includes\wp-db.php:3182. Try to use ob_start() and don't use flush(). in F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 F:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.
+
+2018-04-16T15:41:37+00:00 CRITICAL Out of memory (allocated 736100352) (tried to allocate 1052672 bytes)
+
+2018-04-16T15:44:32+00:00 CRITICAL Maximum execution time of 180 seconds exceeded
+
