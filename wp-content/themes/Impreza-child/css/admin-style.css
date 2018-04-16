@@ -1,0 +1,16 @@
+td.order_status.column-order_status > span span {
+    font-size: 11px;
+    white-space: pre-wrap;
+    line-height: 14px;
+    padding: 5px;
+    margin: 0;
+}
+
+td.order_number a.order-preview {
+    display: none;
+}
+
+.post-type-shop_order .wp-list-table tbody td,
+.post-type-shop_order .wp-list-table tbody th {
+    padding: 7px;
+}

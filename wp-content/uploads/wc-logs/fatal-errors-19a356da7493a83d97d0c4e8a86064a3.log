@@ -1,0 +1,73 @@
+2018-02-16T02:23:55+00:00 CRITICAL Call to a member function get_children() on null
+
+2018-02-16T02:24:08+00:00 CRITICAL Call to a member function get_children() on null
+
+2018-02-16T02:24:23+00:00 CRITICAL Call to a member function get_children() on null
+
+2018-02-16T02:24:39+00:00 CRITICAL Call to a member function get_children() on null
+
+2018-02-16T02:26:41+00:00 CRITICAL Call to a member function get_children() on null
+
+2018-02-16T02:26:57+00:00 CRITICAL Call to a member function is_on_sale() on null
+
+2018-02-16T02:27:33+00:00 CRITICAL Call to a member function is_on_sale() on null
+
+2018-02-16T02:27:58+00:00 CRITICAL Call to a member function is_on_sale() on null
+
+2018-02-16T02:28:17+00:00 CRITICAL Call to a member function is_on_sale() on null
+
+2018-02-16T02:29:43+00:00 CRITICAL Call to a member function get_id() on null
+
+2018-02-16T02:29:46+00:00 CRITICAL Call to a member function get_id() on null
+
+2018-02-16T02:30:18+00:00 CRITICAL Call to a member function get_id() on null
+
+2018-02-16T02:30:21+00:00 CRITICAL Call to a member function get_id() on null
+
+2018-02-16T02:32:56+00:00 CRITICAL Call to a member function get_children() on null
+
+2018-04-05T08:52:56+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : Premature end of data in tag definitions line 2
+
+
+2018-04-05T08:56:50+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : Premature end of data in tag definitions line 2
+
+
+2018-04-05T18:26:57+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : Premature end of data in tag definitions line 2
+
+
+2018-04-05T18:30:37+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : Premature end of data in tag definitions line 2
+
+
+2018-04-07T23:27:45+00:00 CRITICAL Cannot redeclare action_woocommerce_checkout_after_customer_details() (previously declared in /var/www/orange.ru.com/public_html/wp-content/themes/Impreza-child/functions.php:578)
+
+2018-04-07T23:27:50+00:00 CRITICAL Cannot redeclare action_woocommerce_checkout_after_customer_details() (previously declared in /var/www/orange.ru.com/public_html/wp-content/themes/Impreza-child/functions.php:578)
+
+2018-04-07T23:27:50+00:00 CRITICAL Cannot redeclare action_woocommerce_checkout_after_customer_details() (previously declared in /var/www/orange.ru.com/public_html/wp-content/themes/Impreza-child/functions.php:578)
+
+2018-04-09T00:34:30+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
+2018-04-09T00:35:02+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
+2018-04-09T01:23:13+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
+2018-04-09T01:27:32+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
+2018-04-09T01:34:59+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
+2018-04-09T01:40:18+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
+2018-04-09T01:42:55+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
+2018-04-16T00:18:04+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
+2018-04-16T00:18:26+00:00 CRITICAL SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://web.cse.ru/1c/ws/Web1C.1cws?wsdl' : failed to load external entity "http://web.cse.ru/1c/ws/Web1C.1cws?wsdl"
+
+
