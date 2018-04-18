@@ -405,6 +405,7 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
 		        $euro_rate = 78; // Курс евро
 	        }
 
+
 	        $items    = $order->get_items();
 	        $order_fees = $order->get_fees();
 	        $shipping = $data['shipping_lines'];
