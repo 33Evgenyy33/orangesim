@@ -1,6 +1,510 @@
 Array
 (
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
 )
 Array
 (
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee] => stdClass Object
+        (
+            [id] => test-fee
+            [name] => test fee
+            [tax_class] => nulevaya-stavka
+            [taxable] => 1
+            [amount] => 100
+            [total] => 100
+        )
+
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
+)
+Array
+(
+    [test-fee1] => stdClass Object
+        (
+            [id] => test-fee1
+            [name] => test fee1
+            [tax_class] => 
+            [taxable] => 
+            [amount] => 100
+            [total] => 0
+        )
+
 )

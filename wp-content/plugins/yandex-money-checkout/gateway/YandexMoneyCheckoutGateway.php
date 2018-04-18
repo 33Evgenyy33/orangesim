@@ -185,7 +185,8 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
         $paymentRequest = $builder->build();
         if ($this->isReceiptEnabled()) {
             $receipt = $paymentRequest->getReceipt();
-            if ($receipt instanceof \YandexCheckout\Model\Receipt) {
+	        file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/order_receipt.txt", print_r( $receipt, true )."\r\n", FILE_APPEND | LOCK_EX );
+	        if ($receipt instanceof \YandexCheckout\Model\Receipt) {
                 $receipt->normalize($paymentRequest->getAmount());
             }
         }
@@ -405,6 +406,7 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
 	        }
 
 	        $items    = $order->get_items();
+	        $order_fees = $order->get_fees();
 	        $shipping = $data['shipping_lines'];
 	        /** @var WC_Order_Item_Product $item */
 	        foreach ($items as $item) {
@@ -512,7 +514,7 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
 				        $this->getYmTaxRate($taxes)
 			        );
 		        } else {
-			        $amount = $item->get_total() / $item->get_quantity() + $item->get_total_tax() / $item->get_quantity();
+			        $amount = $item->get_total() / $item->get_quantity() + $item->get_total_tax() / $item->get_quantity() + reset($order_fees)->get_total();
 			        $builder->addReceiptItem(
 				        $item['name'],
 				        $amount,

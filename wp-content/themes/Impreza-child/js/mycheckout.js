@@ -2,13 +2,37 @@ jQuery(document).ready(function ($) {
     $("#billing_phone").inputmask({mask:"79999999999"});
     $("#orange_replenishment").inputmask({
         mask:"699999999",
-         "oncomplete": function(){
+         "oncomplete": function(e){
              // $( document.body ).trigger( 'update_checkout' );
-             $('form.checkout').trigger( 'update' );
-
+             // $('form.checkout').trigger( 'update' );
+             e.preventDefault();
+             postcodeAjax();
+             $('body').trigger('update_checkout');
          }
     });
 
+    function postcodeAjax(){
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data:  {
+                action: 'woocommerce_apply_state',
+                billing_postcode: $('#orange_replenishment').val(),
+            },
+            url: submit_dropzonejs.url,
+            success: function (response) {
+                $('body').trigger('update_checkout');
+                console.log('response');
+            }
+        });
+    }
+
+    // $(document).ajaxSuccess(function(event, xhr, settings) {
+    //     console.log(xhr);
+    // });
+    // $(document).ajaxSuccess(function(event, xhr, settings) {
+    //     console.log(xhr);
+    // });
 
     let dropzoneForm;
     var fileList = new Array;

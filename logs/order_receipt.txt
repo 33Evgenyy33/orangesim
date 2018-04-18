@@ -1,0 +1,192 @@
+YandexCheckout\Model\Receipt Object
+(
+    [_items:YandexCheckout\Model\Receipt:private] => Array
+        (
+            [0] => YandexCheckout\Model\ReceiptItem Object
+                (
+                    [_description:YandexCheckout\Model\ReceiptItem:private] => Пополнение баланса - 20€
+                    [_quantity:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_amount:YandexCheckout\Model\ReceiptItem:private] => YandexCheckout\Model\MonetaryAmount Object
+                        (
+                            [_value:YandexCheckout\Model\MonetaryAmount:private] => 141000
+                            [_currency:YandexCheckout\Model\MonetaryAmount:private] => RUB
+                            [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                                (
+                                )
+
+                        )
+
+                    [_vatCode:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_shipping:YandexCheckout\Model\ReceiptItem:private] => 
+                    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [_shippingItems:YandexCheckout\Model\Receipt:private] => Array
+        (
+        )
+
+    [_taxSystemCode:YandexCheckout\Model\Receipt:private] => 
+    [_phone:YandexCheckout\Model\Receipt:private] => 
+    [_email:YandexCheckout\Model\Receipt:private] => 33evgenyy33@gmail.com
+    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+        (
+        )
+
+)
+
+YandexCheckout\Model\Receipt Object
+(
+    [_items:YandexCheckout\Model\Receipt:private] => Array
+        (
+            [0] => YandexCheckout\Model\ReceiptItem Object
+                (
+                    [_description:YandexCheckout\Model\ReceiptItem:private] => Сим-карта
+                    [_quantity:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_amount:YandexCheckout\Model\ReceiptItem:private] => YandexCheckout\Model\MonetaryAmount Object
+                        (
+                            [_value:YandexCheckout\Model\MonetaryAmount:private] => 0
+                            [_currency:YandexCheckout\Model\MonetaryAmount:private] => RUB
+                            [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                                (
+                                )
+
+                        )
+
+                    [_vatCode:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_shipping:YandexCheckout\Model\ReceiptItem:private] => 
+                    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                        (
+                        )
+
+                )
+
+            [1] => YandexCheckout\Model\ReceiptItem Object
+                (
+                    [_description:YandexCheckout\Model\ReceiptItem:private] => Тариф Orange, регистрация в сети, активация пакета Mundo Оператором
+                    [_quantity:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_amount:YandexCheckout\Model\ReceiptItem:private] => YandexCheckout\Model\MonetaryAmount Object
+                        (
+                            [_value:YandexCheckout\Model\MonetaryAmount:private] => 69000
+                            [_currency:YandexCheckout\Model\MonetaryAmount:private] => RUB
+                            [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                                (
+                                )
+
+                        )
+
+                    [_vatCode:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_shipping:YandexCheckout\Model\ReceiptItem:private] => 
+                    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                        (
+                        )
+
+                )
+
+            [2] => YandexCheckout\Model\ReceiptItem Object
+                (
+                    [_description:YandexCheckout\Model\ReceiptItem:private] => Стоимость пакета Mundo 1 ГБ
+                    [_quantity:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_amount:YandexCheckout\Model\ReceiptItem:private] => YandexCheckout\Model\MonetaryAmount Object
+                        (
+                            [_value:YandexCheckout\Model\MonetaryAmount:private] => 54600
+                            [_currency:YandexCheckout\Model\MonetaryAmount:private] => RUB
+                            [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                                (
+                                )
+
+                        )
+
+                    [_vatCode:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_shipping:YandexCheckout\Model\ReceiptItem:private] => 
+                    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                        (
+                        )
+
+                )
+
+            [3] => YandexCheckout\Model\ReceiptItem Object
+                (
+                    [_description:YandexCheckout\Model\ReceiptItem:private] => Баланс сим-карты
+                    [_quantity:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_amount:YandexCheckout\Model\ReceiptItem:private] => YandexCheckout\Model\MonetaryAmount Object
+                        (
+                            [_value:YandexCheckout\Model\MonetaryAmount:private] => 23400
+                            [_currency:YandexCheckout\Model\MonetaryAmount:private] => RUB
+                            [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                                (
+                                )
+
+                        )
+
+                    [_vatCode:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_shipping:YandexCheckout\Model\ReceiptItem:private] => 
+                    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                        (
+                        )
+
+                )
+
+            [4] => YandexCheckout\Model\ReceiptItem Object
+                (
+                    [_description:YandexCheckout\Model\ReceiptItem:private] => Доставка
+                    [_quantity:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_amount:YandexCheckout\Model\ReceiptItem:private] => YandexCheckout\Model\MonetaryAmount Object
+                        (
+                            [_value:YandexCheckout\Model\MonetaryAmount:private] => 68200
+                            [_currency:YandexCheckout\Model\MonetaryAmount:private] => RUB
+                            [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                                (
+                                )
+
+                        )
+
+                    [_vatCode:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_shipping:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [_shippingItems:YandexCheckout\Model\Receipt:private] => Array
+        (
+            [0] => YandexCheckout\Model\ReceiptItem Object
+                (
+                    [_description:YandexCheckout\Model\ReceiptItem:private] => Доставка
+                    [_quantity:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_amount:YandexCheckout\Model\ReceiptItem:private] => YandexCheckout\Model\MonetaryAmount Object
+                        (
+                            [_value:YandexCheckout\Model\MonetaryAmount:private] => 68200
+                            [_currency:YandexCheckout\Model\MonetaryAmount:private] => RUB
+                            [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                                (
+                                )
+
+                        )
+
+                    [_vatCode:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [_shipping:YandexCheckout\Model\ReceiptItem:private] => 1
+                    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [_taxSystemCode:YandexCheckout\Model\Receipt:private] => 
+    [_phone:YandexCheckout\Model\Receipt:private] => 
+    [_email:YandexCheckout\Model\Receipt:private] => 33evgenyy33@gmail.com
+    [unknownProperties:YandexCheckout\Common\AbstractObject:private] => Array
+        (
+        )
+
+)
+
