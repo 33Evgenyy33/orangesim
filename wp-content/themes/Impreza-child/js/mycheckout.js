@@ -91,6 +91,8 @@ jQuery(document).ready(function ($) {
 
 
 
+
+
             if (rmvFile) {
                 data = {
                     action: 'remove_dropzonejs_file',
