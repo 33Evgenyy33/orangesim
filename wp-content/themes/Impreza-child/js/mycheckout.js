@@ -60,7 +60,6 @@ jQuery(document).ready(function ($) {
         dictFileTooBig: "Размер файла слишком большой ({{filesize}}Мб). Максимальный размер: {{maxFilesize}}Мб.",
         successmultiple: function (file, serverFileName) {
             fileList.push({"serverFileName": serverFileName, "fileName": file[0].name});
-
             // console.log(fileList);
         },
         queuecomplete: function () {
@@ -87,8 +86,8 @@ jQuery(document).ready(function ($) {
 
                 }
             }
-            // console.log(fileList);
 
+            // console.log(fileList);
             if (rmvFile) {
                 data = {
                     action: 'remove_dropzonejs_file',
