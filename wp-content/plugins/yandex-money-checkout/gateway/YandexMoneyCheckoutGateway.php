@@ -405,6 +405,12 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
 		        $euro_rate = 78; // Курс евро
 	        }
 
+	        $orange_euro_price = array(
+		        "€5"  => 5,
+		        "€10" => 10,
+		        "€15" => 15,
+		        "€20" => 20
+	        );
 
 	        $items    = $order->get_items();
 	        $order_fees = $order->get_fees();
@@ -417,7 +423,11 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
 		        $quantity     = $item->get_quantity();
 
 		        if ( $sim_card == 1346 ) {
-
+			        $initial_price  = $item->get_subtotal();
+			        $item_euro_price   = $orange_euro_price[ $balance_name ];
+			        $item_subtotal_all = $initial_price;
+			        $item_subtotal_one = $item_subtotal_all / $quantity;
+			        $euro_rate         = ($item_subtotal_one - 690) / $item_euro_price;
 			        //======================================================
 			        // Позиция "Сим-карта"
 			        //======================================================

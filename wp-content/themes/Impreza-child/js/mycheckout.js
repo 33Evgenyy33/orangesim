@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
     $("#billing_phone").inputmask({mask:"79999999999"});
-    $("#orange_replenishment").inputmask({
+    let orangeReplenishment = $("#orange_replenishment");
+    orangeReplenishment.inputmask({
         mask:"699999999",
          "oncomplete": function(e){
              // $( document.body ).trigger( 'update_checkout' );
@@ -11,18 +12,22 @@ jQuery(document).ready(function ($) {
          }
     });
 
+    if(orangeReplenishment.val()){
+        postcodeAjax();
+    }
+
     function postcodeAjax(){
         $.ajax({
             type: 'POST',
             dataType: 'json',
             data:  {
                 action: 'woocommerce_apply_state',
-                billing_postcode: $('#orange_replenishment').val(),
+                orange_replenishment: orangeReplenishment.val(),
             },
             url: submit_dropzonejs.url,
             success: function (response) {
                 $('body').trigger('update_checkout');
-                console.log('response');
+                console.log(response);
             }
         });
     }
@@ -35,8 +40,7 @@ jQuery(document).ready(function ($) {
     // });
 
     let dropzoneForm;
-    var fileList = new Array;
-    var i = 0;
+    let fileList = [];
     // let dropzoneForm = new Dropzone("#dropzone-wordpress-form", {
     Dropzone.options.dropzoneWordpressForm = {
         // autoProcessQueue: false,
@@ -62,7 +66,7 @@ jQuery(document).ready(function ($) {
         queuecomplete: function () {
             // console.log(fileList);
             let forUploadedFiles = fileList;
-            var forUploadedFilesLength = forUploadedFiles.length;
+            let forUploadedFilesLength = forUploadedFiles.length;
             let uploadedFilesElement = $('#uploaded_files');
             uploadedFilesElement.val('');
             $.each(forUploadedFiles, function (index, value) {
@@ -75,7 +79,7 @@ jQuery(document).ready(function ($) {
             });
         },
         removedfile: function (file) {
-            var rmvFile = "";
+            let rmvFile = "";
             for (let f = 0; f < fileList.length; f++) {
 
                 if (fileList[f].fileName == file.name) {
@@ -115,7 +119,7 @@ jQuery(document).ready(function ($) {
             }
 
             // console.log(fileList);
-            var _ref;
+            let _ref;
             return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
         },
         init: function () {

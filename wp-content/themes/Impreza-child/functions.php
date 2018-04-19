@@ -175,32 +175,37 @@ add_action('wp_ajax_nopriv_woocommerce_apply_state', 'woocommerce_apply_state', 
 function woocommerce_apply_state() {
 	global $wpdb;
 
-	if( isset($_POST['billing_postcode']) ){
-		$billing_postcode = $_POST['billing_postcode'];
+	if( isset($_POST['orange_replenishment']) ){
+		$orange_replenishment = $_POST['orange_replenishment'];
 
-		if( empty($billing_postcode) || $billing_postcode == 0 ) die();
+		if( empty($orange_replenishment) || $orange_replenishment == 0 ) die();
 
-		$o_id = intval($billing_postcode);
+		$o_id = intval($orange_replenishment);
 		$track_o = $wpdb->get_row($wpdb->prepare("SELECT * FROM wp_orange_numbers WHERE numbers = %d", $o_id));
-//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/track_o.txt", print_r( $track_o, true )."\r\n", FILE_APPEND | LOCK_EX );
+//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/cart_items.txt", print_r( WC()->cart->get_cart_contents(), true )."\r\n", FILE_APPEND | LOCK_EX );
 
 		if (empty($track_o->numbers)) {
-			$final_discount = 10;
+			$balance_fee = 10;
 		} else {
-			$final_discount = 0;
+			$balance_fee = 0;
         }
 
-		WC()->session->set( 'final_discount', $final_discount );
-		echo json_encode( WC()->session->get('final_discount' ) );
+		WC()->session->set( 'balance_fee', $balance_fee );
+		echo json_encode( WC()->session->get('balance_fee' ) );
 	}
 	die(); // Alway at the end (to avoid server error 500)
 }
 
 add_action( 'woocommerce_cart_emptied', 'dw_unset_fee_session' );
 function dw_unset_fee_session(){
-	unset( WC()->session->final_discount );
+	unset( WC()->session->balance_fee );
+//	unset($_SESSION['balance_fee']);
 }
 
+add_action( 'woocommerce_add_to_cart', 'woo_add_to_cart' );
+function woo_add_to_cart(){
+	WC()->session->set( 'orange_number_home', 611111117 );
+}
 
 add_action( 'woocommerce_cart_calculate_fees', 'woocommerce_custom_surcharge', 10, 2 );
 function woocommerce_custom_surcharge( $cart_obj ) {
@@ -209,52 +214,26 @@ function woocommerce_custom_surcharge( $cart_obj ) {
 		return;
 	}
 
-	$percent = WC()->session->get( 'final_discount' );
+	$percent = WC()->session->get( 'balance_fee' );
+
+	if( empty($percent) ) {
+	    return;
+	}
 
 	// If the billing postcode is not set we exit
-	$billing_postcode = WC()->session->get('customer')['postcode'];
-	if( empty($billing_postcode) ) return;
+//	$orange_replenishment = WC()->session->get('customer')['postcode'];
+//	if( empty($orange_replenishment) ) return;
 
 	if( $percent > 0 ){
 //		$discount = $cart_obj->subtotal * $percent / 100;
 //		$cart_obj->add_fee( __('Zip Code Discount', 'woocommerce' ) . " ($percent%)", -$discount);
         $cart_obj->add_fee( "Комиссия 3€", $percent);
-
+//		unset( WC()->session->balance_fee );
 	}
 }
 
 add_action('woocommerce_thankyou', 'wh_test_1', 10, 1);
-function wh_test_1($order_id) { //<--check this line
-
-	//create an order instance
-	$order = wc_get_order($order_id); //<--check this line
-//    foreach ($order->get_items() as $item){
-//	    file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/order_items.txt", print_r( $item->get_total(), true )."\r\n", FILE_APPEND | LOCK_EX );
-//	    file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/order_items.txt", print_r( $item->get_total_tax(), true )."\r\n", FILE_APPEND | LOCK_EX );
-//	    file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/order_items.txt", "\r\n", FILE_APPEND | LOCK_EX );
-//    }
-	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/order_items.txt", print_r( $order->get_fees(), true )."\r\n", FILE_APPEND | LOCK_EX );
-	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/order_items.txt", "\r\n", FILE_APPEND | LOCK_EX );
-}
-
-//add_action( 'woocommerce_calculate_totals', 'action_cart_calculate_totals', 10, 1 );
-function action_cart_calculate_totals( $cart_object ) {
-
-	if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
-		return;
-	}
-
-	if ( ! WC()->cart->is_empty() ):
-		## Displayed subtotal (+10%)
-		// $cart_object->subtotal *= 1.1;
-
-		## Displayed TOTAL (+10%)
-		// $cart_object->total *= 1.1;
-
-		## Displayed TOTAL CART CONTENT (+10%)
-		$cart_object->cart_contents_total *= 1.1;
-
-	endif;
+function wh_test_1($order_id) {
 }
 
 add_filter( 'woocommerce_checkout_fields', 'custom_override_checkout_fields' );
@@ -284,49 +263,16 @@ function custom_override_checkout_fields( $fields ) {
 		unset( $fields['billing']['passport'] );
 		unset( $fields['billing']['activation_conditions'] );
 		unset( $fields['order']['order_comments'] );
-
-		?>
-        <!--        <script>-->
-        <!--            jQuery(document).ready(function ($) {-->
-        <!--                $(document).ajaxSuccess(function(event, xhr, settings) {-->
-        <!--                    console.log(JSON.parse(xhr.responseText));-->
-        <!--                });-->
-        <!--            });-->
-        <!--        </script>-->
-		<?php
+		$fields['billing']['orange_replenishment']['default'] = WC()->session->get( 'orange_number_home' );
 
 	} else {
 		unset( $fields['billing']['orange_replenishment'] );
+		unset( WC()->session->balance_fee );
 	}
 
 //	echo '<pre>' . print_r( $items, true ) . '</pre>';
 	return $fields;
 }
-
-function my_hide_shipping_when_free_is_available( $rates, $package ) {
-//	$free = array();
-//	echo '<pre>' . print_r( $_POST[], true ) . '</pre>';
-	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/rates.txt", print_r( $package, true ), FILE_APPEND | LOCK_EX );
-
-	$excluded_states = array( 'Пензенская обл', 'HI' );
-	if ( ! in_array( WC()->customer->shipping_state, $excluded_states ) ) :
-		// Get Free Shipping array into a new array
-		$freeshipping = array();
-		$freeshipping = $rates['free_shipping:1'];
-
-		// Empty the $available_methods array
-		unset( $rates );
-
-		// Add Free Shipping back into $avaialble_methods
-		$rates   = array();
-		$rates[] = $freeshipping;
-
-	endif;
-
-	return $rates;
-}
-
-//add_filter( 'woocommerce_package_rates', 'my_hide_shipping_when_free_is_available', 10,2 );
 
 add_shortcode( 'quick_buy', 'quick_buy_func' );
 function quick_buy_func( $atts ) {
@@ -519,22 +465,6 @@ function filter_gateways( $gateways ) {
 	}
 }
 
-//add_filter( 'gettext', 'bbloomer_translate_woocommerce_string', 999 );
-//function bbloomer_translate_woocommerce_string( $translated ) {
-//	$translated = str_ireplace( 'Order #%s', 'Заказ № %s', $translated );
-//	return $translated;
-//}
-
-//function my_text_strings( $translated_text, $text, $domain ) {
-//	switch ( $translated_text ) {
-//		case 'Order #%s' :
-//			$translated_text = __( 'Заказ № %s', 'woocommerce' );
-//			break;
-//	}
-//	return $translated_text;
-//}
-//add_filter( 'gettext', 'my_text_strings', 20, 3 );
-
 //=======================================================================================================
 // Загрузка кода callback после футора
 //=======================================================================================================
@@ -625,19 +555,6 @@ function conditionally_hidding_billing_company() {
         });
     </script>
 	<?php
-}
-
-//add_filter( 'the_content', 'wpse_225562_replace_for_signup' );
-function wpse_225562_replace_for_signup( $content ) {
-
-	$my_postid = 83082;//5
-//	$content = apply_filters('the_content', get_post_field('post_content', $my_postid));
-	$content = get_post_field( 'post_content', $my_postid );
-//	$content = apply_filters('the_content', $content);
-//	$content = str_replace(']]>', ']]>', $content);
-
-
-	return $content;
 }
 
 //=======================================================================================================
@@ -848,160 +765,7 @@ function woocommerce_checkout_shipping() {
 	<?php
 }
 
-
-//add_action( 'woocommerce_email_before_order_table', 'my_completed_order_email_instructions', 10, 4 );
-//add_action( 'woocommerce_email_order_details', 'my_completed_order_email_instructions', 100, 4 );
-
-//function my_completed_order_email_instructions( $order, $sent_to_admin, $plain_text, $email ) {
-//
-//	// Only for "Customer Completed Order" email notification
-////	if( 'wc_order_status_email_19300' != $email->id ) return;
-//	if( 'customer_completed_order' != $email->id ) return;
-//
-//
-//	// Comptibility With WC 3.0+
-//	if ( method_exists( $order, 'get_id' ) ) {
-//		$order_id = $order->get_id();
-//	} else {
-//		$order_id = $order->id;
-//	}
-//	//$order->has_shipping_method('')
-//	$payment_method = get_post_meta($order_id, '_payment_method', true);
-//	$shipping_method_arr = get_post_meta($order_id, '_shipping_method', false); // an array
-//	$method_id = explode( ':', $shipping_method_arr[0][0] );
-//	$method_id = $method_id[0];  // We get the slug type method
-//
-//
-//	if ( 'cod' == $payment_method && 'local_pickup' == $method_id ){
-//		echo "something1";
-//	} elseif ( 'bacs' == $payment_method && 'local_pickup' == $method_id ){
-//		echo "something2";
-//	} else {
-//		echo "something3";
-//	}
-//}
-
-
-//add_action('woocommerce_after_checkout_validation', 'm_prevent_submission', 10,2);
-//
-//function m_prevent_submission($errors) {
-//
-////	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/file_vali.txt", print_r( $_POST, true )."\r\n", FILE_APPEND | LOCK_EX );
-//
-//	if ( empty( $errors ) ) {
-//		wc_add_notice(__('All <strong>Fine</strong>!'), 'success');
-////		return;
-//	}
-//
-////	if ( isset($_POST['m_prevent_submit']) && wc_notice_count( 'error' ) === 0 ) {
-////
-////		wc_add_notice( __( "custom_notice", 'm_example' ), 'error');
-////// change the data in $posted here
-////
-////	}
-//
-//}
-
-/**
- * Save the custom field at shipping calculator.
- */
-//function my_custom_shipping_calculator_field() {
-//	$area = isset( $_REQUEST['fias'] ) ? $_REQUEST['fias'] : '';
-//	if ( $area ) {
-//		WC()->customer->__set( 'fias', $area );
-//	}
-//}
-//
-//add_action( 'woocommerce_calculated_shipping', 'my_custom_shipping_calculator_field' );
-
-//add_filter( 'woocommerce_shipping_calculator_enable_fias', '__return_true' );
-
-add_action( 'woocommerce_checkout_create_order', 'add_domain_to_order_meta', 1000, 1 );
+//add_action( 'woocommerce_checkout_create_order', 'add_domain_to_order_meta', 10, 1 );
 function add_domain_to_order_meta( $order ) {
 	$order->add_meta_data( 'euro_rate', '78' );
-
-//	$cartFess =  WC()->cart->get_fees();
-//	$cFees = 0;
-//	foreach($cartFess as $cfee){
-//		$cFees = $cFees + $cfee->amount ;
-//	}
-//	$cartTotal = WC()->cart->cart_contents_total + $cFees;
-//
-//	$order->set_total( floatval($cartTotal) );
-//	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/orderi.txt", print_r( WC()->cart->get_fees(), true ) . "\r\n", FILE_APPEND | LOCK_EX );
-//    $order->add_order_item_totals_fee_rows(array('id' => 'test-fee', 'name' => 'test fee', 'tax_class' => 'nulevaya-stavka', 'taxable' => true, 'amount' => 100, 'total' => 100), 'excl');
-}
-
-//add_action( 'woocommerce_before_calculate_totals', 'adding_custom_price', 1000, 1);
-function adding_custom_price( $cart_obj ) {
-
-	if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
-		return;
-	}
-
-	// Set below your targeted individual products IDs or arrays of product IDs
-	$target_product_id = 1395;
-//	$target_product_ids_arr = array(1395);
-
-	if ( ! empty( $_REQUEST && isset( $_REQUEST['post_data'] ) ) ) {
-		$get_string = $_REQUEST['post_data'];
-		$get_array  = array();
-		parse_str( $get_string, $get_array );
-		$fees_array = array(
-			'paypal-avgift',
-			'Paypal Avgift',
-			100,
-			false,
-			''
-		);
-		if ( isset( $get_array['orange_replenishment'] ) ) {
-			if ( $get_array['orange_replenishment'] == 611111111 ) {
-				foreach ( $cart_obj->get_cart() as $cart_item ) {
-					// The corresponding product ID
-					$product_id = $cart_item['product_id'];
-
-					// For a single product ID
-					if ( $product_id == $target_product_id ) {
-						// Custom calculation
-						$price = $cart_item['data']->get_price() + 50;
-//						$cart_obj->add_fee('test fee', 100.00, false,''); // Tax enabled for the fee
-//						$cart_obj->calculate_fees();
-						$cart_item['data']->set_price( floatval( $price ) );
-						$cart_item['data']->save();
-//						file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/calculate_totals.txt", print_r( 'Calc', true )."\r\n", FILE_APPEND | LOCK_EX );
-					}
-
-					// For an array of product IDs
-//        elseif( in_array( $product_id, $target_product_ids_arr ) ){
-//			// Custom calculation
-//			$price = $cart_item['data']->get_price() + 30;
-//			$cart_item['data']->set_price( floatval($price) );
-//		}
-				}
-			}
-		}
-//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/cart_calculate_fees.txt", print_r( $woocommerce->cart->get_fees(), true ), FILE_APPEND | LOCK_EX );
-
-
-	}
-
-//	foreach ( $cart_obj->get_cart() as  $cart_item ) {
-//		// The corresponding product ID
-//		$product_id = $cart_item['product_id'];
-//
-//		// For a single product ID
-//		if($product_id == $target_product_id){
-//			// Custom calculation
-//			$price = $cart_item['data']->get_price() + 50;
-//			$cart_item['data']->set_price( floatval($price) );
-//			file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/calculate_totals.txt", print_r( 'Calc', true )."\r\n", FILE_APPEND | LOCK_EX );
-//		}
-//
-//		// For an array of product IDs
-////        elseif( in_array( $product_id, $target_product_ids_arr ) ){
-////			// Custom calculation
-////			$price = $cart_item['data']->get_price() + 30;
-////			$cart_item['data']->set_price( floatval($price) );
-////		}
-//	}
 }

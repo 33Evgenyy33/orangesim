@@ -397,3 +397,141 @@ Array
 )
 
 
+Array
+(
+)
+
+
+Array
+(
+    [420] => WC_Order_Item_Fee Object
+        (
+            [extra_data:protected] => Array
+                (
+                    [tax_class] => 
+                    [tax_status] => taxable
+                    [amount] => 
+                    [total] => 
+                    [total_tax] => 
+                    [taxes] => Array
+                        (
+                            [total] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [data:protected] => Array
+                (
+                    [order_id] => 83372
+                    [name] => Комиссия 3€
+                    [tax_class] => 0
+                    [tax_status] => taxable
+                    [amount] => 10
+                    [total] => 10
+                    [total_tax] => 0
+                    [taxes] => Array
+                        (
+                            [total] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [cache_group:protected] => order-items
+            [meta_type:protected] => order_item
+            [object_type:protected] => order_item
+            [id:protected] => 420
+            [changes:protected] => Array
+                (
+                )
+
+            [object_read:protected] => 1
+            [default_data:protected] => Array
+                (
+                    [order_id] => 0
+                    [name] => 
+                    [tax_class] => 
+                    [tax_status] => taxable
+                    [amount] => 
+                    [total] => 
+                    [total_tax] => 
+                    [taxes] => Array
+                        (
+                            [total] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [data_store:protected] => WC_Data_Store Object
+                (
+                    [instance:WC_Data_Store:private] => WC_Order_Item_Fee_Data_Store Object
+                        (
+                            [internal_meta_keys:protected] => Array
+                                (
+                                    [0] => _order_id
+                                    [1] => _name
+                                    [2] => _tax_class
+                                    [3] => _tax_status
+                                    [4] => _amount
+                                    [5] => _total
+                                    [6] => _total_tax
+                                    [7] => _taxes
+                                    [8] => _fee_amount
+                                    [9] => _tax_class
+                                    [10] => _tax_status
+                                    [11] => _line_subtotal
+                                    [12] => _line_subtotal_tax
+                                    [13] => _line_total
+                                    [14] => _line_tax
+                                    [15] => _line_tax_data
+                                )
+
+                            [meta_type:protected] => order_item
+                            [object_id_field_for_meta:protected] => order_item_id
+                        )
+
+                    [stores:WC_Data_Store:private] => Array
+                        (
+                            [coupon] => WC_Coupon_Data_Store_CPT
+                            [customer] => WC_Customer_Data_Store
+                            [customer-download] => WC_Customer_Download_Data_Store
+                            [customer-download-log] => WC_Customer_Download_Log_Data_Store
+                            [customer-session] => WC_Customer_Data_Store_Session
+                            [order] => WC_Order_Data_Store_CPT
+                            [order-refund] => WC_Order_Refund_Data_Store_CPT
+                            [order-item] => WC_Order_Item_Data_Store
+                            [order-item-coupon] => WC_Order_Item_Coupon_Data_Store
+                            [order-item-fee] => WC_Order_Item_Fee_Data_Store
+                            [order-item-product] => WC_Order_Item_Product_Data_Store
+                            [order-item-shipping] => WC_Order_Item_Shipping_Data_Store
+                            [order-item-tax] => WC_Order_Item_Tax_Data_Store
+                            [payment-token] => WC_Payment_Token_Data_Store
+                            [product] => WC_Product_Data_Store_CPT
+                            [product-grouped] => WC_Product_Grouped_Data_Store_CPT
+                            [product-variable] => WC_Product_Variable_Data_Store_CPT
+                            [product-variation] => WC_Product_Variation_Data_Store_CPT
+                            [shipping-zone] => WC_Shipping_Zone_Data_Store
+                            [webhook] => WC_Webhook_Data_Store
+                        )
+
+                    [current_class_name:WC_Data_Store:private] => WC_Order_Item_Fee_Data_Store
+                    [object_type:WC_Data_Store:private] => order-item-fee
+                )
+
+            [meta_data:protected] => Array
+                (
+                )
+
+        )
+
+)
+
+
