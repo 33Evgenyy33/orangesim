@@ -29,7 +29,7 @@ function is_user_role_in( $roles, $user = false ) {
 
 //add_action( 'init', 'my_insert_post_hook' );
 function my_insert_post_hook() {
-	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/server.txt", print_r( $_SERVER, true ), FILE_APPEND | LOCK_EX );
+//	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/server.txt", print_r( $_SERVER, true ), FILE_APPEND | LOCK_EX );
 	if ( $_SERVER['REQUEST_URI'] == '/checkout/' && ! is_user_role_in( 'administrator' ) ) { // 94.181.179.216 || $_SERVER['REMOTE_ADDR'] !== '94.181.179.216' || ! is_user_role_in( 'administrator' )
 		wp_redirect( '/', 301 );
 		exit;

@@ -43,6 +43,7 @@ Author URI: http://us-themes.com/
 
 .header-phones a {
     color: #3e396b;
+    font-weight: 600;
 }
 
 .my-logo {
@@ -528,7 +529,8 @@ span.by-action {
 
 .coutries-wrapper-main .coutries-column {
     width: 100%;
-    max-width: 280px;
+    /*max-width: 280px;*/
+    max-width: 235px;
     list-style: none;
     margin-left: 0;
 }
@@ -536,8 +538,11 @@ span.by-action {
 .coutries-wrapper-main li {
     margin-left: 12px;
     margin-right: 12px;
-    padding: 10px 20px;
-    max-width: 254px;
+    /*padding: 10px 20px;*/
+    /*max-width: 254px;*/
+    padding: 7px 12px;
+    max-width: 197px;
+    font-size: 0.8rem;
 }
 
 #services .l-section-overlay {
@@ -678,7 +683,7 @@ h3#tariff-comparison:before {
 }
 
 button.fancybox-close-small {
-    color: #ffffff;
+    /*color: #ffffff;*/
 }
 
 /****************Product variation************************/
@@ -855,6 +860,7 @@ button.fancybox-close-small {
 
 .price-includes ul li {
     margin-bottom: 0;
+    line-height: 19px;
 }
 
 .price-includes ul li:before {
@@ -864,6 +870,7 @@ button.fancybox-close-small {
 
 .include-package, .residual-balance {
     color: #2074e5;
+    font-weight: 600;
 }
 
 .mb-tariff {
@@ -1331,7 +1338,6 @@ a {
 
 .blockquote-atten {
     line-height: 21px;
-    font-size: 0.9rem;
     max-width: 1120px;
     color: #fff;
     /*padding-left: 12px;*/
@@ -1340,6 +1346,11 @@ a {
 
 blockquote.blockquote-atten > p {
     display: flex;
+}
+
+blockquote.blockquote-atten p:not(:first-child){
+    line-height: 17px;
+    font-size: 0.7rem;
 }
 
 blockquote.blockquote-atten > p i {
@@ -1832,22 +1843,27 @@ blockquote.blockquote-atten > p i {
    ========================================================================== */
 div#callback_request {
     border-radius: 7px;
-    background-image: linear-gradient(375deg, #4a5ceb, #6151ff);
-    color: #fff;
-    box-shadow: 0 11px 32px 0 rgb(62, 57, 107);
+    /*background-image: linear-gradient(375deg, #4a5ceb, #6151ff);*/
+    /*color: #fff;*/
+    /*box-shadow: 0 11px 32px 0 rgb(62, 57, 107);*/
+    /*border: 2px dashed #4a5ceb; */
+    box-shadow: 0 7px 27px 0 rgba(82, 81, 95, 0.65);
 }
 
 h3.gform_title {
     text-align: center;
     font-size: 1.2rem;
-    font-weight: 600;
-    color: #fff;
+    font-weight: 600!important;
+    /*color: #fff;*/
 }
 
 form#gform_1 ul#gform_fields_1 > li {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+.gchoice_1_4_1 input[type="checkbox"]:checked+label {
+    color: #3e396b;
 }
 
 .gfield_description.validation_message {
@@ -1897,8 +1913,18 @@ li.gchoice_1_4_1 {
     text-align: center;
     font-size: 0.9rem;
     line-height: 20px;
-    color: #f5ff07;
+    /*color: #f5ff07;*/
+    color: #8c4a46;
     opacity: 1;
+}
+
+form#gform_2 .gfield_description.validation_message,
+form#gform_2 .instruction.validation_message {
+    color: #efd1cf;
+}
+
+form#gform_2 label#label_2_9_1 {
+    color: #ff4343;
 }
 
 .gform_confirmation_wrapper .gform_confirmation_message p {
