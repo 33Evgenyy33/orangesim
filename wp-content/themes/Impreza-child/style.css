@@ -25,6 +25,7 @@ Author URI: http://us-themes.com/
     text-shadow: 0 1px 3px rgb(100, 56, 0);
 }
 
+
 .header_hor.home .l-header.pos_fixed .my-logo * {
     transition: color 0.3s;
 }
