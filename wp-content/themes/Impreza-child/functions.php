@@ -74,6 +74,13 @@ function my_scripts_method() {
 	global $post;
 
 	if ( is_front_page() ) {
+		wp_localize_script('jquery', 'myajax',
+			array(
+				'url' => admin_url('admin-ajax.php'),
+				'nonce' => wp_create_nonce('myajax-nonce')
+			)
+		);
+
 		wp_enqueue_script( 'my-variations-js', get_stylesheet_directory_uri() . '/js/my-variations.js', array( 'jquery' ), '6.0.0', true );
 //		wp_enqueue_script( 'typed-js', get_stylesheet_directory_uri() . '/js/typed.min.js', array( 'jquery' ), '1.7', true );
 		wp_enqueue_script( 'stacktable-js', get_stylesheet_directory_uri() . '/js/stacktable.min.js', array( 'jquery' ), '1.7', true );
@@ -85,6 +92,8 @@ function my_scripts_method() {
 		'gform_gravityforms'
 	), '1.7', true );
 
+	wp_enqueue_script( 'jquery-inputmask-js', get_stylesheet_directory_uri() . '/js/jquery.inputmask.bundle.js', array( 'jquery' ), '1.0.0', true );
+
 	if ( $_SERVER['REQUEST_URI'] == '/checkout/' ) { //is_page( 'checkout' ) &&
 
 		wp_enqueue_style( 'suggestions-css', get_stylesheet_directory_uri() . '/css/suggestions.min.css' );
@@ -94,7 +103,7 @@ function my_scripts_method() {
 		wp_enqueue_style( 'dropzone-css', get_stylesheet_directory_uri() . '/css/dropzone.min.css' );
 		wp_enqueue_script( 'dropzone-js', get_stylesheet_directory_uri() . '/js/dropzone.min.js', array( 'jquery' ), '1.0.0', true );
 
-		wp_enqueue_script( 'jquery-inputmask-js', get_stylesheet_directory_uri() . '/js/jquery.inputmask.bundle.js', array( 'jquery' ), '1.0.0', true );
+//		wp_enqueue_script( 'jquery-inputmask-js', get_stylesheet_directory_uri() . '/js/jquery.inputmask.bundle.js', array( 'jquery' ), '1.0.0', true );
 
 		wp_enqueue_style( 'flatpickr-css', get_stylesheet_directory_uri() . '/css/flatpickr.min.css' );
 		wp_enqueue_script( 'flatpickr-js', get_stylesheet_directory_uri() . '/js/flatpickr.min.js', array( 'jquery' ), '1.0.0', true );
@@ -169,6 +178,47 @@ function wc_make_processing_orders_editable( $is_editable, $order ) {
  * Add to theme functions.php
  */
 
+add_shortcode('balance_orange_product', 'balance_orange_product_func');
+function balance_orange_product_func( $atts ){
+    $content = '';
+	$content .= '<div id="balance-orange-product-form">';
+	$content .= '  <div class="loader loader-border"></div>';
+	$content .= '  <p id="orange_number_field">';
+	$content .= '    <label for="orange_replenishment" class="" style="display: block;">Номер Orange (начиная с <b>6</b>) <abbr class="required" title="обязательно" style="color: #d93d3d;">*</abbr></label>';
+	$content .= '    <input type="text" name="orange_number" id="orange_number" placeholder="6">';
+	$content .= '  </p>';
+	$content .= '  <ul class="form-group products-container" style="display: none">';
+
+	$items = wc_get_product(1395);
+	$product_variations_ids = $items->get_children();
+	foreach ($product_variations_ids as $variation_id){
+	    $product_variation = new WC_Product_Variation($variation_id);
+		$product_variation_price = $product_variation->get_price('vew');
+		$product_variation_price_euro = $product_variation->get_attribute('balans-karty');
+		$content .= '<li class="product-variation" data-variation-id="'.$variation_id.'" data-variation-price="'.$product_variation_price.'">'.$product_variation_price_euro.'</li>';
+	}
+	$content .= '  </ul>';
+	$content .= '  <div id="orange_balance_total_price_wrap">Итого: <span class="orange_balance_total_price">1,470.00₽</span></div>';
+	$content .= '  <button type="submit" class="button alt" id="replenish_balance" value="Подтвердить заказ" data-value="Пополнить">Пополнить</button>';
+	$content .= '  </div>';
+	return $content;
+}
+
+add_action( 'wp_ajax_nopriv_woocommerce_check_orange_number', 'woocommerce_check_orange_number' );
+add_action( 'wp_ajax_woocommerce_check_orange_number', 'woocommerce_check_orange_number' );
+function woocommerce_check_orange_number(){
+	// проверяем nonce код, если проверка не пройдена прерываем обработку
+	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
+	// или так
+	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
+
+	// обрабатываем данные и возвращаем
+	echo json_encode('Возвращаемые данные');
+
+	// не забываем завершать PHP
+	wp_die();
+}
+
 
 add_action('wp_ajax_woocommerce_apply_state', 'woocommerce_apply_state', 10 );
 add_action('wp_ajax_nopriv_woocommerce_apply_state', 'woocommerce_apply_state', 10 );
@@ -232,7 +282,7 @@ function woocommerce_custom_surcharge( $cart_obj ) {
 	}
 }
 
-add_action('woocommerce_thankyou', 'wh_test_1', 10, 1);
+//add_action('woocommerce_thankyou', 'wh_test_1', 10, 1);
 function wh_test_1($order_id) {
 }
 

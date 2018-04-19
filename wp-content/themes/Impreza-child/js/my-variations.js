@@ -82,6 +82,59 @@ jQuery(document).ready(function ($) {
             300);
     });
 
+    let orangeNumber = $("#orange_number");
+    orangeNumber.inputmask({
+        mask:"699999999",
+        "oncomplete": function(e){
+            console.log('oncomplete');
+            $('#orange_number_field').removeClass('orange-number-invalid');
+            $('#orange_number_field').addClass('orange-number-valid');
+            e.preventDefault();
+            balanceAjax();
+        }
+    });
+
+    $("#replenish_balance").click(function(){
+        let orangeNumberLength = orangeNumber.val();
+        orangeNumberLength = orangeNumberLength.replace("_","");
+        if (orangeNumberLength.length < 9) {
+            $('#orange_number_field').removeClass('orange-number-valid');
+            $('#orange_number_field').addClass('orange-number-invalid');
+        }
+    });
+
+    $('.products-container .product-variation').click(function () {
+        if ($(this).hasClass('active')) return;
+        $(this).parent().find(".product-variation").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    function balanceAjax(){
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data:  {
+                action: 'woocommerce_check_orange_number',
+                nonce_code : myajax.nonce,
+                orange_number: orangeNumber.val(),
+            },
+            url: myajax.url,
+            beforeSend: function(){
+                // Handle the beforeSend event
+                $('.loader.loader-border').addClass('is-active');
+            },
+            success: function (response) {
+                // $('body').trigger('update_checkout');
+                $('.loader.loader-border').removeClass('is-active');
+                $('.form-group.products-container').slideDown();
+                console.log(response);
+                // $('html, body').animate({
+                //     scrollTop: $("section#contact").offset().top
+                // }, 3000);
+            }
+        });
+    }
+
     function typeCostDesc(pack, balance) {
         if (balance === 0)
             balance = 0.05
