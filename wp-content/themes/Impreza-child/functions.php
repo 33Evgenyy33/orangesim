@@ -184,8 +184,9 @@ function balance_orange_product_func( $atts ){
 	$content .= '<div id="balance-orange-product-form">';
 	$content .= '  <div class="loader loader-border"></div>';
 	$content .= '  <p id="orange_number_field">';
-	$content .= '    <label for="orange_replenishment" class="" style="display: block;">Номер Orange (начиная с <b>6</b>) <abbr class="required" title="обязательно" style="color: #d93d3d;">*</abbr></label>';
+	$content .= '    <label for="orange_replenishment" class="" style="display: block;">Номер Orange, начиная с <b>6</b> <abbr class="required" title="обязательно" style="color: #d93d3d;">*</abbr></label>';
 	$content .= '    <input type="text" name="orange_number" id="orange_number" placeholder="6">';
+	$content .= '    <span class="orange-number-validation">Введите номер Orange</span>';
 	$content .= '  </p>';
 	$content .= '  <ul class="form-group products-container" style="display: none">';
 
@@ -198,8 +199,9 @@ function balance_orange_product_func( $atts ){
 		$content .= '<li class="product-variation" data-variation-id="'.$variation_id.'" data-variation-price="'.$product_variation_price.'">'.$product_variation_price_euro.'</li>';
 	}
 	$content .= '  </ul>';
-	$content .= '  <div id="orange_balance_total_price_wrap" style="background: #d5d5d5;">Итого: <span class="orange_balance_total_price">0</span><span>₽</span><p class="orange_balance_commission" data-commission style="display: none">С учетом комиссии 3€</p></div>';
-	$content .= '  <button type="submit" class="button alt" id="replenish_balance" value="Подтвердить заказ" data-value="Пополнить">Пополнить</button>';
+	$content .= '  <span class="orange-balance-validation">Выберите баланс</span>';
+	$content .= '  <div id="orange_balance_total_price_wrap" class="orange-balance-total-price-wrap disable">Итого: <span class="orange_balance_total_price">0</span><span>₽</span><p class="orange_balance_commission" data-commission style="display: none">С учетом комиссии 3€</p></div>';
+	$content .= '  <button type="submit" class="button alt" id="replenish_balance" value="Подтвердить заказ" data-value="Пополнить" style="pointer-events:none;opacity:0.3;">Пополнить</button>';
 	$content .= '  </div>';
 	return $content;
 }
@@ -235,6 +237,32 @@ function woocommerce_check_orange_number(){
 	wp_die();
 }
 
+add_action( 'wp_ajax_nopriv_woocommerce_add_balance_to_cart', 'woocommerce_add_balance_to_cart' );
+add_action( 'wp_ajax_woocommerce_add_balance_to_cart', 'woocommerce_add_balance_to_cart' );
+function woocommerce_add_balance_to_cart(){
+	global $wpdb;
+	// проверяем nonce код, если проверка не пройдена прерываем обработку
+	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
+	// или так
+	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
+
+	if( isset($_POST['balance_product_id']) &&  isset($_POST['orange_number'])){
+		$orange_replenishment = $_POST['balance_product_id'];
+		$orange_number = $_POST['orange_number'];
+
+		if( empty($orange_replenishment) || $orange_replenishment == 0 || empty($orange_number) || $orange_number == 0) die();
+		$variation_id = intval($orange_replenishment);
+		unset( WC()->session->balance_fee );
+		WC()->session->set( 'orange_number_home', intval($orange_number) );
+		WC()->cart->add_to_cart(1395, 1, $variation_id, array(), array());
+		$checkout_url = wc_get_checkout_url();
+		echo $checkout_url;
+	}
+	// обрабатываем данные и возвращаем
+
+	// не забываем завершать PHP
+	wp_die();
+}
 
 add_action('wp_ajax_woocommerce_apply_state', 'woocommerce_apply_state', 10 );
 add_action('wp_ajax_nopriv_woocommerce_apply_state', 'woocommerce_apply_state', 10 );
@@ -250,8 +278,21 @@ function woocommerce_apply_state() {
 		$track_o = $wpdb->get_row($wpdb->prepare("SELECT * FROM wp_orange_numbers WHERE numbers = %d", $o_id));
 //		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/cart_items.txt", print_r( WC()->cart->get_cart_contents(), true )."\r\n", FILE_APPEND | LOCK_EX );
 
+		$items = WC()->cart->get_cart_contents();
+
+//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/cart_items.txt", print_r( $items, true )."\r\n", FILE_APPEND | LOCK_EX );
+
+
 		if (empty($track_o->numbers)) {
-			$balance_fee = 10;
+			$euro_rate = 0;
+			foreach ( $items as $item ) {
+				if ( $item['product_id'] == 1395 ) {
+					$item_euro_price = str_replace('€', '', $item['data']->get_attribute('balans-karty'));
+					$euro_rate = $item['data']->get_price() / $item_euro_price;
+					break;
+				}
+			}
+			$balance_fee = $euro_rate * 3;
 		} else {
 			$balance_fee = 0;
         }
@@ -265,12 +306,14 @@ function woocommerce_apply_state() {
 add_action( 'woocommerce_cart_emptied', 'dw_unset_fee_session' );
 function dw_unset_fee_session(){
 	unset( WC()->session->balance_fee );
+	unset( WC()->session->orange_number_home);
+
 //	unset($_SESSION['balance_fee']);
 }
 
 add_action( 'woocommerce_add_to_cart', 'woo_add_to_cart' );
 function woo_add_to_cart(){
-	WC()->session->set( 'orange_number_home', 611111117 );
+//	WC()->session->set( 'orange_number_home', 611111117 );
 }
 
 add_action( 'woocommerce_cart_calculate_fees', 'woocommerce_custom_surcharge', 10, 2 );
@@ -279,6 +322,8 @@ function woocommerce_custom_surcharge( $cart_obj ) {
 	if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
 		return;
 	}
+
+//	WC()->cart->fees_api()->remove_all_fees();
 
 	$percent = WC()->session->get( 'balance_fee' );
 

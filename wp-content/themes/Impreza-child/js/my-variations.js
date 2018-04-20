@@ -109,27 +109,61 @@ jQuery(document).ready(function ($) {
         }
     });
 
-
+    let orangeNumberValidation = $('span.orange-number-validation');
+    let orangeBalanceValidation = $('span.orange-balance-validation');
     $("#replenish_balance").click(function () {
         let orangeNumberLength = orangeNumber.val();
         orangeNumberLength = orangeNumberLength.replace("_", "");
+        let validError = 0;
         if (orangeNumberLength.length < 9) {
-            orangeNumberField.removeClass('orange-number-valid');
-            orangeNumberField.addClass('orange-number-invalid');
+            orangeNumberValidation.show();
+            validError++;
         }
+        if (!$('.products-container .product-variation').hasClass('active')) {
+            orangeBalanceValidation.show();
+            validError++;
+        }
+        if (validError === 0){
+            orangeNumberValidation.hide();
+            orangeBalanceValidation.hide();
+            addBalanceToCartAjax();
+        }
+
+
     });
+
+    function addBalanceToCartAjax() {
+        $.ajax({
+            type: 'POST',
+            dataType: 'text',
+            data: {
+                action: 'woocommerce_add_balance_to_cart',
+                nonce_code: myajax.nonce,
+                balance_product_id: $('.products-container .product-variation.active').data('variation-id'),
+                orange_number: orangeNumber.val(),
+            },
+            url: myajax.url,
+            success: function (response) {
+                window.location.href = response;
+            }
+        });
+    }
 
     $('.products-container .product-variation').click(function () {
         if ($(this).hasClass('active')) return;
-        $('#orange_balance_total_price_wrap').removeAttr('style');
+        $('#orange_balance_total_price_wrap').removeClass('disable');
         $(this).parent().find(".product-variation").removeClass("active");
         $(this).addClass("active");
+
+        orangeBalanceValidation.hide();
 
         if ($('.orange_balance_commission').data("commission") === 1) {
             let priceWithCommission = parseInt($(this).data('variation-price')) + parseInt(euroRate * 3);
             $('span.orange_balance_total_price').text(priceWithCommission);
+            $('.orange_balance_commission').show();
         } else {
             $('span.orange_balance_total_price').text($(this).data('variation-price'));
+            $('.orange_balance_commission').hide();
         }
     });
 
@@ -158,14 +192,13 @@ jQuery(document).ready(function ($) {
                     if ($('.products-container .product-variation').hasClass('active')) {
                         bufVal = $('.products-container .product-variation.active').data('variation-price');
                         $('span.orange_balance_total_price').text(parseInt(euroRate) * 3 + parseInt(bufVal));
-                    } else {
-                        $('span.orange_balance_total_price').text(parseInt(euroRate) * 3);
+                        $('.orange_balance_commission').show();
                     }
-                    $('.orange_balance_commission').show();
                 } else {
                     $('.orange_balance_commission').data("commission", 0);
                     if ($('.products-container .product-variation').hasClass('active')) {
                         $('span.orange_balance_total_price').text( $('.products-container .product-variation.active').data('variation-price') );
+                        $('.orange_balance_commission').hide();
                     } else {
                         $('span.orange_balance_total_price').text(0);
                     }
@@ -175,6 +208,8 @@ jQuery(document).ready(function ($) {
                 // $('html, body').animate({
                 //     scrollTop: $("section#contact").offset().top
                 // }, 3000);
+                $('button#replenish_balance').removeAttr('style');
+                orangeNumberValidation.hide();
             }
         });
     }
