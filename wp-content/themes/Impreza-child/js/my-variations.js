@@ -179,6 +179,7 @@ jQuery(document).ready(function ($) {
         });
     }
 
+
     let includePackageTyped = $('.include-package-typed');
     let residualBalanceTyped = $('.residual-balance-typed');
 
