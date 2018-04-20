@@ -4,8 +4,6 @@ jQuery(document).ready(function ($) {
     orangeReplenishment.inputmask({
         mask:"699999999",
          "oncomplete": function(e){
-             // $( document.body ).trigger( 'update_checkout' );
-             // $('form.checkout').trigger( 'update' );
              e.preventDefault();
              postcodeAjax();
              $('body').trigger('update_checkout');
@@ -32,16 +30,8 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    // $(document).ajaxSuccess(function(event, xhr, settings) {
-    //     console.log(xhr);
-    // });
-    // $(document).ajaxSuccess(function(event, xhr, settings) {
-    //     console.log(xhr);
-    // });
-
     let dropzoneForm;
     let fileList = [];
-    // let dropzoneForm = new Dropzone("#dropzone-wordpress-form", {
     Dropzone.options.dropzoneWordpressForm = {
         // autoProcessQueue: false,
         acceptedFiles: ".jpg, .png, .pdf, .doc, .docx", // only .jpg files
@@ -87,9 +77,6 @@ jQuery(document).ready(function ($) {
                 }
             }
 
-
-            // console.log(fileList);
-
             if (rmvFile) {
                 data = {
                     action: 'remove_dropzonejs_file',
@@ -119,13 +106,11 @@ jQuery(document).ready(function ($) {
                 }
             }
 
-            // console.log(fileList);
             let _ref;
             return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
         },
         init: function () {
             dropzoneForm = this;
-            // $('#dropzone-wordpress-form').addClass('dropzone');
         },
     };
 
@@ -134,7 +119,6 @@ jQuery(document).ready(function ($) {
     let $message = $("#message");
 
     function join(arr /*, separator */) {
-        // console.log(arguments);
         let separator = arguments.length > 1 ? arguments[1] : ", ";
         return arr.filter(function (n) {
             return n
@@ -166,14 +150,11 @@ jQuery(document).ready(function ($) {
     }
 
     function showFias(address) {
-        // console.log(address.fias_id);
         $("#fias_field input").val(address.city_fias_id);
     }
 
     function showSelected(suggestion) {
-        // console.log(suggestion);
         let address = suggestion.data;
-
         if (address.house) {
             $message.html('<span style="color: limegreen;font-weight: bold">Отлично, теперь можно продолжить оформление!</span>');
         } else {
@@ -181,15 +162,12 @@ jQuery(document).ready(function ($) {
             $message.html('<span style="color: red;font-weight: bold">Укажите адрес, включая номер дома, чтобы продолжить</span>');
             return;
         }
-
-        // console.log(address);
         showPostalCode(address);
         showRegion(address);
         showCity(address);
         showStreet(address);
         showFias(address);
         $("#billing_state").change();
-        // $( document.body ).trigger( 'update_checkout' );
     }
 
     fullAddress.suggestions({

@@ -5,15 +5,16 @@
  * Licensed MIT © Zeno Rocha
  */
 
-var balanceBtnVal = '';
-var typedPack = '';
-var typedBalance = '';
+let balanceBtnVal = '';
+let typedPack = '';
+let typedBalance = '';
 
-(function($) {
-    $.fn.fixMe = function() {
-        return this.each(function() {
-            var $this = $(this),
+(function ($) {
+    $.fn.fixMe = function () {
+        return this.each(function () {
+            let $this = $(this),
                 $t_fixed;
+
             function init() {
                 $this.wrap('<div class="container" />');
                 $t_fixed = $this.clone();
@@ -25,8 +26,9 @@ var typedBalance = '';
                     .insertBefore($this);
                 resizeFixed();
             }
+
             function resizeFixed() {
-                $t_fixed.find("th").each(function(index) {
+                $t_fixed.find("th").each(function (index) {
                     $(this).css(
                         "width",
                         $this
@@ -36,8 +38,9 @@ var typedBalance = '';
                     );
                 });
             }
+
             function scrollFixed() {
-                var offset = $(this).scrollTop(),
+                let offset = $(this).scrollTop(),
                     tableOffsetTop = $this.offset().top - 70,
                     tableOffsetBottom =
                         tableOffsetTop + $this.height() - $this.find("thead").height();
@@ -50,6 +53,7 @@ var typedBalance = '';
                 )
                     $t_fixed.show();
             }
+
             $(window).resize(resizeFixed);
             $(window).scroll(scrollFixed);
             init();
@@ -59,17 +63,13 @@ var typedBalance = '';
 
 jQuery(document).ready(function ($) {
 
-    // $("div#rb-balance + p").slideUp();
-    // $("div#rb-pack").slideUp();
-
     $('.table').stacktable();
 
-    $('.tariff-comparison-btn').click(function(){
-
+    $('.tariff-comparison-btn').click(function () {
         if ($(document).width() <= 1024) return;
         setTimeout(
-            function() {
-                if (!$('.tariff-comparison-btn').hasClass("active") && $(".container")[0]){
+            function () {
+                if (!$('.tariff-comparison-btn').hasClass("active") && $(".container")[0]) {
                     $('.stacktable.large-only.fixed').remove();
                     $('.stacktable.large-only').unwrap();
                 } else {
@@ -82,51 +82,95 @@ jQuery(document).ready(function ($) {
             300);
     });
 
+    let euroRate = $('.form-group.products-container .product-variation:first-child').data('variation-price') / $('.form-group.products-container .product-variation:first-child').text().replace('€','');
+
+
     let orangeNumber = $("#orange_number");
+    let orangeNumberField = $("#orange_number_field");
     orangeNumber.inputmask({
-        mask:"699999999",
-        "oncomplete": function(e){
+        mask: "699999999",
+        "oncomplete": function (e) {
             console.log('oncomplete');
-            $('#orange_number_field').removeClass('orange-number-invalid');
-            $('#orange_number_field').addClass('orange-number-valid');
+            orangeNumberField.removeClass('orange-number-invalid');
+            orangeNumberField.addClass('orange-number-valid');
             e.preventDefault();
             balanceAjax();
         }
     });
+    orangeNumber.on("change paste keyup",function(){
+        if (!orangeNumber.inputmask("isComplete")){
+            if (orangeNumberField.hasClass('orange-number-valid')){
+                orangeNumberField.removeClass('orange-number-valid');
+            }
+            //do something
+            console.log('not complete');
+        } else {
+            console.log('is completed');
+        }
+    });
 
-    $("#replenish_balance").click(function(){
+
+    $("#replenish_balance").click(function () {
         let orangeNumberLength = orangeNumber.val();
-        orangeNumberLength = orangeNumberLength.replace("_","");
+        orangeNumberLength = orangeNumberLength.replace("_", "");
         if (orangeNumberLength.length < 9) {
-            $('#orange_number_field').removeClass('orange-number-valid');
-            $('#orange_number_field').addClass('orange-number-invalid');
+            orangeNumberField.removeClass('orange-number-valid');
+            orangeNumberField.addClass('orange-number-invalid');
         }
     });
 
     $('.products-container .product-variation').click(function () {
         if ($(this).hasClass('active')) return;
+        $('#orange_balance_total_price_wrap').removeAttr('style');
         $(this).parent().find(".product-variation").removeClass("active");
         $(this).addClass("active");
+
+        if ($('.orange_balance_commission').data("commission") === 1) {
+            let priceWithCommission = parseInt($(this).data('variation-price')) + parseInt(euroRate * 3);
+            $('span.orange_balance_total_price').text(priceWithCommission);
+        } else {
+            $('span.orange_balance_total_price').text($(this).data('variation-price'));
+        }
     });
 
-    function balanceAjax(){
+
+    function balanceAjax() {
         $.ajax({
             type: 'POST',
-            dataType: 'json',
-            data:  {
+            dataType: 'text',
+            data: {
                 action: 'woocommerce_check_orange_number',
-                nonce_code : myajax.nonce,
+                nonce_code: myajax.nonce,
                 orange_number: orangeNumber.val(),
             },
             url: myajax.url,
-            beforeSend: function(){
+            beforeSend: function () {
                 // Handle the beforeSend event
                 $('.loader.loader-border').addClass('is-active');
             },
             success: function (response) {
-                // $('body').trigger('update_checkout');
                 $('.loader.loader-border').removeClass('is-active');
                 $('.form-group.products-container').slideDown();
+                if (response === 'false'){
+                    $('.orange_balance_commission').data("commission", 1);
+                    let bufVal = 0;
+                    console.log('Class: ' + $('.products-container .product-variation').hasClass('active'));
+                    if ($('.products-container .product-variation').hasClass('active')) {
+                        bufVal = $('.products-container .product-variation.active').data('variation-price');
+                        $('span.orange_balance_total_price').text(parseInt(euroRate) * 3 + parseInt(bufVal));
+                    } else {
+                        $('span.orange_balance_total_price').text(parseInt(euroRate) * 3);
+                    }
+                    $('.orange_balance_commission').show();
+                } else {
+                    $('.orange_balance_commission').data("commission", 0);
+                    if ($('.products-container .product-variation').hasClass('active')) {
+                        $('span.orange_balance_total_price').text( $('.products-container .product-variation.active').data('variation-price') );
+                    } else {
+                        $('span.orange_balance_total_price').text(0);
+                    }
+                    $('.orange_balance_commission').css("display", "none");
+                }
                 console.log(response);
                 // $('html, body').animate({
                 //     scrollTop: $("section#contact").offset().top
@@ -135,9 +179,12 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    let includePackageTyped = $('.include-package-typed');
+    let residualBalanceTyped = $('.residual-balance-typed');
+
     function typeCostDesc(pack, balance) {
         if (balance === 0)
-            balance = 0.05
+            balance = 0.05;
 
         if (typeof(typedPack) === 'object') {
             typedPack.destroy();
@@ -149,54 +196,32 @@ jQuery(document).ready(function ($) {
             console.log('destroyed');
         }
 
-        $('.include-package-typed').html("<span>" + pack + "</span>");
-        // typedPack = new Typed('.include-package-typed', {
-        //     strings: ["<span>" + pack + "</span>"],
-        //     startDelay: 0,
-        //     typeSpeed: 0,
-        //     backSpeed: 0,
-        //     fadeOut: true,
-        //     loop: false,
-        //     showCursor: false,
-        // });
-
-        $('.residual-balance-typed').html("<span>" + balance + "€</span>");
-        // typedBalance = new Typed('.residual-balance-typed', {
-        //     strings: ["<span>" + balance + "€</span>"],
-        //     startDelay: 0,
-        //     typeSpeed: 0,
-        //     backSpeed: 0,
-        //     fadeOut: true,
-        //     loop: false,
-        //     showCursor: false,
-        // });
+        includePackageTyped.html("<span>" + pack + "</span>");
+        residualBalanceTyped.html("<span>" + balance + "€</span>");
     }
 
-    $('select#razmer-sim-karty option:first-child').text('Выберите размер сим-карты');
-    $('select#balans option:first-child').text('Выберите баланс');
-    $('select#paket-podklyuchennyj-za-schet-balansa option:first-child').text('Выберите пакет');
+    $('#razmer-sim-karty option:first-child').text('Выберите размер сим-карты');
+    $('#balans option:first-child').text('Выберите баланс');
+    $('#paket-podklyuchennyj-za-schet-balansa option:first-child').text('Выберите пакет');
 
 //Switcher function:
     $("#rb-balance .rb-tab").click(function () {
 
-        var selectedBalanceIndex = $('select#balans')[0].selectedIndex;
+        let selectedBalanceIndex = $('#balans')[0].selectedIndex;
+        let mbTariff = $(".mb-tariff");
+
         console.log("index: " + selectedBalanceIndex);
 
         balanceBtnVal = $(this).data("value");
 
-        if ((selectedBalanceIndex === 1 || selectedBalanceIndex === 0) && balanceBtnVal !== "€5"){
-            // $("div#rb-balance + p").slideDown();
-            // $("div#rb-pack").slideDown();
-        }
+        residualBalanceTyped.html('-');
+        includePackageTyped.html('-');
 
-        $(".residual-balance-typed").html('-');
-        $(".include-package-typed").html('-');
-
-        if (selectedBalanceIndex === 1){
-            $(".mb-tariff").hide();
+        if (selectedBalanceIndex === 1) {
+            mbTariff.hide();
             $(".residual-balance-title").text('Остаток на балансе');
             $(".include-package").show();
-            $(".residual-balance-typed").html('-');
+            residualBalanceTyped.html('-');
 
             // $("div#rb-balance + p").slideDown();
             // $("div#rb-pack").slideDown();
@@ -208,12 +233,9 @@ jQuery(document).ready(function ($) {
         $('#rb-pack').find(".rb-tab").removeClass("rb-tab-active");
 
         if (balanceBtnVal === "€5") {
-            // $("div#rb-balance + p").slideUp();
-            // $("div#rb-pack").slideUp();
-
             $(".include-package").hide();
             $(".residual-balance-title").text('Баланс на сим-карте');
-            $(".mb-tariff").show();
+            mbTariff.show();
 
             $('#rb-pack .rb-tab').css({"pointer-events": "auto", "opacity": "1"});
             $("#rb-pack .rb-tab .rb-spot").removeAttr("style");
@@ -228,7 +250,7 @@ jQuery(document).ready(function ($) {
             if (typeof(typedBalance) === 'object') {
                 typedBalance.destroy();
             }
-            $('.residual-balance-typed').html("<span>€5</span>");
+            residualBalanceTyped.html("<span>€5</span>");
             // typedBalance = new Typed('.residual-balance-typed', {
             //     strings: ["<span class=\"balanse\">€5</span>"],
             //     startDelay: 0,
@@ -282,7 +304,7 @@ jQuery(document).ready(function ($) {
     $("#rb-format .rb-tab").click(function () {
         //Spot switcher:
 
-        var formatBtnIndex = $(this).data("value");
+        let formatBtnIndex = $(this).data("value");
         $('select#razmer-sim-karty option[value="' + formatBtnIndex + '"]').prop('selected', 'selected').trigger('change');
         $(this).parent().find(".rb-tab").removeClass("rb-tab-active");
         $(this).addClass("rb-tab-active");
@@ -352,13 +374,13 @@ jQuery(document).ready(function ($) {
     // Read More
     $('.wrapper').removeClass('maxheight');
 
-    $('.read-more-btn').click(function() {
+    $('.read-more-btn').click(function () {
         $(this).animate({
             top: '-10px'
         }, 150, 'easeInOutCubic');
         $(this).animate({
             top: '10px'
-        }, 150, 'easeInOutCubic', function() {
+        }, 150, 'easeInOutCubic', function () {
             $(this).toggleClass('readless');
             $(this).parent().parent().children('.container').children('.wrapper').children('.background').toggle();
             $(this).parent().parent().children('.container').children('.wrapper').toggleClass('maxheight');
@@ -369,7 +391,8 @@ jQuery(document).ready(function ($) {
             } else {
                 $(this).text("Читать больше (+)");
                 $(this).css('color', '#3F62E9');
-            };
+            }
+            ;
         });
 
     });
@@ -417,10 +440,10 @@ var myAcc = document.getElementsByClassName("my-accordion");
 var i;
 
 for (i = 0; i < myAcc.length; i++) {
-    myAcc[i].addEventListener("click", function() {
+    myAcc[i].addEventListener("click", function () {
         this.classList.toggle("active");
         var panel = this.nextElementSibling;
-        if (panel.style.maxHeight){
+        if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
         } else {
             panel.style.maxHeight = panel.scrollHeight + "px";

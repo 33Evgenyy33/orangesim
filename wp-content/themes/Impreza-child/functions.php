@@ -198,7 +198,7 @@ function balance_orange_product_func( $atts ){
 		$content .= '<li class="product-variation" data-variation-id="'.$variation_id.'" data-variation-price="'.$product_variation_price.'">'.$product_variation_price_euro.'</li>';
 	}
 	$content .= '  </ul>';
-	$content .= '  <div id="orange_balance_total_price_wrap">Итого: <span class="orange_balance_total_price">1,470.00₽</span></div>';
+	$content .= '  <div id="orange_balance_total_price_wrap" style="background: #d5d5d5;">Итого: <span class="orange_balance_total_price">0</span><span>₽</span><p class="orange_balance_commission" data-commission style="display: none">С учетом комиссии 3€</p></div>';
 	$content .= '  <button type="submit" class="button alt" id="replenish_balance" value="Подтвердить заказ" data-value="Пополнить">Пополнить</button>';
 	$content .= '  </div>';
 	return $content;
@@ -207,13 +207,29 @@ function balance_orange_product_func( $atts ){
 add_action( 'wp_ajax_nopriv_woocommerce_check_orange_number', 'woocommerce_check_orange_number' );
 add_action( 'wp_ajax_woocommerce_check_orange_number', 'woocommerce_check_orange_number' );
 function woocommerce_check_orange_number(){
+	global $wpdb;
 	// проверяем nonce код, если проверка не пройдена прерываем обработку
 	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
 	// или так
 	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
 
+	if( isset($_POST['orange_number']) ){
+		$orange_replenishment = $_POST['orange_number'];
+
+		if( empty($orange_replenishment) || $orange_replenishment == 0 ) die();
+
+		$o_id = intval($orange_replenishment);
+		$track_o = $wpdb->get_row($wpdb->prepare("SELECT * FROM wp_orange_numbers WHERE numbers = %d", $o_id));
+//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/cart_items.txt", print_r( WC()->cart->get_cart_contents(), true )."\r\n", FILE_APPEND | LOCK_EX );
+
+		if (empty($track_o->numbers)) {
+			echo 'false'; // Номер есть (без комиссии)
+		} else {
+			echo 'true';
+		}
+
+    }
 	// обрабатываем данные и возвращаем
-	echo json_encode('Возвращаемые данные');
 
 	// не забываем завершать PHP
 	wp_die();
