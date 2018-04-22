@@ -83,12 +83,17 @@ jQuery(document).ready(function ($) {
     });
 
     let euroRate = $('.form-group.products-container .product-variation:first-child').data('variation-price') / $('.form-group.products-container .product-variation:first-child').text().replace('€','');
-
-
     let orangeNumber = $("#orange_number");
     let orangeNumberField = $("#orange_number_field");
+    let orangeNumberValidation = $('span.orange-number-validation');
+    let orangeBalanceValidation = $('span.orange-balance-validation');
+    let orangeBalanceCommission = $('.orange_balance_commission');
+    let includePackageTyped = $('.include-package-typed');
+    let residualBalanceTyped = $('.residual-balance-typed');
+
     orangeNumber.inputmask({
         mask: "699999999",
+        placeholder: "ˍ", //"‐","ˍ",
         "oncomplete": function (e) {
             console.log('oncomplete');
             orangeNumberField.removeClass('orange-number-invalid');
@@ -109,11 +114,9 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    let orangeNumberValidation = $('span.orange-number-validation');
-    let orangeBalanceValidation = $('span.orange-balance-validation');
     $("#replenish_balance").click(function () {
         let orangeNumberLength = orangeNumber.val();
-        orangeNumberLength = orangeNumberLength.replace("_", "");
+        orangeNumberLength = orangeNumberLength.replace("ˍ", "");
         let validError = 0;
         if (orangeNumberLength.length < 9) {
             orangeNumberValidation.show();
@@ -157,13 +160,19 @@ jQuery(document).ready(function ($) {
 
         orangeBalanceValidation.hide();
 
-        if ($('.orange_balance_commission').data("commission") === 1) {
+        if (orangeBalanceCommission.data("commission") === 1) {
             let priceWithCommission = parseInt($(this).data('variation-price')) + parseInt(euroRate * 3);
-            $('span.orange_balance_total_price').text(priceWithCommission);
-            $('.orange_balance_commission').show();
+            $('.orange_balance_subtotal-price').text($(this).data('variation-price').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00₽');
+            $('.orange_balance_subtotal').show();
+            $('.orange_balance_commission_message').show();
+            $('.orange_balance_commission-price').text(parseInt(euroRate * 3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00₽');
+            orangeBalanceCommission.show();
+            $('span.orange_balance_total_price').text(priceWithCommission.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00');
         } else {
-            $('span.orange_balance_total_price').text($(this).data('variation-price'));
-            $('.orange_balance_commission').hide();
+            $('span.orange_balance_total_price').text($(this).data('variation-price').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00');
+            $('.orange_balance_subtotal').hide();
+            $('.orange_balance_commission_message').hide();
+            orangeBalanceCommission.hide();
         }
     });
 
@@ -186,23 +195,32 @@ jQuery(document).ready(function ($) {
                 $('.loader.loader-border').removeClass('is-active');
                 $('.form-group.products-container').slideDown();
                 if (response === 'false'){
-                    $('.orange_balance_commission').data("commission", 1);
+                    orangeBalanceCommission.data("commission", 1);
                     let bufVal = 0;
                     console.log('Class: ' + $('.products-container .product-variation').hasClass('active'));
                     if ($('.products-container .product-variation').hasClass('active')) {
                         bufVal = $('.products-container .product-variation.active').data('variation-price');
-                        $('span.orange_balance_total_price').text(parseInt(euroRate) * 3 + parseInt(bufVal));
-                        $('.orange_balance_commission').show();
+
+                        $('.orange_balance_subtotal-price').text(parseInt(bufVal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00₽');
+                        $('.orange_balance_subtotal').show();
+                        $('.orange_balance_commission_message').show();
+                        $('.orange_balance_commission-price').text((parseInt(euroRate) * 3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00₽');
+                        orangeBalanceCommission.show();
+                        $('span.orange_balance_total_price').text((parseInt(euroRate) * 3 + parseInt(bufVal)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '.00');
                     }
                 } else {
-                    $('.orange_balance_commission').data("commission", 0);
+                    orangeBalanceCommission.data("commission", 0);
                     if ($('.products-container .product-variation').hasClass('active')) {
-                        $('span.orange_balance_total_price').text( $('.products-container .product-variation.active').data('variation-price') );
-                        $('.orange_balance_commission').hide();
+                        $('span.orange_balance_total_price').text( $('.products-container .product-variation.active').data('variation-price').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '.00' );
+                        $('.orange_balance_subtotal').hide();
+                        $('.orange_balance_commission_message').hide();
+                        orangeBalanceCommission.hide();
                     } else {
                         $('span.orange_balance_total_price').text(0);
                     }
-                    $('.orange_balance_commission').css("display", "none");
+                    orangeBalanceCommission.css("display", "none");
+                    $('.orange_balance_subtotal').css("display", "none");
+                    $('.orange_balance_commission_message').css("display", "none");
                 }
                 console.log(response);
                 // $('html, body').animate({
@@ -213,10 +231,6 @@ jQuery(document).ready(function ($) {
             }
         });
     }
-
-
-    let includePackageTyped = $('.include-package-typed');
-    let residualBalanceTyped = $('.residual-balance-typed');
 
     function typeCostDesc(pack, balance) {
         if (balance === 0)

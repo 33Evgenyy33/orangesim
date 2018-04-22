@@ -2681,6 +2681,12 @@ a#popup__toggle {
     /* border: 1px solid #5769ff;*/
 }
 
+#orange_balance_total_price_wrap > div {
+    max-width: 200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
 #orange_number_field {
     max-width: 320px;
     text-align: center;
@@ -2719,6 +2725,15 @@ a#popup__toggle {
     z-index: 1;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     margin: 20px auto;
+}
+
+#orange_balance_total_price_wrap p{
+    margin: 0;
+}
+
+.orange_balance_subtotal, .orange_balance_commission {
+    font-size: 1rem;
+    line-height: 23px;
 }
 
 div#balance-orange-product-form .orange-balance-total-price-wrap:not(.disable){
@@ -2804,6 +2819,25 @@ div#balance-orange-product-form div.disable {
     color: #09c152;
     color: #fff;
     border-color: transparent!important;
+}
+
+.orange_balance_commission {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 7px!important;
+    padding-bottom: 3px;
+}
+
+.orange_balance_commission_message {
+    line-height: 19px;
+    margin: 17px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.orange_balance_commission_message span {
+    font-size: 14px;
+    line-height: 12px;
+    font-weight: 300;
 }
 
 
@@ -2923,9 +2957,4 @@ div#balance-orange-product-form div.disable {
     height: 10px;
     background-color: #fff;
     animation: corners 3s ease both infinite
-}
-
-.orange_balance_commission {
-    font-size: 14px;
-    color: #000;
 }

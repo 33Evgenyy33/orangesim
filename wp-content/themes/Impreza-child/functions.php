@@ -200,7 +200,14 @@ function balance_orange_product_func( $atts ){
 	}
 	$content .= '  </ul>';
 	$content .= '  <span class="orange-balance-validation">Выберите баланс</span>';
-	$content .= '  <div id="orange_balance_total_price_wrap" class="orange-balance-total-price-wrap disable">Итого: <span class="orange_balance_total_price">0</span><span>₽</span><p class="orange_balance_commission" data-commission style="display: none">С учетом комиссии 3€</p></div>';
+	$content .= '  <div id="orange_balance_total_price_wrap" class="orange-balance-total-price-wrap disable">';
+	$content .= '    <div>';
+	$content .= '        <p class="orange_balance_subtotal" style="display:none">Баланс: <span class="orange_balance_subtotal-price"></span></p>';
+	$content .= '        <p class="orange_balance_commission" data-commission style="display: none">Комиссия: <span class="orange_balance_commission-price"></span> (3€)</p>';
+	$content .= '        <p class="orange_balance_total">Итого: <span class="orange_balance_total_price">0</span><span>₽</span></p>';
+	$content .= '    </div>';
+	$content .= '  </div>';
+	$content .= '  <p class="orange_balance_commission_message" style="display: none;">Введенный номер не принадлежит OrangeSim. Ваша комиссия составляет 3 евро.<br> <span>Если Вы являетесь клиентом OrangeSim, проверьте правильность номера или обратитесь в поддержку (info@orangesim.ru)</span></p>';
 	$content .= '  <button type="submit" class="button alt" id="replenish_balance" value="Подтвердить заказ" data-value="Пополнить" style="pointer-events:none;opacity:0.3;">Пополнить</button>';
 	$content .= '  </div>';
 	return $content;
