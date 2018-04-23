@@ -73,7 +73,6 @@ defined( 'ABSPATH' ) or exit;
                                         if ($email->id == 'wc_order_status_email_19277'){
                                             $order_first_name = $order->get_billing_first_name();
                                             $is_orange = false;
-//                                            file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/email_items.txt", print_r( $order->get_items(), true )."\r\n", FILE_APPEND | LOCK_EX );
 	                                        foreach ($order->get_items() as $order_item){
 		                                        if ($order_item->get_product_id() == 1346){
 			                                        $is_orange = true;
