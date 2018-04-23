@@ -72,26 +72,46 @@ defined( 'ABSPATH' ) or exit;
                                         <?php
                                         if ($email->id == 'wc_order_status_email_19277'){
                                             $order_first_name = $order->get_billing_first_name();
-                                            echo '<div style="margin-bottom: 30px;font-size: 18px">';
-                                            echo '<p style="margin: 0">Уважаемый(-ая) '.$order_first_name.',</p>';
-                                            echo '<p style="margin:0;color: #f9870b;font-weight: bold">Ваш заказ был успешно оплачен.</p>';
-                                            echo '<p style="margin: 0">Спасибо за покупку в нашем магазине!</p>';
-                                            echo '</div>';
+                                            $is_orange = false;
+//                                            file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/email_items.txt", print_r( $order->get_items(), true )."\r\n", FILE_APPEND | LOCK_EX );
+	                                        foreach ($order->get_items() as $order_item){
+		                                        if ($order_item->get_product_id() == 1346){
+			                                        $is_orange = true;
+			                                        break;
+                                                }
+	                                        }
+	                                        if ($is_orange) {
+		                                        echo '<div style="margin-bottom: 30px;font-size: 18px">';
+		                                        echo '<p style="margin: 0">Уважаемый(-ая) ' . $order_first_name . ',</p>';
+		                                        echo '<p style="margin:0;color: #f9870b;font-weight: bold">Ваш заказ был успешно оплачен.</p>';
+		                                        echo '<p style="margin: 0">Спасибо за покупку в нашем магазине!</p>';
+		                                        echo '</div>';
 //                                            $order_shipping_method = $order->get_shipping_methods();
-                                            if( $order->has_shipping_method('flat_rate:1') || $order->has_shipping_method('cse_shipping_method')) {
-                                                echo '<div style="text-align:  left">';
-                                                echo '<p style="margin:0;margin-bottom: 10px">В ближайшее время с Вами свяжется наш оператор для уточнения деталей заказа.</p>';
-                                                echo '<p style="margin:0;margin-bottom: 20px">График работы OrangeSim: понедельник - пятница с 08:00 до 20:00, суббота с 12:00 до 18:00</p>';
-                                                echo '</div>';
+		                                        if ( $order->has_shipping_method( 'flat_rate:1' ) || $order->has_shipping_method( 'cse_shipping_method' ) ) {
+			                                        echo '<div style="text-align:  left">';
+			                                        echo '<p style="margin:0;margin-bottom: 10px">В ближайшее время с Вами свяжется наш оператор для уточнения деталей заказа.</p>';
+			                                        echo '<p style="margin:0;margin-bottom: 20px">График работы OrangeSim: понедельник - пятница с 08:00 до 20:00, суббота с 12:00 до 18:00</p>';
+			                                        echo '</div>';
+		                                        }
+		                                        if ( $order->has_shipping_method( 'local_pickup_plus' ) ) {
+			                                        echo '<div style="text-align:  left">';
+			                                        echo '<p style="margin:0;margin-bottom: 20px">Сим-карты уже в наличии в пунктах выдачи. Вы можете забрать карту согласно графику работы пункты выдачи. <strong>Выдача производится по номеру заказа.</strong></p>';
+			                                        echo '</div>';
+		                                        }
+		                                        echo $email_body_text;
+	                                        } else {
+		                                        echo '<div style="margin-bottom: 30px;font-size: 18px">';
+		                                        echo '<p style="margin: 0">Уважаемый(-ая) ' . $order_first_name . ',</p>';
+		                                        echo '<p style="margin:0;color: #f9870b;font-weight: bold">Вы оплатили пополнение баланса.</p>';
+		                                        echo '</div>';
+		                                        echo '<div style="text-align:  left">';
+		                                        echo '<p style="margin:0;margin-bottom: 20px"><strong>Обращаем Ваше внимание!</strong> Зачисление денежных средств производится в рабочие дни с 09:00 до 19:00 в течение 24 часов с момента оплаты.</p>';
+		                                        echo '</div>';
                                             }
-                                            if ($order->has_shipping_method('local_pickup_plus')){
-	                                            echo '<div style="text-align:  left">';
-	                                            echo '<p style="margin:0;margin-bottom: 20px">Сим-карты уже в наличии в пунктах выдачи. Вы можете забрать карту согласно графику работы пункты выдачи. <strong>Выдача производится по номеру заказа.</strong></p>';
-	                                            echo '</div>';
-                                            }
+                                        } else {
+	                                        echo $email_body_text;
                                         }
                                         ?>
-                                        <?php echo $email_body_text; ?>
                                     </div>
                                 </div>
                             </div>
