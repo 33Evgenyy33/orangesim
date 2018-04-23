@@ -398,12 +398,12 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
 		        $builder->setReceiptPhone($order->get_billing_phone());
 	        }
 
-	        $euro_rate_buf = $order->get_meta('euro_rate');
-	        if (!empty($euro_rate_buf)){
-		        $euro_rate = intval($euro_rate_buf); // Курс евро если есть поле euro_rate
-	        } else {
-		        $euro_rate = 78; // Курс евро
-	        }
+//	        $euro_rate_buf = $order->get_meta('euro_rate');
+//	        if (!empty($euro_rate_buf)){
+//		        $euro_rate = intval($euro_rate_buf); // Курс евро если есть поле euro_rate
+//	        } else {
+//		        $euro_rate = 78; // Курс евро
+//	        }
 
 	        $orange_euro_price = array(
 		        "€5"  => 5,
@@ -414,6 +414,7 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
 
 	        $items    = $order->get_items();
 	        $order_fees = $order->get_fees();
+	        $balance_fee_done = 0;
 	        $shipping = $data['shipping_lines'];
 	        /** @var WC_Order_Item_Product $item */
 	        foreach ($items as $item) {
@@ -525,7 +526,18 @@ class YandexMoneyCheckoutGateway extends WC_Payment_Gateway
 				        $this->getYmTaxRate($taxes)
 			        );
 		        } else {
-			        $amount = $item->get_total() / $item->get_quantity() + $item->get_total_tax() / $item->get_quantity() + reset($order_fees)->get_total();
+			        $balance_fees = $order_fees;
+		        	$balance_fee = reset($order_fees);
+		        	if (!empty($balance_fee)){
+		        		if ($balance_fee_done == 0){
+					        $amount = $item->get_total() / $item->get_quantity() + $item->get_total_tax() / $item->get_quantity() + $balance_fee->get_total();
+					        $balance_fee_done = $balance_fee->get_total();
+				        } else {
+					        $amount = $item->get_total() / $item->get_quantity() + $item->get_total_tax() / $item->get_quantity();
+				        }
+			        } else {
+				        $amount = $item->get_total() / $item->get_quantity() + $item->get_total_tax() / $item->get_quantity();
+			        }
 			        $builder->addReceiptItem(
 				        $item['name'],
 				        $amount,

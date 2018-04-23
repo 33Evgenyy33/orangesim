@@ -2841,7 +2841,11 @@ div#balance-orange-product-form div.disable {
 
 }
 
+.product_balance_title{
+    margin-bottom: 0;
+}
 
+/* Loader For Balance */
 .loader {
     color: #fff;
     position: absolute;

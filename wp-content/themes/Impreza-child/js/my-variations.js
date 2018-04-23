@@ -193,6 +193,7 @@ jQuery(document).ready(function ($) {
             },
             success: function (response) {
                 $('.loader.loader-border').removeClass('is-active');
+                $('.product_balance_title').show();
                 $('.form-group.products-container').slideDown();
                 if (response === 'false'){
                     orangeBalanceCommission.data("commission", 1);

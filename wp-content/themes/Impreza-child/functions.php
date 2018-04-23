@@ -188,6 +188,7 @@ function balance_orange_product_func( $atts ){
 	$content .= '    <input type="text" name="orange_number" id="orange_number" placeholder="6">';
 	$content .= '    <span class="orange-number-validation">Введите номер Orange</span>';
 	$content .= '  </p>';
+	$content .= '  <p class="product_balance_title" style="display:  none;">Выберите баланс</p>';
 	$content .= '  <ul class="form-group products-container" style="display: none">';
 
 	$items = wc_get_product(1395);
@@ -207,7 +208,7 @@ function balance_orange_product_func( $atts ){
 	$content .= '        <p class="orange_balance_total">Итого: <span class="orange_balance_total_price">0</span><span>₽</span></p>';
 	$content .= '    </div>';
 	$content .= '  </div>';
-	$content .= '  <p class="orange_balance_commission_message" style="display: none;">Введенный номер не принадлежит OrangeSim. Ваша комиссия составляет 3 евро.<br> <span>Если Вы являетесь клиентом OrangeSim, проверьте правильность номера или обратитесь в поддержку (info@orangesim.ru)</span></p>';
+	$content .= '  <p class="orange_balance_commission_message" style="display: none;">Введенный номер не принадлежит OrangeSim. Комиссия составляет 3 евро.<br> <span>Если Вы являетесь клиентом OrangeSim, проверьте правильность номера или обратитесь в поддержку (info@orangesim.ru)</span></p>';
 	$content .= '  <button type="submit" class="button alt" id="replenish_balance" value="Подтвердить заказ" data-value="Пополнить" style="pointer-events:none;opacity:0.3;">Пополнить</button>';
 	$content .= '  </div>';
 	return $content;
@@ -218,9 +219,9 @@ add_action( 'wp_ajax_woocommerce_check_orange_number', 'woocommerce_check_orange
 function woocommerce_check_orange_number(){
 	global $wpdb;
 	// проверяем nonce код, если проверка не пройдена прерываем обработку
-	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
+//	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
 	// или так
-	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
+//	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
 
 	if( isset($_POST['orange_number']) ){
 		$orange_replenishment = $_POST['orange_number'];
@@ -249,9 +250,9 @@ add_action( 'wp_ajax_woocommerce_add_balance_to_cart', 'woocommerce_add_balance_
 function woocommerce_add_balance_to_cart(){
 	global $wpdb;
 	// проверяем nonce код, если проверка не пройдена прерываем обработку
-	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
+//	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
 	// или так
-	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
+//	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
 
 	if( isset($_POST['balance_product_id']) &&  isset($_POST['orange_number'])){
 		$orange_replenishment = $_POST['balance_product_id'];
@@ -575,9 +576,9 @@ function filter_gateways( $gateways ) {
 			unset( $gateways[ $payment_NAME ] );
 		}
 
-//		if ( $chosen_shipping == null ) {
-//			unset( $gateways[ $payment_NAME ] );
-//		}
+		if ( $chosen_shipping == null ) {
+			unset( $gateways[ $payment_NAME ] );
+		}
 
 		return $gateways;
 	}
