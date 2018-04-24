@@ -1,0 +1,44 @@
+Array
+(
+    [Адрес] => Array
+        (
+            [city] => Array
+                (
+                    [label] => Город
+                    [required] => 1
+                )
+
+            [address] => Array
+                (
+                    [label] => Адрес
+                    [required] => 1
+                )
+
+            [lat] => Array
+                (
+                    [label] => Latitude
+                )
+
+            [lng] => Array
+                (
+                    [label] => Longitude
+                )
+
+        )
+
+    [Контактная информация] => Array
+        (
+            [phone] => Array
+                (
+                    [label] => Телефон
+                )
+
+            [email] => Array
+                (
+                    [label] => Email
+                )
+
+        )
+
+)
+

@@ -27,3 +27,92 @@ Stack trace:
 
 2018-04-23T16:16:24+00:00 CRITICAL Maximum execution time of 180 seconds exceeded
 
+2018-04-23T21:41:20+00:00 CRITICAL Uncaught Exception: Unable to set PHP Console server cookie in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:164
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(120): PhpConsole\Connector->initServerCookie()
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(67): PhpConsole\Connector->__construct()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\includes\class-wp-php-console.php(145): PhpConsole\Connector::getInstance()
+#4 C:\OpenServer\domains\orangesim\wp-includes\class-wp-hook.php(286): WP_PHP_Console\Plugin->connect('')
+#5 C:\OpenServer\domains\orangesim\wp-includes\c
+
+2018-04-23T21:41:23+00:00 CRITICAL Uncaught Exception: Unable to set PHP Console server cookie in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:164
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(120): PhpConsole\Connector->initServerCookie()
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(67): PhpConsole\Connector->__construct()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\includes\class-wp-php-console.php(145): PhpConsole\Connector::getInstance()
+#4 C:\OpenServer\domains\orangesim\wp-includes\class-wp-hook.php(286): WP_PHP_Console\Plugin->connect('')
+#5 C:\OpenServer\domains\orangesim\wp-includes\c
+
+2018-04-23T21:41:31+00:00 CRITICAL Uncaught Exception: Unable to set PHP Console server cookie in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:164
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(120): PhpConsole\Connector->initServerCookie()
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(67): PhpConsole\Connector->__construct()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\includes\class-wp-php-console.php(145): PhpConsole\Connector::getInstance()
+#4 C:\OpenServer\domains\orangesim\wp-includes\class-wp-hook.php(286): WP_PHP_Console\Plugin->connect('')
+#5 C:\OpenServer\domains\orangesim\wp-includes\c
+
+2018-04-23T21:41:33+00:00 CRITICAL Uncaught Exception: Unable to set PHP Console server cookie in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:164
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(120): PhpConsole\Connector->initServerCookie()
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(67): PhpConsole\Connector->__construct()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\includes\class-wp-php-console.php(145): PhpConsole\Connector::getInstance()
+#4 C:\OpenServer\domains\orangesim\wp-includes\class-wp-hook.php(286): WP_PHP_Console\Plugin->connect('')
+#5 C:\OpenServer\domains\orangesim\wp-includes\c
+
+2018-04-23T21:42:15+00:00 CRITICAL Uncaught Exception: Unable to set PHP Console server cookie in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:164
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(120): PhpConsole\Connector->initServerCookie()
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(67): PhpConsole\Connector->__construct()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\includes\class-wp-php-console.php(145): PhpConsole\Connector::getInstance()
+#4 C:\OpenServer\domains\orangesim\wp-includes\class-wp-hook.php(286): WP_PHP_Console\Plugin->connect('')
+#5 C:\OpenServer\domains\orangesim\wp-includes\c
+
+2018-04-23T21:42:52+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-super-cache\wp-cache.php:70. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\sr
+
+2018-04-23T21:42:52+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-super-cache\wp-cache.php:70. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\sr
+
+2018-04-23T21:42:52+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-super-cache\wp-cache.php:70. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\sr
+
+2018-04-23T21:42:54+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-super-cache\wp-cache.php:70. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\sr
+
+2018-04-23T21:42:54+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-super-cache\wp-cache.php:70. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\sr
+
+2018-04-23T21:43:22+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-super-cache1\wp-cache.php:70. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\s
+
+2018-04-23T21:45:12+00:00 CRITICAL Out of memory (allocated 1115684864) (tried to allocate 1052672 bytes)
+

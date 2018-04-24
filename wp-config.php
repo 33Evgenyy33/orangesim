@@ -20,8 +20,6 @@
 
 // ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
-define( 'WPCACHEHOME', 'F:\OpenServer\domains\orangesim\wp-content\plugins\wp-super-cache/' );
-define('WP_CACHE', true);
 define('DB_NAME', 'orangerucom');
 
 /** Имя пользователя MySQL */

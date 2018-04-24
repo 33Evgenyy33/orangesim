@@ -185,7 +185,7 @@ function balance_orange_product_func( $atts ){
 	$content .= '  <div class="loader loader-border"></div>';
 	$content .= '  <p id="orange_number_field">';
 	$content .= '    <label for="orange_replenishment" class="" style="display: block;">Номер Orange, начиная с <b>6</b> <abbr class="required" title="обязательно" style="color: #d93d3d;">*</abbr></label>';
-	$content .= '    <input type="text" name="orange_number" id="orange_number" placeholder="6">';
+	$content .= '    <input type="tel" name="orange_number" id="orange_number" placeholder="6">';
 	$content .= '    <span class="orange-number-validation">Введите номер Orange</span>';
 	$content .= '  </p>';
 	$content .= '  <p class="product_balance_title" style="display:  none;">Выберите баланс</p>';
