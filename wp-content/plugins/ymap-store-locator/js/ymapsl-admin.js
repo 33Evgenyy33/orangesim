@@ -3,26 +3,26 @@ jQuery(document).ready(function ($) {
     Parsley.addMessages('ru', {
         defaultMessage: "Некорректное значение.",
         type: {
-            email:        "Введите адрес электронной почты.",
-            url:          "Введите URL адрес.",
-            number:       "Введите число.",
-            integer:      "Введите целое число.",
-            digits:       "Введите только цифры.",
-            alphanum:     "Введите буквенно-цифровое значение."
+            email: "Введите адрес электронной почты.",
+            url: "Введите URL адрес.",
+            number: "Введите число.",
+            integer: "Введите целое число.",
+            digits: "Введите только цифры.",
+            alphanum: "Введите буквенно-цифровое значение."
         },
-        notblank:       "Это поле должно быть заполнено.",
-        required:       "Обязательное поле.",
-        pattern:        "Это значение некорректно.",
-        min:            "Это значение должно быть не менее чем %s.",
-        max:            "Это значение должно быть не более чем %s.",
-        range:          "Это значение должно быть от %s до %s.",
-        minlength:      "Это значение должно содержать не менее %s символов.",
-        maxlength:      "Это значение должно содержать не более %s символов.",
-        length:         "Это значение должно содержать от %s до %s символов.",
-        mincheck:       "Выберите не менее %s значений.",
-        maxcheck:       "Выберите не более %s значений.",
-        check:          "Выберите от %s до %s значений.",
-        equalto:        "Это значение должно совпадать."
+        notblank: "Это поле должно быть заполнено.",
+        required: "Обязательное поле.",
+        pattern: "Это значение некорректно.",
+        min: "Это значение должно быть не менее чем %s.",
+        max: "Это значение должно быть не более чем %s.",
+        range: "Это значение должно быть от %s до %s.",
+        minlength: "Это значение должно содержать не менее %s символов.",
+        maxlength: "Это значение должно содержать не более %s символов.",
+        length: "Это значение должно содержать от %s до %s символов.",
+        mincheck: "Выберите не менее %s значений.",
+        maxcheck: "Выберите не более %s значений.",
+        check: "Выберите от %s до %s значений.",
+        equalto: "Это значение должно совпадать."
     });
 
     Parsley.setLocale('ru');
@@ -31,15 +31,16 @@ jQuery(document).ready(function ($) {
         var ok = $('.parsley-error').length === 0;
         $('.bs-callout-info').toggleClass('hidden', !ok);
         $('.bs-callout-warning').toggleClass('hidden', ok);
-    }).on('field:error', function() {
+    }).on('field:error', function () {
         // This global callback will be called for any field that fails validation.
         // $('html, body').animate({
         //     scrollTop: $("#ymapsl_box_id").offset().top
         // }, 1000);
-        console.log('Validation failed for: ', this.$element);
-    }).on('form:submit', function () {
-        return false; // Don't submit form for this demo
+        // console.log('Validation failed for: ', this.$element);
     });
+
+    // $("#ymapsl_id_ta").inputmask();
+
 
     ymaps.ready(function () {
         let ymapslMap = new ymaps.Map('YMapsID', {
@@ -63,15 +64,14 @@ jQuery(document).ready(function ($) {
             ymapslMap.setZoom(16);
         }
 
-        $('#check_geocode').click(function (e) {
-            if ($('#ymapsl_city').val() == '' || $('#ymapsl_address').val() == '') {
-                validForm.validate();
-                return false;
-            } else {
-                // $('.ymapsl-error-form').removeClass('active');
+        $('#check_geocode_btn').click(function (e) {
 
+            let ymapslCityValid    = $('#ymapsl_city').parsley().validate();
+            let ymapslAdderssValid = $('#ymapsl_address').parsley().validate();
+
+            if ((ymapslCityValid === true) && (ymapslAdderssValid === true)) {
+                console.log('valid');
                 geocode();
-                return true;
             }
         });
 

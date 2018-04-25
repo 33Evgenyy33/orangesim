@@ -46,7 +46,7 @@ function ymapsl_custom_post_type() {
 			'capability_type' => 'store',
 			'map_meta_cap'    => true,
 			'query_var'       => 'ymap_stores',
-			'supports'        => array( 'title', 'editor', 'author', 'excerpt', 'revisions', 'thumbnail' )
+			'supports'        => array( 'title', 'editor', 'author', 'revisions' )
 		)
 	);
 }
@@ -68,7 +68,9 @@ function wpc_add_admin_cpt_script( $hook ) {
 
 			wp_enqueue_script('ymapsl-admin-js', $script_url.'ymapsl-admin.js', array( 'jquery','ymaps'), WPSL_VERSION_NUM, true);
 
-			wp_enqueue_script('parsley-admin-js', 'https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.8.1/parsley.min.js', array( 'jquery','ymaps'), WPSL_VERSION_NUM, true);
+			wp_enqueue_script('parsley-admin-js', $script_url.'parsley.min.js', array( 'jquery'), WPSL_VERSION_NUM, true);
+
+
 
 //			wp_enqueue_style('bootstrap-admin-css', 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css', false, WPSL_VERSION_NUM);
 //			wp_enqueue_script('bootstrap-admin-js', 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js', array( 'jquery'), WPSL_VERSION_NUM, true);
@@ -128,7 +130,7 @@ function ymapsl_add_custom_box() {
 	$screen = 'ymap_stores';
 	add_meta_box(
 		'ymapsl_box_id',           // Unique ID
-		'Custom Meta Box Title',  // Box title
+		'Данные ТА',  // Box title
 		'ymapsl_custom_box_html',  // Content callback, must be of type callable
 		$screen                   // Post type
 	);
@@ -149,8 +151,9 @@ function ymapsl_custom_box_html( $post ) {
 				?>
                 <p class="ymapsl_<?= $field_key ?>_form">
                     <label for="ymapsl_field"><?= $field_data['label'] ?> <?= $field_data['required'] ?  '<abbr class="required" title="обязательно">*</abbr>':'' ?></label>
-                    <input name="ymapsl_<?= $field_key ?>" id="ymapsl_<?= $field_key ?>" value="<?= $value ?>" class="" <?= $field_data['required'] ?  'required=""':'' ?> >
+                    <input name="ymapsl_<?= $field_key ?>" id="ymapsl_<?= $field_key ?>" value="<?= $value ?>" class="" <?= $field_data['required'] ?  'required=""':'' ?> <?= ($field_key == 'id_ta') ?  'type="number"':'' ?> >
                 </p>
+                <?= ($field_key == 'address')? '<div class="check-geocode-btn-wrap"><button type="button" id="check_geocode_btn">Установить</button></div>' : '' ?>
 				<?php
 			}
 
@@ -158,7 +161,6 @@ function ymapsl_custom_box_html( $post ) {
 			$ymapsl_lat = $value = get_post_meta( $post->ID, '_ymapsl_lat', true );
 			?>
         </div>
-        <button type="button" id="check_geocode">Установить</button>
     </div>
     <div id="YMapsID"></div>
 	<?php
