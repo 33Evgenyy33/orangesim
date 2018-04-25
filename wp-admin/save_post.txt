@@ -1,0 +1,522 @@
+Array
+(
+    [data] => Array
+        (
+            [wp_autosave] => Array
+                (
+                    [post_id] => 83422
+                    [post_type] => ymap_stores
+                    [post_author] => 1
+                    [post_title] => 11111
+                    [content] => 
+                    [excerpt] => 
+                    [catslist] => 
+                    [auto_draft] => 1
+                    [_wpnonce] => e9add568d2
+                )
+
+            [wp-refresh-post-lock] => Array
+                (
+                    [post_id] => 83422
+                )
+
+            [wp-refresh-post-nonces] => Array
+                (
+                    [post_id] => 83422
+                )
+
+        )
+
+    [interval] => 15
+    [_nonce] => 6668956696
+    [action] => heartbeat
+    [screen_id] => ymap_stores
+    [has_focus] => true
+)
+
+Array
+(
+    [_wpnonce] => e9add568d2
+    [_wp_http_referer] => /wp-admin/post-new.php?post_type=ymap_stores
+    [user_ID] => 1
+    [action] => editpost
+    [originalaction] => editpost
+    [post_author] => 1
+    [post_type] => ymap_stores
+    [original_post_status] => auto-draft
+    [referredby] => http://orangesim/wp-admin/post.php?post=83400&action=edit
+    [_wp_original_http_referer] => http://orangesim/wp-admin/post.php?post=83400&action=edit
+    [auto_draft] => 
+    [post_ID] => 83422
+    [meta-box-order-nonce] => f86502fdaa
+    [closedpostboxesnonce] => d0a86da044
+    [original_post_title] => 
+    [post_title] => 11111
+    [samplepermalinknonce] => 5db1da41d7
+    [content] => 
+    [wp-preview] => 
+    [hidden_post_status] => draft
+    [post_status] => publish
+    [hidden_post_password] => 
+    [hidden_post_visibility] => public
+    [visibility] => public
+    [post_password] => 
+    [mm] => 04
+    [jj] => 25
+    [aa] => 2018
+    [hh] => 12
+    [mn] => 12
+    [ss] => 10
+    [hidden_mm] => 04
+    [cur_mm] => 04
+    [hidden_jj] => 25
+    [cur_jj] => 25
+    [hidden_aa] => 2018
+    [cur_aa] => 2018
+    [hidden_hh] => 12
+    [cur_hh] => 12
+    [hidden_mn] => 12
+    [cur_mn] => 12
+    [original_publish] => Опубликовать
+    [publish] => Опубликовать
+    [_thumbnail_id] => -1
+    [ymapsl_city] => Пенза
+    [ymapsl_address] => Одесская 11
+    [ymapsl_lng] => 53.235252
+    [ymapsl_lat] => 44.935446
+    [yoast_wpseo_focuskw_text_input] => 
+    [yoast_wpseo_focuskw] => 
+    [yoast_wpseo_title] => 
+    [yoast_wpseo_metadesc] => 
+    [yoast_wpseo_linkdex] => -2811
+    [yoast_wpseo_content_score] => 0
+    [yoast_wpseo_focuskeywords] => []
+    [yoast_wpseo_opengraph-title] => 
+    [yoast_wpseo_opengraph-description] => 
+    [yoast_wpseo_opengraph-image] => 
+    [yoast_wpseo_twitter-title] => 
+    [yoast_wpseo_twitter-description] => 
+    [yoast_wpseo_twitter-image] => 
+    [yoast_wpseo_meta-robots-noindex] => 0
+    [yoast_wpseo_meta-robots-nofollow] => 0
+    [yoast_wpseo_meta-robots-adv] => Array
+        (
+            [0] => -
+        )
+
+    [yoast_wpseo_canonical] => 
+    [excerpt] => 
+    [post_name] => 
+    [post_author_override] => 1
+    [post_mime_type] => 
+    [ID] => 83422
+    [post_content] => 
+    [post_excerpt] => 
+    [comment_status] => closed
+    [ping_status] => closed
+)
+
+Array
+(
+    [_wpnonce] => e9add568d2
+    [_wp_http_referer] => /wp-admin/post-new.php?post_type=ymap_stores
+    [user_ID] => 1
+    [action] => editpost
+    [originalaction] => editpost
+    [post_author] => 1
+    [post_type] => ymap_stores
+    [original_post_status] => auto-draft
+    [referredby] => http://orangesim/wp-admin/post.php?post=83400&action=edit
+    [_wp_original_http_referer] => http://orangesim/wp-admin/post.php?post=83400&action=edit
+    [auto_draft] => 
+    [post_ID] => 83422
+    [meta-box-order-nonce] => f86502fdaa
+    [closedpostboxesnonce] => d0a86da044
+    [original_post_title] => 
+    [post_title] => 11111
+    [samplepermalinknonce] => 5db1da41d7
+    [content] => 
+    [wp-preview] => 
+    [hidden_post_status] => draft
+    [post_status] => publish
+    [hidden_post_password] => 
+    [hidden_post_visibility] => public
+    [visibility] => public
+    [post_password] => 
+    [mm] => 04
+    [jj] => 25
+    [aa] => 2018
+    [hh] => 12
+    [mn] => 12
+    [ss] => 10
+    [hidden_mm] => 04
+    [cur_mm] => 04
+    [hidden_jj] => 25
+    [cur_jj] => 25
+    [hidden_aa] => 2018
+    [cur_aa] => 2018
+    [hidden_hh] => 12
+    [cur_hh] => 12
+    [hidden_mn] => 12
+    [cur_mn] => 12
+    [original_publish] => Опубликовать
+    [publish] => Опубликовать
+    [_thumbnail_id] => -1
+    [ymapsl_city] => Пенза
+    [ymapsl_address] => Одесская 11
+    [ymapsl_lng] => 53.235252
+    [ymapsl_lat] => 44.935446
+    [yoast_wpseo_focuskw_text_input] => 
+    [yoast_wpseo_focuskw] => 
+    [yoast_wpseo_title] => 
+    [yoast_wpseo_metadesc] => 
+    [yoast_wpseo_linkdex] => -2811
+    [yoast_wpseo_content_score] => 0
+    [yoast_wpseo_focuskeywords] => []
+    [yoast_wpseo_opengraph-title] => 
+    [yoast_wpseo_opengraph-description] => 
+    [yoast_wpseo_opengraph-image] => 
+    [yoast_wpseo_twitter-title] => 
+    [yoast_wpseo_twitter-description] => 
+    [yoast_wpseo_twitter-image] => 
+    [yoast_wpseo_meta-robots-noindex] => 0
+    [yoast_wpseo_meta-robots-nofollow] => 0
+    [yoast_wpseo_meta-robots-adv] => Array
+        (
+            [0] => -
+        )
+
+    [yoast_wpseo_canonical] => 
+    [excerpt] => 
+    [post_name] => 
+    [post_author_override] => 1
+    [post_mime_type] => 
+    [ID] => 83422
+    [post_content] => 
+    [post_excerpt] => 
+    [comment_status] => closed
+    [ping_status] => closed
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+    [data] => Array
+        (
+            [wp_autosave] => Array
+                (
+                    [post_id] => 83425
+                    [post_type] => ymap_stores
+                    [post_author] => 1
+                    [post_title] => ujklhjklhjkl
+                    [content] => 
+                    [excerpt] => 
+                    [catslist] => 
+                    [auto_draft] => 1
+                    [_wpnonce] => 692563950d
+                )
+
+            [wp-refresh-post-lock] => Array
+                (
+                    [post_id] => 83425
+                    [lock] => 1524653655:1
+                )
+
+            [wp-refresh-post-nonces] => Array
+                (
+                    [post_id] => 83425
+                )
+
+        )
+
+    [interval] => 15
+    [_nonce] => 6668956696
+    [action] => heartbeat
+    [screen_id] => ymap_stores
+    [has_focus] => true
+)
+
+Array
+(
+    [_wpnonce] => 692563950d
+    [_wp_http_referer] => /wp-admin/post.php?post=83425&action=edit&wp-post-new-reload=true
+    [user_ID] => 1
+    [action] => editpost
+    [originalaction] => editpost
+    [post_author] => 1
+    [post_type] => ymap_stores
+    [original_post_status] => auto-draft
+    [referredby] => http://orangesim/wp-admin/post.php?post=83425&action=edit&wp-post-new-reload=true&wp-post-new-reload=true&wp-post-new-reload=true
+    [_wp_original_http_referer] => http://orangesim/wp-admin/post.php?post=83425&action=edit&wp-post-new-reload=true&wp-post-new-reload=true&wp-post-new-reload=true
+    [auto_draft] => 
+    [post_ID] => 83425
+    [meta-box-order-nonce] => f86502fdaa
+    [closedpostboxesnonce] => d0a86da044
+    [original_post_title] => 
+    [post_title] => ujklhjklhjkl
+    [samplepermalinknonce] => 5db1da41d7
+    [content] => 
+    [wp-preview] => 
+    [hidden_post_status] => draft
+    [post_status] => publish
+    [hidden_post_password] => 
+    [hidden_post_visibility] => public
+    [visibility] => public
+    [post_password] => 
+    [mm] => 04
+    [jj] => 25
+    [aa] => 2018
+    [hh] => 12
+    [mn] => 23
+    [ss] => 32
+    [hidden_mm] => 04
+    [cur_mm] => 04
+    [hidden_jj] => 25
+    [cur_jj] => 25
+    [hidden_aa] => 2018
+    [cur_aa] => 2018
+    [hidden_hh] => 12
+    [cur_hh] => 12
+    [hidden_mn] => 23
+    [cur_mn] => 58
+    [original_publish] => Опубликовать
+    [publish] => Опубликовать
+    [_thumbnail_id] => -1
+    [ymapsl_id_ta] => 7
+    [ymapsl_city] => г. Пенза
+    [ymapsl_address] => Одесская 11
+    [ymapsl_lng] => 53.235252
+    [ymapsl_lat] => 44.935446
+    [yoast_wpseo_focuskw_text_input] => 
+    [yoast_wpseo_focuskw] => 
+    [yoast_wpseo_title] => 
+    [yoast_wpseo_metadesc] => 
+    [yoast_wpseo_linkdex] => -2811
+    [yoast_wpseo_content_score] => 0
+    [yoast_wpseo_focuskeywords] => []
+    [yoast_wpseo_opengraph-title] => 
+    [yoast_wpseo_opengraph-description] => 
+    [yoast_wpseo_opengraph-image] => 
+    [yoast_wpseo_twitter-title] => 
+    [yoast_wpseo_twitter-description] => 
+    [yoast_wpseo_twitter-image] => 
+    [yoast_wpseo_meta-robots-noindex] => 0
+    [yoast_wpseo_meta-robots-nofollow] => 0
+    [yoast_wpseo_meta-robots-adv] => Array
+        (
+            [0] => -
+        )
+
+    [yoast_wpseo_canonical] => 
+    [excerpt] => 
+    [post_name] => 
+    [post_author_override] => 1
+    [wpseo_old_post_url] => /
+    [post_mime_type] => 
+    [ID] => 83425
+    [post_content] => 
+    [post_excerpt] => 
+    [comment_status] => closed
+    [ping_status] => closed
+)
+
+Array
+(
+    [_wpnonce] => 692563950d
+    [_wp_http_referer] => /wp-admin/post.php?post=83425&action=edit&wp-post-new-reload=true
+    [user_ID] => 1
+    [action] => editpost
+    [originalaction] => editpost
+    [post_author] => 1
+    [post_type] => ymap_stores
+    [original_post_status] => auto-draft
+    [referredby] => http://orangesim/wp-admin/post.php?post=83425&action=edit&wp-post-new-reload=true&wp-post-new-reload=true&wp-post-new-reload=true
+    [_wp_original_http_referer] => http://orangesim/wp-admin/post.php?post=83425&action=edit&wp-post-new-reload=true&wp-post-new-reload=true&wp-post-new-reload=true
+    [auto_draft] => 
+    [post_ID] => 83425
+    [meta-box-order-nonce] => f86502fdaa
+    [closedpostboxesnonce] => d0a86da044
+    [original_post_title] => 
+    [post_title] => ujklhjklhjkl
+    [samplepermalinknonce] => 5db1da41d7
+    [content] => 
+    [wp-preview] => 
+    [hidden_post_status] => draft
+    [post_status] => publish
+    [hidden_post_password] => 
+    [hidden_post_visibility] => public
+    [visibility] => public
+    [post_password] => 
+    [mm] => 04
+    [jj] => 25
+    [aa] => 2018
+    [hh] => 12
+    [mn] => 23
+    [ss] => 32
+    [hidden_mm] => 04
+    [cur_mm] => 04
+    [hidden_jj] => 25
+    [cur_jj] => 25
+    [hidden_aa] => 2018
+    [cur_aa] => 2018
+    [hidden_hh] => 12
+    [cur_hh] => 12
+    [hidden_mn] => 23
+    [cur_mn] => 58
+    [original_publish] => Опубликовать
+    [publish] => Опубликовать
+    [_thumbnail_id] => -1
+    [ymapsl_id_ta] => 7
+    [ymapsl_city] => г. Пенза
+    [ymapsl_address] => Одесская 11
+    [ymapsl_lng] => 53.235252
+    [ymapsl_lat] => 44.935446
+    [yoast_wpseo_focuskw_text_input] => 
+    [yoast_wpseo_focuskw] => 
+    [yoast_wpseo_title] => 
+    [yoast_wpseo_metadesc] => 
+    [yoast_wpseo_linkdex] => -2811
+    [yoast_wpseo_content_score] => 0
+    [yoast_wpseo_focuskeywords] => []
+    [yoast_wpseo_opengraph-title] => 
+    [yoast_wpseo_opengraph-description] => 
+    [yoast_wpseo_opengraph-image] => 
+    [yoast_wpseo_twitter-title] => 
+    [yoast_wpseo_twitter-description] => 
+    [yoast_wpseo_twitter-image] => 
+    [yoast_wpseo_meta-robots-noindex] => 0
+    [yoast_wpseo_meta-robots-nofollow] => 0
+    [yoast_wpseo_meta-robots-adv] => Array
+        (
+            [0] => -
+        )
+
+    [yoast_wpseo_canonical] => 
+    [excerpt] => 
+    [post_name] => 
+    [post_author_override] => 1
+    [wpseo_old_post_url] => /
+    [post_mime_type] => 
+    [ID] => 83425
+    [post_content] => 
+    [post_excerpt] => 
+    [comment_status] => closed
+    [ping_status] => closed
+)
+
+Array
+(
+    [_wpnonce] => 692563950d
+    [_wp_http_referer] => /wp-admin/post.php?post=83425&action=edit&message=6
+    [user_ID] => 1
+    [action] => editpost
+    [originalaction] => editpost
+    [post_author] => 1
+    [post_type] => ymap_stores
+    [original_post_status] => publish
+    [referredby] => http://orangesim/wp-admin/post.php?post=83425&action=edit&wp-post-new-reload=true&wp-post-new-reload=true&wp-post-new-reload=true&wp-post-new-reload=true
+    [_wp_original_http_referer] => http://orangesim/wp-admin/post.php?post=83425&action=edit&wp-post-new-reload=true&wp-post-new-reload=true&wp-post-new-reload=true&wp-post-new-reload=true
+    [post_ID] => 83425
+    [meta-box-order-nonce] => f86502fdaa
+    [closedpostboxesnonce] => d0a86da044
+    [original_post_title] => ujklhjklhjkl
+    [post_title] => ujklhjklhjkl
+    [samplepermalinknonce] => 5db1da41d7
+    [content] => 
+    [wp-preview] => 
+    [hidden_post_status] => publish
+    [post_status] => publish
+    [hidden_post_password] => 
+    [hidden_post_visibility] => public
+    [visibility] => public
+    [post_password] => 
+    [mm] => 04
+    [jj] => 25
+    [aa] => 2018
+    [hh] => 13
+    [mn] => 54
+    [ss] => 33
+    [hidden_mm] => 04
+    [cur_mm] => 04
+    [hidden_jj] => 25
+    [cur_jj] => 25
+    [hidden_aa] => 2018
+    [cur_aa] => 2018
+    [hidden_hh] => 13
+    [cur_hh] => 13
+    [hidden_mn] => 54
+    [cur_mn] => 54
+    [original_publish] => Обновить
+    [save] => Обновить
+    [_thumbnail_id] => -1
+    [ymapsl_id_ta] => 7
+    [ymapsl_city] => г. Пенза
+    [ymapsl_address] => Одесская 11
+    [ymapsl_lng] => 53.235252
+    [ymapsl_lat] => 44.935446
+    [yoast_wpseo_focuskw_text_input] => 
+    [yoast_wpseo_focuskw] => 
+    [yoast_wpseo_title] => 
+    [yoast_wpseo_metadesc] => 
+    [yoast_wpseo_linkdex] => -2811
+    [yoast_wpseo_content_score] => 0
+    [yoast_wpseo_focuskeywords] => []
+    [yoast_wpseo_opengraph-title] => 
+    [yoast_wpseo_opengraph-description] => 
+    [yoast_wpseo_opengraph-image] => 
+    [yoast_wpseo_twitter-title] => 
+    [yoast_wpseo_twitter-description] => 
+    [yoast_wpseo_twitter-image] => 
+    [yoast_wpseo_meta-robots-noindex] => 0
+    [yoast_wpseo_meta-robots-nofollow] => 0
+    [yoast_wpseo_meta-robots-adv] => Array
+        (
+            [0] => -
+        )
+
+    [yoast_wpseo_canonical] => 
+    [excerpt] => 
+    [post_name] => ujklhjklhjkl
+    [post_author_override] => 1
+    [wpseo_old_post_url] => /pickup-stores/ujklhjklhjkl/
+    [post_mime_type] => 
+    [ID] => 83425
+    [post_content] => 
+    [post_excerpt] => 
+    [comment_status] => closed
+    [ping_status] => closed
+)
+
+Черновик
+lhjklhjkl
+lhjklhjkl
+lhjklhjkl
+Черновик
+hjklhjkl
+hjklhjkl
+hjklhjkl
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
+Черновик
