@@ -11,16 +11,36 @@
     justify-content: center;
 }
 
+
+
+
+
+
 .ymapsl-fields {
     max-width: 570px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
-.ymapsl-fields > p {
-    display: block;
-    margin: 10px;
-    width: 45%;
+.ymapsl-fields .ymapsl-fields-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.ymapsl-fields .ymapsl-fields-row > p {
+    padding-right: 5px;
+    padding-left: 5px;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    width: 100%;
 }
 
 .ymapsl-fields #ymapsl_comment_field {
@@ -34,13 +54,13 @@
     border: 1px solid #000;
 }
 
-.ymapsl-fields > p label {
+.ymapsl-fields .ymapsl-fields-row > p label {
     display: block;
     font-weight: 700;
     font-size: 14px;
 }
 
-.ymapsl-fields > p input {
+.ymapsl-fields .ymapsl-fields-row > p input {
     width: 100%;
     font-size: 16px;
     padding: 7px;
@@ -86,7 +106,7 @@ ul.parsley-errors-list {
 }
 
 input.parsley-error {
-    border: 2px solid #f00!important;
+    border: 2px solid #f00 !important;
 }
 
 li.parsley-required {
@@ -99,8 +119,8 @@ li.parsley-required {
     margin: 0;
 }
 
-@media only screen and (max-width: 447px) {
-    .ymapsl-fields > p {
-        width: 100%;
+@media only screen and (max-width: 570px) {
+    .ymapsl-fields .ymapsl-fields-row > p {
+        flex-basis: auto;
     }
 }

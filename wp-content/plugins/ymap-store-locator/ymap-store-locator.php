@@ -29,7 +29,7 @@ function ymapsl_custom_post_type() {
 	register_post_type( 'ymap_stores',
 		array(
 			'labels'              => array(
-				'name'               => 'Пункты выдачи на карте',
+				'name'               => 'Пункты выдачи',
 				'singular_name'      => 'Пункт выдачи',
 				'all_items'          => 'Все пункты выдачи',
 				'add_new'            => 'Добавить пункт',
@@ -65,8 +65,8 @@ function change_default_title( $title ) {
 	return $title;
 }
 
-add_action( 'admin_enqueue_scripts', 'wpc_add_admin_cpt_script', 10, 1 );
-function wpc_add_admin_cpt_script( $hook ) {
+add_action( 'admin_enqueue_scripts', 'load_scripts_for_admin', 10, 1 );
+function load_scripts_for_admin( $hook ) {
 
 //	if ( ( get_post_type() == 'wpsl_stores' ) || ( isset( $_GET['post_type'] ) && ( $_GET['post_type'] == 'wpsl_stores' ) ) ) {
 
@@ -86,46 +86,45 @@ function wpc_add_admin_cpt_script( $hook ) {
 			), WPSL_VERSION_NUM, true );
 
 			wp_enqueue_script( 'parsley-admin-js', $script_url . 'parsley.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
-
-
-//			wp_enqueue_style('bootstrap-admin-css', 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css', false, WPSL_VERSION_NUM);
-//			wp_enqueue_script('bootstrap-admin-js', 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js', array( 'jquery'), WPSL_VERSION_NUM, true);
-
-
 		}
 	}
 }
+
 
 add_filter( 'ymapsl_meta_fields', 'get_ymapsl_meta_fields' );
 function get_ymapsl_meta_fields( $content ) {
 
 	$meta_fields = array(
 		'Адрес'                 => array(
-			'id_ta'   => array(
+			'id_ta'         => array(
 				'label'    => 'ID Турагентства',
 				'required' => false
 			),
-			'phone'   => array(
+			'phone'         => array(
 				'label'    => 'Контактный телефон',
 				'required' => false
 			),
-			'city'    => array(
+			'city'          => array(
 				'label'    => 'Город',
 				'required' => true
 			),
-			'address' => array(
+			'address'       => array(
 				'label'    => 'Адрес',
 				'required' => true
 			),
-			'comment' => array(
+			'opening_hours' => array(
+				'label'    => 'График работы',
+				'required' => false
+			),
+			'comment'       => array(
 				'label'    => 'Комментарий',
 				'required' => false
 			),
-			'lng'     => array(
+			'lng'           => array(
 				'label'    => 'Longitude',
 				'required' => true
 			),
-			'lat'     => array(
+			'lat'           => array(
 				'label'    => 'Latitude',
 				'required' => true
 			)
@@ -159,46 +158,62 @@ function ymapsl_add_custom_box() {
 function ymapsl_custom_box_html( $post ) {
 
 	$meta_fields = apply_filters( 'ymapsl_meta_fields', '' );
-//	file_put_contents( "ymapsl_meta_fields.txt", print_r( $meta_fields, true ) . "\r\n", FILE_APPEND | LOCK_EX );
 
 	?>
     <div class="ymapsl-form">
         <div class="ymapsl-fields">
-            <p id="ymapsl_id_ta_field">
-                <label for="ymapsl_field">ID Турагентства </label>
-                <input name="ymapsl_id_ta" id="ymapsl_id_ta"
-                       value="<?= get_post_meta( $post->ID, '_ymapsl_id_ta', true ); ?>" type="number">
-            </p>
-            <p id="ymapsl_phone_field">
-                <label for="ymapsl_field">Контактный телефон </label>
-                <input name="ymapsl_phone" id="ymapsl_phone"
-                       value="<?= get_post_meta( $post->ID, '_ymapsl_phone', true ); ?>">
-            </p>
-            <p id="ymapsl_city_field">
-                <label for="ymapsl_field">Город <abbr class="required" title="обязательно">*</abbr></label>
-                <input name="ymapsl_city" id="ymapsl_city"
-                       value="<?= get_post_meta( $post->ID, '_ymapsl_city', true ); ?>" required="">
-            </p>
-            <p id="ymapsl_address_field">
-                <label for="ymapsl_field">Адрес <abbr class="required" title="обязательно">*</abbr></label>
-                <input name="ymapsl_address" id="ymapsl_address"
-                       value="<?= get_post_meta( $post->ID, '_ymapsl_address', true ); ?>" required="">
-            </p>
-            <p id="ymapsl_comment_field">
-                <label for="ymapsl_field">Комментарий</label>
-                <textarea name="ymapsl_comment"
-                          id="ymapsl_comment"><?= get_post_meta( $post->ID, '_ymapsl_comment', true ); ?></textarea>
-            </p>
-            <p id="ymapsl_lng_field">
-                <label for="ymapsl_field">Longitude <abbr class="required" title="обязательно">*</abbr></label>
-                <input name="ymapsl_lng" id="ymapsl_lng" value="<?= get_post_meta( $post->ID, '_ymapsl_lng', true ); ?>"
-                       required="" readonly>
-            </p>
-            <p id="ymapsl_lat_field">
-                <label for="ymapsl_field">Latitude <abbr class="required" title="обязательно">*</abbr></label>
-                <input name="ymapsl_lat" id="ymapsl_lat" value="<?= get_post_meta( $post->ID, '_ymapsl_lat', true ); ?>"
-                       class="" required="" readonly>
-            </p>
+            <div class="ymapsl-fields-row">
+                <p id="ymapsl_id_ta_field">
+                    <label for="ymapsl_field">ID Турагентства </label>
+                    <input name="ymapsl_id_ta" id="ymapsl_id_ta"
+                           value="<?= get_post_meta( $post->ID, '_ymapsl_id_ta', true ); ?>" type="number">
+                </p>
+                <p id="ymapsl_phone_field">
+                    <label for="ymapsl_field">Контактный телефон </label>
+                    <input name="ymapsl_phone" id="ymapsl_phone"
+                           value="<?= get_post_meta( $post->ID, '_ymapsl_phone', true ); ?>">
+                </p>
+            </div>
+            <div class="ymapsl-fields-row">
+                <p id="ymapsl_city_field">
+                    <label for="ymapsl_field">Город <abbr class="required" title="обязательно">*</abbr></label>
+                    <input name="ymapsl_city" id="ymapsl_city"
+                           value="<?= get_post_meta( $post->ID, '_ymapsl_city', true ); ?>" required="">
+                </p>
+                <p id="ymapsl_address_field">
+                    <label for="ymapsl_field">Адрес <abbr class="required" title="обязательно">*</abbr></label>
+                    <input name="ymapsl_address" id="ymapsl_address"
+                           value="<?= get_post_meta( $post->ID, '_ymapsl_address', true ); ?>" required="">
+                </p>
+            </div>
+            <div class="ymapsl-fields-row">
+                <p id="ymapsl_opening_hours_field">
+                    <label for="ymapsl_field">График работы</label>
+                    <input name="ymapsl_opening_hours" id="ymapsl_opening_hours"
+                           value="<?= get_post_meta( $post->ID, '_ymapsl_opening_hours', true ); ?>">
+                </p>
+            </div>
+            <div class="ymapsl-fields-row">
+                <p id="ymapsl_comment_field">
+                    <label for="ymapsl_field">Комментарий</label>
+                    <textarea name="ymapsl_comment"
+                              id="ymapsl_comment"><?= get_post_meta( $post->ID, '_ymapsl_comment', true ); ?></textarea>
+                </p>
+            </div>
+            <div class="ymapsl-fields-row">
+                <p id="ymapsl_lng_field">
+                    <label for="ymapsl_field">Longitude <abbr class="required" title="обязательно">*</abbr></label>
+                    <input name="ymapsl_lng" id="ymapsl_lng"
+                           value="<?= get_post_meta( $post->ID, '_ymapsl_lng', true ); ?>"
+                           required="" readonly>
+                </p>
+                <p id="ymapsl_lat_field">
+                    <label for="ymapsl_field">Latitude <abbr class="required" title="обязательно">*</abbr></label>
+                    <input name="ymapsl_lat" id="ymapsl_lat"
+                           value="<?= get_post_meta( $post->ID, '_ymapsl_lat', true ); ?>"
+                           class="" required="" readonly>
+                </p>
+            </div>
             <div id="check_geocode_btn_wrap">
                 <button type="button" id="check_geocode_btn">Установить</button>
             </div>
@@ -210,9 +225,6 @@ function ymapsl_custom_box_html( $post ) {
 
 add_action( 'save_post', 'ymapsl_save_postdata' );
 function ymapsl_save_postdata( $post_id ) {
-
-	file_put_contents( "save_post.txt", print_r( get_the_title( $post_id ), true ) . "\r\n", FILE_APPEND | LOCK_EX );
-
 
 	if ( ! isset( $_POST['ymapsl_city'] ) || ! isset( $_POST['ymapsl_address'] ) ) {
 		return;
@@ -235,7 +247,7 @@ function ymapsl_save_postdata( $post_id ) {
 		}
 	}
 
-	$args  = array(
+	$args = array(
 		'post_type'   => 'ymap_stores',
 		'post_status' => 'publish',
 		'meta_query'  => array(
@@ -254,10 +266,69 @@ function ymapsl_save_postdata( $post_id ) {
 //	}
 }
 
+add_action( 'wp_enqueue_scripts', 'load_scripts_for_frontend' );
+function load_scripts_for_frontend() {
+	if ( ! is_front_page() ) { //Важно!!! для главной страницы заменить на ( is_front_page() )
+
+		$style_url  = plugins_url( '/css/', __FILE__ );
+		$script_url = plugins_url( '/js/', __FILE__ );
+
+
+//		wp_enqueue_style( 'ymapsl-select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', false, WPSL_VERSION_NUM );
+		wp_enqueue_style( 'ymapsl-frontend-css', $style_url . 'frontend-style.css', false, WPSL_VERSION_NUM );
+
+
+		wp_localize_script( 'jquery', 'ymapsl_ajax',
+			array(
+				'url' => admin_url('admin-ajax.php')
+			)
+		);
+
+		wp_register_script( 'ymaps-frontend-js', 'http://api-maps.yandex.ru/2.1.63/?lang=ru_RU', array( 'jquery' ), '2.1.63', true );
+		wp_enqueue_script( 'ymaps-frontend-js' );
+
+		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
+		wp_enqueue_script( 'ymapsl-frontend-js', $script_url . 'frontend-script.js', array(
+			'jquery',
+			'ymaps-frontend-js',
+			'ymapsl-select2-js'
+		), WPSL_VERSION_NUM, true );
+
+	}
+}
+
+add_filter( 'ymapsl_cities', 'get_ymapsl_cities' );
+function get_ymapsl_cities( $content ) {
+
+	$ymapsl_cities = array(
+		'Москва',
+		'Санкт-Петербург',
+		'Пенза'
+	);
+
+	return $ymapsl_cities;
+}
+
+add_shortcode( 'ymapsl', 'ymapsl_frontend' );
 function ymapsl_frontend() {
+
+	$ymapsl_cities = apply_filters( 'ymapsl_cities', '' );
+
 	$output = '';
-	$output .= '<div id="ymapsl_wrap">';
+	$output .= '<div id="ymapsl_wrap">'. "\r\n";
+	$output .= "\t" . '<div class="loading-wrap">' . "\r\n";
+	$output .= "\t\t" . '<div class="loading">' . "\r\n";
+	$output .= "\t\t\t" . '<div class="loading-bounceball"></div>' . "\r\n";
+	$output .= "\t\t\t" . '<div class="loading-text">ПОИСК ПУНКТОВ ВЫДАЧИ</div>' . "\r\n";
+	$output .= "\t\t" . '</div>' . "\r\n";
+	$output .= "\t" . '</div>' . "\r\n";
 	$output .= "\t" . '<div id="ymapsl_search">' . "\r\n";
+	$output .= "\t\t" . '<select id="ymapsl_search_cities">' . "\r\n";
+	$output .= "\t\t\t" . '<option></option>' . "\r\n";
+	foreach ( $ymapsl_cities as $ymapsl_city ) {
+		$output .= "\t\t\t" . '<option value="' . $ymapsl_city . '">' . $ymapsl_city . '</option>' . "\r\n";
+	}
+	$output .= "\t\t" . '</select>' . "\r\n";
 	$output .= "\t" . '</div>' . "\r\n";
 	$output .= "\t" . '<div id="ymapsl_result_list">' . "\r\n";
 	$output .= "\t\t" . '<div id="ymapsl_stores">' . "\r\n";
@@ -270,4 +341,88 @@ function ymapsl_frontend() {
 
 	return $output;
 }
-add_shortcode( 'ymapsl', 'ymapsl_frontend' );
+
+add_action( 'wp_ajax_nopriv_ymapsl_search_stores', 'ymapsl_search_stores' );
+add_action( 'wp_ajax_ymapsl_search_stores', 'ymapsl_search_stores' );
+function ymapsl_search_stores() {
+	global $wpdb;
+	// проверяем nonce код, если проверка не пройдена прерываем обработку
+//	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
+	// или так
+//	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
+
+	if ( isset( $_POST['city'] ) ) {
+		$selected_city = $_POST['city'];
+
+		if ( empty( $selected_city ) ) {
+			die();
+		}
+
+		$args = array(
+			'post_type'   => 'ymap_stores',
+			'post_status' => 'publish',
+			'meta_query'  => array(
+				array(
+					'key'   => '_ymapsl_city',
+					'value' => $selected_city
+				)
+			)
+		);
+
+		$query = new WP_Query();
+
+		$my_posts = $query->query( $args );
+
+		$addressshop         = array();
+		$addressshop[1]['type'] = 'FeatureCollection';
+
+//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/all_stores.txt", print_r( $my_posts, true ) . "\r\n", FILE_APPEND | LOCK_EX );
+
+        if (empty($my_posts)){
+            echo json_encode(array());
+            die();
+        }
+
+		foreach ( $my_posts as $store ) {
+			$store_id            = $store->ID;
+			$store_name          = $store->post_title;
+			$store_city          = get_post_meta( $store_id, '_ymapsl_city', true );
+			$store_address       = get_post_meta( $store_id, '_ymapsl_address', true );
+			$store_phone         = get_post_meta( $store_id, '_ymapsl_phone', true );
+			$store_opening_hours = get_post_meta( $store_id, '_ymapsl_opening_hours', true );
+			$store_comment       = get_post_meta( $store_id, '_ymapsl_comment', true );
+			$store_lng           = get_post_meta( $store_id, '_ymapsl_lng', true );
+			$store_lat           = get_post_meta( $store_id, '_ymapsl_lat', true );
+
+			$addressshop[1]['features'][] = array(
+				"type"       => "Feature",
+				"id"         => intval( $store_id ),
+				"geometry"   => array(
+					"type"        => "Point",
+					"coordinates" => [ floatval( $store_lng ), floatval( $store_lat ) ]
+				),
+				"properties" => array(
+					"balloonContentHeader" => "<div style='color:#ff0303;font-weight:bold'> {$store_name} </div>",
+					"balloonContentBody"   => "<div style='font-size:13px;'><div><strong>Адрес:</strong> {$store_address}<br><strong>Режим работы:</strong>{$store_opening_hours}<br></div></div>",
+				)
+			);
+
+			$addressshop[0]['address'][] = array(
+				'id'            => intval( $store_id ),
+				'name'          => $store_name,
+				'city'          => $store_city,
+				'address'       => $store_address,
+				'phone'         => $store_phone,
+				'opening_hours' => $store_opening_hours,
+				'comment'       => $store_comment
+			);
+
+		}
+
+		$json = json_encode(array($addressshop[0],$addressshop[1]), JSON_UNESCAPED_UNICODE );
+
+		echo $json;
+	}
+
+	wp_die();
+}

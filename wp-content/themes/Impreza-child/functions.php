@@ -208,7 +208,7 @@ function balance_orange_product_func( $atts ){
 	$content .= '        <p class="orange_balance_total">Итого: <span class="orange_balance_total_price">0</span><span>₽</span></p>';
 	$content .= '    </div>';
 	$content .= '  </div>';
-	$content .= '  <p class="orange_balance_commission_message" style="display: none;">Введенный номер не принадлежит OrangeSim. Комиссия составляет 3 евро.<br> <span>Если Вы являетесь клиентом OrangeSim, проверьте правильность номера или обратитесь в поддержку (info@orangesim.ru)</span></p>';
+	$content .= '  <p class="orange_balance_commission_message" style="display: none;">Введенный номер не принадлежит клиенту OrangeSim.<br> Дополнительная комиссия составляет + 3€.<br> <span>Если Вы являетесь клиентом OrangeSim, проверьте правильность номера или обратитесь в поддержку (info@orangesim.ru)</span></p>';
 	$content .= '  <button type="submit" class="button alt" id="replenish_balance" value="Подтвердить заказ" data-value="Пополнить" style="pointer-events:none;opacity:0.3;">Пополнить</button>';
 	$content .= '  </div>';
 	return $content;
