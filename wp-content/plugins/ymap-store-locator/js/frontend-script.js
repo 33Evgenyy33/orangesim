@@ -54,6 +54,7 @@ jQuery(document).ready(function ($) {
 
     });
 
+
     function searchStoresAjax(selectedCity) {
         $.ajax({
             type: 'POST',
