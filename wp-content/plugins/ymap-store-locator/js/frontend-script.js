@@ -25,8 +25,6 @@ jQuery(document).ready(function ($) {
             clusterOpenBalloonOnClick: false,
         });
 
-        // Чтобы задать опции одиночным объектам и кластерам,
-        // обратимся к дочерним коллекциям ObjectManager.
         objectManager.objects.options.set('preset', 'islands#greenDotIcon');
         // objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
         ymapslMap.geoObjects.add(objectManager);
@@ -35,9 +33,6 @@ jQuery(document).ready(function ($) {
             placeholder: "Выберите город",
             theme: "material",
             language: {
-                // You can find all of the options in the language files provided in the
-                // build. They all must be functions that return the string that should be
-                // displayed.
                 noResults: function () {
                     return "Такого города нет...";
                 }
