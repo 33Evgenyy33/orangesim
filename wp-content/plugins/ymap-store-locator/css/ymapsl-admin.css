@@ -1,27 +1,46 @@
-.ymapsl_form {
+#ymapsl_box_id {
+    background: #fafafa;
+}
+
+#ymapsl_box_id h2.hndle.ui-sortable-handle {
+    background: #fff;
+}
+
+.ymapsl-form {
     display: flex;
     justify-content: center;
 }
 
-.ymapsl_fields {
+.ymapsl-fields {
     max-width: 570px;
     display: flex;
     flex-wrap: wrap;
 }
 
-.ymapsl_fields > p {
+.ymapsl-fields > p {
     display: block;
     margin: 10px;
     width: 45%;
 }
 
-.ymapsl_fields > p label {
+.ymapsl-fields #ymapsl_comment_field {
+    width: 100%;
+}
+
+#ymapsl_comment {
+    width: 100%;
+    font-size: 16px;
+    padding: 7px;
+    border: 1px solid #000;
+}
+
+.ymapsl-fields > p label {
     display: block;
     font-weight: 700;
     font-size: 14px;
 }
 
-.ymapsl_fields > p input {
+.ymapsl-fields > p input {
     width: 100%;
     font-size: 16px;
     padding: 7px;
@@ -29,12 +48,12 @@
     border: 1px solid #000;
 }
 
-.check-geocode-btn-wrap {
+#check_geocode_btn_wrap {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 12px;
-    margin-bottom: 7px;
+    margin-bottom: 20px;
 }
 
 #check_geocode_btn {
@@ -62,18 +81,6 @@
     height: 370px;
 }
 
-.ymapsl-error-form {
-    display: none;
-}
-
-.ymapsl-error-form.active {
-    display: block;
-    font-size: 1.1rem;
-    color: #e60000;
-    font-weight: 700;
-    margin: 10px;
-}
-
 ul.parsley-errors-list {
     margin: 0;
 }
@@ -93,7 +100,7 @@ li.parsley-required {
 }
 
 @media only screen and (max-width: 447px) {
-    .ymapsl_fields > p {
+    .ymapsl-fields > p {
         width: 100%;
     }
 }

@@ -162,46 +162,26 @@ function ymapsl_custom_box_html( $post ) {
 //	file_put_contents( "ymapsl_meta_fields.txt", print_r( $meta_fields, true ) . "\r\n", FILE_APPEND | LOCK_EX );
 
 	?>
-    <div class="ymapsl-form">
-        <div class="ymapsl-fields">
-            <p id="ymapsl_id_ta_field">
-                <label for="ymapsl_field">ID Турагентства </label>
-                <input name="ymapsl_id_ta" id="ymapsl_id_ta"
-                       value="<?= get_post_meta( $post->ID, '_ymapsl_id_ta', true ); ?>" type="number">
-            </p>
-            <p id="ymapsl_phone_field">
-                <label for="ymapsl_field">Контактный телефон </label>
-                <input name="ymapsl_phone" id="ymapsl_phone"
-                       value="<?= get_post_meta( $post->ID, '_ymapsl_phone', true ); ?>">
-            </p>
-            <p id="ymapsl_city_field">
-                <label for="ymapsl_field">Город <abbr class="required" title="обязательно">*</abbr></label>
-                <input name="ymapsl_city" id="ymapsl_city"
-                       value="<?= get_post_meta( $post->ID, '_ymapsl_city', true ); ?>" required="">
-            </p>
-            <p id="ymapsl_address_field">
-                <label for="ymapsl_field">Адрес <abbr class="required" title="обязательно">*</abbr></label>
-                <input name="ymapsl_address" id="ymapsl_address"
-                       value="<?= get_post_meta( $post->ID, '_ymapsl_address', true ); ?>" required="">
-            </p>
-            <p id="ymapsl_comment_field">
-                <label for="ymapsl_field">Комментарий</label>
-                <textarea name="ymapsl_comment"
-                          id="ymapsl_comment"><?= get_post_meta( $post->ID, '_ymapsl_comment', true ); ?></textarea>
-            </p>
-            <p id="ymapsl_lng_field">
-                <label for="ymapsl_field">Longitude <abbr class="required" title="обязательно">*</abbr></label>
-                <input name="ymapsl_lng" id="ymapsl_lng" value="<?= get_post_meta( $post->ID, '_ymapsl_lng', true ); ?>"
-                       required="" readonly>
-            </p>
-            <p id="ymapsl_lat_field">
-                <label for="ymapsl_field">Latitude <abbr class="required" title="обязательно">*</abbr></label>
-                <input name="ymapsl_lat" id="ymapsl_lat" value="<?= get_post_meta( $post->ID, '_ymapsl_lat', true ); ?>"
-                       class="" required="" readonly>
-            </p>
-            <div id="check_geocode_btn_wrap">
-                <button type="button" id="check_geocode_btn">Установить</button>
-            </div>
+    <div class="ymapsl-error-form"></div>
+    <div class="ymapsl_form">
+        <div class="ymapsl_fields">
+			<?php
+			foreach ( $meta_fields['Адрес'] as $field_key => $field_data ) {
+				$value = get_post_meta( $post->ID, '_ymapsl_' . $field_key, true );
+				?>
+                <p class="ymapsl_<?= $field_key ?>_form">
+                    <label for="ymapsl_field"><?= $field_data['label'] ?> <?= $field_data['required'] ? '<abbr class="required" title="обязательно">*</abbr>' : '' ?></label>
+                    <input name="ymapsl_<?= $field_key ?>" id="ymapsl_<?= $field_key ?>" value="<?= $value ?>"
+                           class="" <?= $field_data['required'] ? 'required=""' : '' ?> <?= ( $field_key == 'id_ta' ) ? 'type="number"' : '' ?> <?= ( $field_key == 'lng' || $field_key == 'lat' ) ? 'readonly' : '' ?>>
+                </p>
+				<?php if ( $field_key == 'address' ): ?>
+                    <div class="check-geocode-btn-wrap">
+                        <button type="button" id="check_geocode_btn">Установить</button>
+                    </div>
+				<?php endif; ?>
+				<?php
+			}
+			?>
         </div>
     </div>
     <div id="YMapsID"></div>
@@ -234,40 +214,4 @@ function ymapsl_save_postdata( $post_id ) {
 			update_post_meta( $post_id, '_ymapsl_' . $field_key, $_POST[ 'ymapsl_' . $field_key ] );
 		}
 	}
-
-	$args  = array(
-		'post_type'   => 'ymap_stores',
-		'post_status' => 'publish',
-		'meta_query'  => array(
-			array(
-				'key'   => '_ymapsl_city',
-				'value' => 'Пенза'
-			)
-		)
-	);
-//	$query = new WP_Query();
-
-//	$my_posts = $query->query( $args );
-
-//	foreach ( $my_posts as $pst ) {
-//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/WP_Query.txt", print_r( $pst, true ) . "\r\n", FILE_APPEND | LOCK_EX );
-//	}
 }
-
-function ymapsl_frontend() {
-	$output = '';
-	$output .= '<div id="ymapsl_wrap">';
-	$output .= "\t" . '<div id="ymapsl_search">' . "\r\n";
-	$output .= "\t" . '</div>' . "\r\n";
-	$output .= "\t" . '<div id="ymapsl_result_list">' . "\r\n";
-	$output .= "\t\t" . '<div id="ymapsl_stores">' . "\r\n";
-	$output .= "\t\t\t" . '<ul></ul>' . "\r\n";
-	$output .= "\t\t" . '</div>' . "\r\n";
-	$output .= "\t" . '</div>' . "\r\n";
-	$output .= "\t" . '<div id="ymapsl_map">' . "\r\n";
-	$output .= "\t" . '</div>' . "\r\n";
-	$output .= '</div>';
-
-	return $output;
-}
-add_shortcode( 'ymapsl', 'ymapsl_frontend' );
