@@ -446,6 +446,7 @@ function ymapsl_search_stores() {
 		}
 		curl_multi_close($mh);
 
+
 		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/available_stores_with_id.txt", print_r( $available_stores_with_id, true ) . "\r\n", FILE_APPEND | LOCK_EX );
 
 		$icon_num = 1;
