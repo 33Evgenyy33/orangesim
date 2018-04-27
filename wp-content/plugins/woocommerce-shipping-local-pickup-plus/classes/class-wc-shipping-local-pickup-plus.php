@@ -1447,6 +1447,7 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
                         array_push($exist_operators, $key);
                     }
 
+
                     //Проверка сим-карт в корзине на наличие в ТА
                     foreach (WC()->cart->get_cart() as $cart_item) {
                         $product_id = $cart_item['product_id'];
