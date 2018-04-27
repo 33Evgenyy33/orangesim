@@ -302,8 +302,7 @@ function get_ymapsl_cities( $content ) {
 
 	$ymapsl_cities = array(
 		'Москва',
-		'Санкт-Петербург',
-		'Пенза'
+		'Санкт-Петербург'
 	);
 
 	return $ymapsl_cities;
