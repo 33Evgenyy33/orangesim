@@ -284,7 +284,7 @@ function load_scripts_for_frontend() {
 			)
 		);
 
-		wp_register_script( 'ymaps-frontend-js', 'http://api-maps.yandex.ru/2.1.63/?lang=ru_RU', array( 'jquery' ), '2.1.63', true );
+		wp_register_script( 'ymaps-frontend-js', 'http://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.63', true );
 		wp_enqueue_script( 'ymaps-frontend-js' );
 
 		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
@@ -316,10 +316,10 @@ function ymapsl_frontend() {
 
 	$output = '';
 	$output .= '<div id="ymapsl_wrap">'. "\r\n";
-	$output .= "\t" . '<div class="loading-wrap">' . "\r\n";
-	$output .= "\t\t" . '<div class="loading">' . "\r\n";
-	$output .= "\t\t\t" . '<div class="loading-bounceball"></div>' . "\r\n";
-	$output .= "\t\t\t" . '<div class="loading-text">ПОИСК ПУНКТОВ ВЫДАЧИ</div>' . "\r\n";
+	$output .= "\t" . '<div class="ymapsl-loader-wrap">' . "\r\n";
+	$output .= "\t\t" . '<div class="ymapsl-loader">' . "\r\n";
+	$output .= "\t\t\t" . '<div class="ymapsl-loader-bounceball"></div>' . "\r\n";
+	$output .= "\t\t\t" . '<div class="ymapsl-loader-text"></div>' . "\r\n";
 	$output .= "\t\t" . '</div>' . "\r\n";
 	$output .= "\t" . '</div>' . "\r\n";
 	$output .= "\t" . '<div id="ymapsl_search">' . "\r\n";
@@ -330,13 +330,17 @@ function ymapsl_frontend() {
 	}
 	$output .= "\t\t" . '</select>' . "\r\n";
 	$output .= "\t" . '</div>' . "\r\n";
-	$output .= "\t" . '<div id="ymapsl_result_list">' . "\r\n";
-	$output .= "\t\t" . '<div id="ymapsl_stores">' . "\r\n";
-	$output .= "\t\t\t" . '<ul></ul>' . "\r\n";
+	$output .= "\t" . '<div id="ymapsl_map_container">' . "\r\n";
+	$output .= "\t\t" . '<div id="ymapsl_result_list">' . "\r\n";
+	$output .= "\t\t\t" . '<div id="ymapsl_stores">' . "\r\n";
+	$output .= "\t\t\t\t" . '<ul></ul>' . "\r\n";
+	$output .= "\t\t\t" . '</div>' . "\r\n";
 	$output .= "\t\t" . '</div>' . "\r\n";
-	$output .= "\t" . '</div>' . "\r\n";
-	$output .= "\t" . '<div id="ymapsl_map">' . "\r\n";
-	$output .= "\t" . '</div>' . "\r\n";
+	$output .= "\t\t" . '<div id="ymapsl_map_wrap">' . "\r\n";
+	$output .= "\t\t\t" . '<div id="ymapsl_map">' . "\r\n";
+	$output .= "\t\t\t" . '</div>' . "\r\n";
+	$output .= "\t\t" . '</div>' . "\r\n";
+	$output .= "\t" . '</div>';
 	$output .= '</div>';
 
 	return $output;
@@ -366,7 +370,9 @@ function ymapsl_search_stores() {
 					'key'   => '_ymapsl_city',
 					'value' => $selected_city
 				)
-			)
+			),
+            'orderby' => 'date',
+            'order' => 'DESC'
 		);
 
 		$query = new WP_Query();
@@ -383,7 +389,67 @@ function ymapsl_search_stores() {
             die();
         }
 
-		foreach ( $my_posts as $store ) {
+		$stores_without_id = array();
+		$stores_with_id = array();
+		$urls = array();
+		foreach ($my_posts as $one_post) {
+			$ta_id = get_post_meta( $one_post->ID, '_ymapsl_id_ta', true );
+
+			if (!$ta_id) {
+//				array_push($stores_without_id, $one_post);
+				continue;
+			}
+
+			array_push($urls, "http://seller.sgsim.ru/euroroaming_order_submit?operation=get_simcards_new&ta=$ta_id");
+			array_push($stores_with_id, $one_post);
+		}
+		$available_stores_with_id = array();
+		$res = array();
+		$mh = curl_multi_init();
+		foreach ($urls as $i => $url) {
+			$conn[$i] = curl_init($url);
+			curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, 1);  //ничего в браузер не давать
+			curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 10); //таймаут соединения
+			curl_multi_add_handle($mh, $conn[$i]);
+		}//Пока все соединения не отработают
+		do {
+			curl_multi_exec($mh, $active);
+		} while ($active);
+
+		//разбор полетов
+		for ($i = 0; $i < count($urls); $i++) {
+			//ответ сервера в переменную
+			$resp      = curl_multi_getcontent( $conn[ $i ] );
+			$res[ $i ] = $resp;
+			//Если вернулся пустой массив, то сим-карт нет в наличие, пункт не отображается
+			if ( empty( $resp ) ) {
+				continue;
+			}
+
+			$array_of_simcard = (array) json_decode( $resp );
+
+			file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1array_of_simcard.txt", print_r( $array_of_simcard, true ) . "\r\n", FILE_APPEND | LOCK_EX );
+
+			$exist_operators = array();
+			foreach ($array_of_simcard as $key => $numbers) {
+				array_push($exist_operators, $key);
+			}
+
+			//Заполнения массива имен сим-карт, полученных с селлера
+            if (!in_array('orange', $exist_operators)) continue;
+
+			$stores_with_id[$i]->qty = count($array_of_simcard['orange']);
+            array_push($available_stores_with_id, $stores_with_id[$i]);
+
+			curl_multi_remove_handle($mh, $conn[$i]);
+			curl_close($conn[$i]);
+		}
+		curl_multi_close($mh);
+
+		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/available_stores_with_id.txt", print_r( $available_stores_with_id, true ) . "\r\n", FILE_APPEND | LOCK_EX );
+
+		$icon_num = 1;
+		foreach ( $available_stores_with_id as $store ) {
 			$store_id            = $store->ID;
 			$store_name          = $store->post_title;
 			$store_city          = get_post_meta( $store_id, '_ymapsl_city', true );
@@ -394,6 +460,14 @@ function ymapsl_search_stores() {
 			$store_lng           = get_post_meta( $store_id, '_ymapsl_lng', true );
 			$store_lat           = get_post_meta( $store_id, '_ymapsl_lat', true );
 
+			if (!empty($store_comment)){
+				$store_comment_map = '<strong>Прмечание: </strong>' . $store_comment;
+				$store_comment_list = $store_comment;
+            } else {
+				$store_comment_map = '';
+				$store_comment_list = '';
+            }
+
 			$addressshop[1]['features'][] = array(
 				"type"       => "Feature",
 				"id"         => intval( $store_id ),
@@ -402,20 +476,24 @@ function ymapsl_search_stores() {
 					"coordinates" => [ floatval( $store_lng ), floatval( $store_lat ) ]
 				),
 				"properties" => array(
-					"balloonContentHeader" => "<div style='color:#ff0303;font-weight:bold'> {$store_name} </div>",
-					"balloonContentBody"   => "<div style='font-size:13px;'><div><strong>Адрес:</strong> {$store_address}<br><strong>Режим работы:</strong>{$store_opening_hours}<br></div></div>",
-				)
+					"balloonContentHeader" => "<div style='color:#2977e0;font-weight:bold'> {$store_name} </div>",
+					"balloonContentBody"   => "<div style='font-size:13px;'><div><strong>Адрес: </strong>{$store_address}<br><strong>Режим работы: </strong>{$store_opening_hours}<br><strong>Тел.: </strong>{$store_phone}<br>{$store_comment_map}</div></div>",
+                    "iconContent"          => $store_name
+                    )
 			);
 
 			$addressshop[0]['address'][] = array(
 				'id'            => intval( $store_id ),
+				'qty'           => 1,
 				'name'          => $store_name,
 				'city'          => $store_city,
 				'address'       => $store_address,
 				'phone'         => $store_phone,
 				'opening_hours' => $store_opening_hours,
-				'comment'       => $store_comment
+				'comment'       => $store_comment_list
 			);
+
+			$icon_num++;
 
 		}
 

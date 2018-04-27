@@ -1,0 +1,62 @@
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83465
+            [post_author] => 1
+            [post_date] => 2018-04-26 16:40:23
+            [post_date_gmt] => 2018-04-26 13:40:23
+            [post_content] => 
+            [post_title] => Пенза3
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => penza3
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-27 19:06:58
+            [post_modified_gmt] => 2018-04-27 16:06:58
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83465
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 10
+        )
+
+    [1] => WP_Post Object
+        (
+            [ID] => 83463
+            [post_author] => 1
+            [post_date] => 2018-04-26 16:39:59
+            [post_date_gmt] => 2018-04-26 13:39:59
+            [post_content] => 
+            [post_title] => Пенза2
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => penza2
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-27 19:06:50
+            [post_modified_gmt] => 2018-04-27 16:06:50
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83463
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 53
+        )
+
+)
+

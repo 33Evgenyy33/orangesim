@@ -1402,8 +1402,8 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
 
                 }
 
-                $stores_sorted_by_region_without_id = array();
-                $stores_sorted_by_region_with_id = array();
+	            $stores_sorted_by_region_without_id = array();
+	            $stores_sorted_by_region_with_id = array();
                 $urls = array();
                 foreach ($stores_sorted_by_region as $store_region) {
                     $ta_id = $store_region['taid'];
