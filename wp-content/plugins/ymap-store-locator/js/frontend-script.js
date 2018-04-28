@@ -89,7 +89,7 @@ jQuery(document).ready(function ($) {
                 console.log(json);
 
                 if ($.isEmptyObject(json)) {
-
+                    ymapslStoresList.html('<li class="ymapsl-stores-empty-list">Во всех пунктах города закончились карты =(</li>');
                     ymapslDisplayLoader('hide');
                     return;
                 }
@@ -120,7 +120,7 @@ jQuery(document).ready(function ($) {
                           '<div class="ymapsl-store-details">' +
                             '<p>' +
                               '<a href="#" data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '">' + json[0].address[i].name + '</a>' +
-                              '<span><strong>В наличии: <span class="store-sim-qty">'+ json[0].address[i].qty +'</span></strong></span>' +
+                              '<span><strong>в наличии: <span class="store-sim-qty">'+ json[0].address[i].qty +'</span></strong></span>' +
                               '<span><strong>город: </strong>'+ json[0].address[i].city +'</span>' +
                               '<span><strong>адрес: </strong>'+ json[0].address[i].address +'</span>' +
                               '<span><strong>режим работы: </strong>' +json[0].address[i].opening_hours +'</span>' +
@@ -137,10 +137,21 @@ jQuery(document).ready(function ($) {
                 objectManager.add(json[1]);
 
                 // objectManager.options.set({gridSize: 80});
-
+                // ymapslMap.margin.setDefaultMargin(70);
                 ymapslMap.setBounds(objectManager.getBounds(), {
                     checkZoomRange: true,
                 });
+
+                // if (json[0]['address'].length > 1){
+                //     ymapslMap.setBounds(objectManager.getBounds(), {
+                //         checkZoomRange: true,
+                //     });
+                // } else if (json[0]['address'].length === 1) {
+                //     ymapslMap.setBounds(objectManager.getBounds(), {
+                //         checkZoomRange: false,
+                //     });
+                //     ymapslMap.setZoom(17, {duration: 300});
+                // }
 
                 ymapslDisplayLoader('hide');
             }
@@ -148,8 +159,37 @@ jQuery(document).ready(function ($) {
     }
 
     function myFunction(id) {
-        ymapslMap.setCenter(objectManager.objects.getById(id).geometry.coordinates, 16);
-        objectManager.objects.balloon.open(id);
+
+        if ($( "#ymapsl_stores ul li" ).length === 1) {
+            objectManager.objects.balloon.open(id);
+            return;
+        }
+
+        // Плавное перемещение без приближения
+        ymapslMap.panTo(objectManager.objects.getById(id).geometry.coordinates, {
+            checkZoomRange:true,
+        }).then(function () {
+            objectManager.objects.balloon.open(id);
+        });
+
+        //Установка цента
+        // ymapslMap.setCenter(objectManager.objects.getById(id).geometry.coordinates, 17,{
+        //     duration:1000
+        // }).then(function () {
+        //     objectManager.objects.balloon.open(id);
+        // });
+
+        // Плавное перемещение с приближением
+        // ymapslMap.panTo(objectManager.objects.getById(id).geometry.coordinates, {
+        //     checkZoomRange:true,
+        //     duration:2000
+        // }).then(function () {
+        //     ymapslMap.setZoom(17, {duration: 1000}).then(function () {
+        //         objectManager.objects.balloon.open(id);
+        //     });
+        // });
+
+
     }
 
     function ymapslDisplayLoader(state, message) {

@@ -77,7 +77,7 @@ function load_scripts_for_admin( $hook ) {
 
 			wp_enqueue_style( 'ymapsl-admin-css', $style_url . 'ymapsl-admin.css', false, WPSL_VERSION_NUM );
 
-			wp_register_script( 'ymaps', 'http://api-maps.yandex.ru/2.1.63/?lang=ru_RU', array( 'jquery' ), '2.1.63', true );
+			wp_register_script( 'ymaps', 'http://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 			wp_enqueue_script( 'ymaps' );
 
 			wp_enqueue_script( 'ymapsl-admin-js', $script_url . 'ymapsl-admin.js', array(
@@ -284,7 +284,7 @@ function load_scripts_for_frontend() {
 			)
 		);
 
-		wp_register_script( 'ymaps-frontend-js', 'http://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.63', true );
+		wp_register_script( 'ymaps-frontend-js', 'http://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 		wp_enqueue_script( 'ymaps-frontend-js' );
 
 		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
@@ -302,7 +302,20 @@ function get_ymapsl_cities( $content ) {
 
 	$ymapsl_cities = array(
 		'Москва',
-		'Санкт-Петербург'
+		'Санкт-Петербург',
+		'Набережные Челны',
+		'Воронеж',
+		'Дзержинск',
+		'Казань',
+		'Калининград',
+		'Краснодар',
+		'Набережные Челны',
+		'Оренбург',
+		'Ростов-на-Дону',
+		'Самара',
+		'Ульяновск',
+		'Уфа',
+		'Ярославль'
 	);
 
 	return $ymapsl_cities;
@@ -445,12 +458,17 @@ function ymapsl_search_stores() {
 		}
 		curl_multi_close($mh);
 
+		if (empty($available_stores_with_id)){
+			echo json_encode(array());
+			die();
+		}
 
 		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/available_stores_with_id.txt", print_r( $available_stores_with_id, true ) . "\r\n", FILE_APPEND | LOCK_EX );
 
 		$icon_num = 1;
 		foreach ( $available_stores_with_id as $store ) {
 			$store_id            = $store->ID;
+			$store_sim_qty       = $store->qty;
 			$store_name          = $store->post_title;
 			$store_city          = get_post_meta( $store_id, '_ymapsl_city', true );
 			$store_address       = get_post_meta( $store_id, '_ymapsl_address', true );
@@ -466,6 +484,10 @@ function ymapsl_search_stores() {
             } else {
 				$store_comment_map = '';
 				$store_comment_list = '';
+            }
+
+			if (empty($store_opening_hours)){
+				$store_opening_hours = 'уточнять по телефону';
             }
 
 			$addressshop[1]['features'][] = array(
@@ -484,7 +506,7 @@ function ymapsl_search_stores() {
 
 			$addressshop[0]['address'][] = array(
 				'id'            => intval( $store_id ),
-				'qty'           => 1,
+				'qty'           => $store_sim_qty,
 				'name'          => $store_name,
 				'city'          => $store_city,
 				'address'       => $store_address,
