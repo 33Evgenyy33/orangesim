@@ -1,0 +1,67 @@
+Array
+(
+    [ymapsl_field_pill] => Array
+        (
+            [0] => red
+            [1] => blue
+        )
+
+)
+
+Array
+(
+    [ymapsl_field_pill] => Array
+        (
+            [0] => red
+            [1] => blue
+        )
+
+)
+
+Array
+(
+    [ymapsl_field_pill] => Array
+        (
+            [0] => red
+            [1] => blue
+        )
+
+)
+
+Array
+(
+    [ymapsl_field_pill] => Array
+        (
+            [0] => blue
+        )
+
+)
+
+Array
+(
+    [ymapsl_field_pill] => Array
+        (
+            [0] => red
+        )
+
+)
+
+Array
+(
+    [ymapsl_field_pill] => Array
+        (
+            [0] => red
+        )
+
+)
+
+Array
+(
+    [ymapsl_field_pill] => Array
+        (
+            [0] => red
+            [1] => blue
+        )
+
+)
+

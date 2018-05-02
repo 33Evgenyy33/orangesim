@@ -1,0 +1,485 @@
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 83526
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+        )
+
+)
+
+3
+stdClass Object
+(
+    [ID] => 83532
+    [post_title] => Онлайн-тур
+)
+
+Array
+(
+    [0] => 83532
+    [1] => 83530
+    [2] => 83528
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+        )
+
+)
+
+Array
+(
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [(wp_postmeta.meta_key = '_ymapsl_city')] => 1
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+            [(wp_postmeta.meta_key = '_ymapsl_city')] => 1
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+            [(wp_postmeta.meta_key = '_ymapsl_city')] => 1
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [meta_value] => Москва
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+            [meta_value] => Москва
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+            [meta_value] => Москва
+        )
+
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [meta_value] => Москва
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+            [meta_value] => Москва
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+            [meta_value] => Москва
+        )
+
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [meta_value] => Москва
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+            [meta_value] => Москва
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+            [meta_value] => Москва
+        )
+
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [meta_key] => _ymapsl_city
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+            [meta_key] => _ymapsl_city
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+            [meta_key] => _ymapsl_city
+        )
+
+)
+
+Array
+(
+)
+
+Array
+(
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 83530
+            [post_title] => Люмас
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 83528
+            [post_title] => Pronto Tour
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [meta_value] => ул. Кузнецкий Мост, 19с1, под. 5, оф. 22
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [meta_value] => ул. Кузнецкий Мост, 19с1, под. 5, оф. 22
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [meta_value] => ул. Кузнецкий Мост, 19с1, под. 5, оф. 22
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [meta_value] => ул. Кузнецкий Мост, 19с1, под. 5, оф. 22
+        )
+
+)
+
+1
+ул. Кузнецкий Мост, 19с1, под. 5, оф. 22
+stdClass Object
+(
+    [meta_value] => ул. Кузнецкий Мост, 19с1, под. 5, оф. 22
+)
+
+
+
+
+ул. Кузнецкий Мост, 19с1, под. 5, оф. 22

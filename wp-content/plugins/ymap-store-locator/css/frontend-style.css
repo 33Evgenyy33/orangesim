@@ -68,12 +68,40 @@
     background: #fafafa;
 }
 
-.ymapsl-store-details a {
-    text-decoration: none;
-    font-weight: 700;
+.ymapsl-store-details  .ymapsl-store-name{
+    padding: 7px 10px;
+    background: #edeef2;
+    display: flex;
+    justify-content: space-between;
 }
 
-span.store-sim-qty {
+.ymapsl-store-details > *:last-child{
+    padding-bottom: 7px;
+}
+
+.ymapsl-store-details > div{
+    padding: 3px 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.ymapsl-store-details i {
+    width: 17px;
+}
+
+.ymapsl-store-name > span {
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.store-sim-qty-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #818181;
+}
+
+.store-sim-qty {
     background: #f98200;
     border-radius: 0.9em;
     color: #ffffff;
@@ -83,13 +111,11 @@ span.store-sim-qty {
     width: 27px;
     height: 27px;
     line-height: 27px;
-    font-size: 0.90rem;
+    font-size: 0.9rem;
 }
 
-.ymapsl-store-details > p > *:not(a) {
-    display: block;
-    font-size: 0.97rem;
-    line-height: 25px;
+.ymapsl-store-address {
+    line-height: 24px;
 }
 
 #ymapsl_map_wrap {

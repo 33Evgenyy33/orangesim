@@ -1,0 +1,521 @@
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+        )
+
+    [1] => WP_Post Object
+        (
+            [ID] => 83530
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:30:18
+            [post_date_gmt] => 2018-04-27 22:30:18
+            [post_content] => 
+            [post_title] => Люмас
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => lyumas
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:30:18
+            [post_modified_gmt] => 2018-04-27 22:30:18
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83530
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+        )
+
+    [2] => WP_Post Object
+        (
+            [ID] => 83528
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:28:13
+            [post_date_gmt] => 2018-04-27 22:28:13
+            [post_content] => 
+            [post_title] => Pronto Tour
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => pronto-tour
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:28:13
+            [post_modified_gmt] => 2018-04-27 22:28:13
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83528
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+        )
+
+    [3] => WP_Post Object
+        (
+            [ID] => 83526
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:25:43
+            [post_date_gmt] => 2018-04-27 22:25:43
+            [post_content] => 
+            [post_title] => Флагман Тревел
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => flagman-trevel
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:25:43
+            [post_modified_gmt] => 2018-04-27 22:25:43
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83526
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+        )
+
+)
+
+
+WP_Query Object
+(
+    [query] => Array
+        (
+            [post_type] => ymap_stores
+            [post_status] => publish
+            [meta_query] => Array
+                (
+                    [0] => Array
+                        (
+                            [key] => _ymapsl_city
+                            [value] => Москва
+                        )
+
+                )
+
+            [orderby] => date
+            [order] => DESC
+        )
+
+    [query_vars] => Array
+        (
+            [post_type] => ymap_stores
+            [post_status] => publish
+            [meta_query] => Array
+                (
+                    [0] => Array
+                        (
+                            [key] => _ymapsl_city
+                            [value] => Москва
+                        )
+
+                )
+
+            [orderby] => date
+            [order] => DESC
+            [error] => 
+            [m] => 
+            [p] => 0
+            [post_parent] => 
+            [subpost] => 
+            [subpost_id] => 
+            [attachment] => 
+            [attachment_id] => 0
+            [name] => 
+            [static] => 
+            [pagename] => 
+            [page_id] => 0
+            [second] => 
+            [minute] => 
+            [hour] => 
+            [day] => 0
+            [monthnum] => 0
+            [year] => 0
+            [w] => 0
+            [category_name] => 
+            [tag] => 
+            [cat] => 
+            [tag_id] => 
+            [author] => 
+            [author_name] => 
+            [feed] => 
+            [tb] => 
+            [paged] => 0
+            [meta_key] => 
+            [meta_value] => 
+            [preview] => 
+            [s] => 
+            [sentence] => 
+            [title] => 
+            [fields] => 
+            [menu_order] => 
+            [embed] => 
+            [category__in] => Array
+                (
+                )
+
+            [category__not_in] => Array
+                (
+                )
+
+            [category__and] => Array
+                (
+                )
+
+            [post__in] => Array
+                (
+                )
+
+            [post__not_in] => Array
+                (
+                )
+
+            [post_name__in] => Array
+                (
+                )
+
+            [tag__in] => Array
+                (
+                )
+
+            [tag__not_in] => Array
+                (
+                )
+
+            [tag__and] => Array
+                (
+                )
+
+            [tag_slug__in] => Array
+                (
+                )
+
+            [tag_slug__and] => Array
+                (
+                )
+
+            [post_parent__in] => Array
+                (
+                )
+
+            [post_parent__not_in] => Array
+                (
+                )
+
+            [author__in] => Array
+                (
+                )
+
+            [author__not_in] => Array
+                (
+                )
+
+            [ignore_sticky_posts] => 
+            [suppress_filters] => 
+            [cache_results] => 1
+            [update_post_term_cache] => 1
+            [lazy_load_term_meta] => 1
+            [update_post_meta_cache] => 1
+            [posts_per_page] => 10
+            [nopaging] => 
+            [comments_per_page] => 50
+            [no_found_rows] => 
+        )
+
+    [tax_query] => WP_Tax_Query Object
+        (
+            [queries] => Array
+                (
+                )
+
+            [relation] => AND
+            [table_aliases:protected] => Array
+                (
+                )
+
+            [queried_terms] => Array
+                (
+                )
+
+            [primary_table] => wp_posts
+            [primary_id_column] => ID
+        )
+
+    [meta_query] => WP_Meta_Query Object
+        (
+            [queries] => Array
+                (
+                    [0] => Array
+                        (
+                            [key] => _ymapsl_city
+                            [value] => Москва
+                        )
+
+                    [relation] => OR
+                )
+
+            [relation] => AND
+            [meta_table] => wp_postmeta
+            [meta_id_column] => post_id
+            [primary_table] => wp_posts
+            [primary_id_column] => ID
+            [table_aliases:protected] => Array
+                (
+                    [0] => wp_postmeta
+                )
+
+            [clauses:protected] => Array
+                (
+                    [wp_postmeta] => Array
+                        (
+                            [key] => _ymapsl_city
+                            [value] => Москва
+                            [compare] => =
+                            [alias] => wp_postmeta
+                            [cast] => CHAR
+                        )
+
+                )
+
+            [has_or_relation:protected] => 
+        )
+
+    [date_query] => 
+    [request] => SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts  INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id ) WHERE 1=1  AND ( 
+  ( wp_postmeta.meta_key = '_ymapsl_city' AND wp_postmeta.meta_value = 'Москва' )
+) AND wp_posts.post_type = 'ymap_stores' AND ((wp_posts.post_status = 'publish')) GROUP BY wp_posts.ID ORDER BY wp_posts.post_date DESC LIMIT 0, 10
+    [posts] => Array
+        (
+            [0] => WP_Post Object
+                (
+                    [ID] => 83532
+                    [post_author] => 1
+                    [post_date] => 2018-04-28 01:41:15
+                    [post_date_gmt] => 2018-04-27 22:41:15
+                    [post_content] => 
+                    [post_title] => Онлайн-тур
+                    [post_excerpt] => 
+                    [post_status] => publish
+                    [comment_status] => closed
+                    [ping_status] => closed
+                    [post_password] => 
+                    [post_name] => onlajn-tur
+                    [to_ping] => 
+                    [pinged] => 
+                    [post_modified] => 2018-04-28 01:41:15
+                    [post_modified_gmt] => 2018-04-27 22:41:15
+                    [post_content_filtered] => 
+                    [post_parent] => 0
+                    [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+                    [menu_order] => 0
+                    [post_type] => ymap_stores
+                    [post_mime_type] => 
+                    [comment_count] => 0
+                    [filter] => raw
+                )
+
+            [1] => WP_Post Object
+                (
+                    [ID] => 83530
+                    [post_author] => 1
+                    [post_date] => 2018-04-28 01:30:18
+                    [post_date_gmt] => 2018-04-27 22:30:18
+                    [post_content] => 
+                    [post_title] => Люмас
+                    [post_excerpt] => 
+                    [post_status] => publish
+                    [comment_status] => closed
+                    [ping_status] => closed
+                    [post_password] => 
+                    [post_name] => lyumas
+                    [to_ping] => 
+                    [pinged] => 
+                    [post_modified] => 2018-04-28 01:30:18
+                    [post_modified_gmt] => 2018-04-27 22:30:18
+                    [post_content_filtered] => 
+                    [post_parent] => 0
+                    [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83530
+                    [menu_order] => 0
+                    [post_type] => ymap_stores
+                    [post_mime_type] => 
+                    [comment_count] => 0
+                    [filter] => raw
+                )
+
+            [2] => WP_Post Object
+                (
+                    [ID] => 83528
+                    [post_author] => 1
+                    [post_date] => 2018-04-28 01:28:13
+                    [post_date_gmt] => 2018-04-27 22:28:13
+                    [post_content] => 
+                    [post_title] => Pronto Tour
+                    [post_excerpt] => 
+                    [post_status] => publish
+                    [comment_status] => closed
+                    [ping_status] => closed
+                    [post_password] => 
+                    [post_name] => pronto-tour
+                    [to_ping] => 
+                    [pinged] => 
+                    [post_modified] => 2018-04-28 01:28:13
+                    [post_modified_gmt] => 2018-04-27 22:28:13
+                    [post_content_filtered] => 
+                    [post_parent] => 0
+                    [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83528
+                    [menu_order] => 0
+                    [post_type] => ymap_stores
+                    [post_mime_type] => 
+                    [comment_count] => 0
+                    [filter] => raw
+                )
+
+            [3] => WP_Post Object
+                (
+                    [ID] => 83526
+                    [post_author] => 1
+                    [post_date] => 2018-04-28 01:25:43
+                    [post_date_gmt] => 2018-04-27 22:25:43
+                    [post_content] => 
+                    [post_title] => Флагман Тревел
+                    [post_excerpt] => 
+                    [post_status] => publish
+                    [comment_status] => closed
+                    [ping_status] => closed
+                    [post_password] => 
+                    [post_name] => flagman-trevel
+                    [to_ping] => 
+                    [pinged] => 
+                    [post_modified] => 2018-04-28 01:25:43
+                    [post_modified_gmt] => 2018-04-27 22:25:43
+                    [post_content_filtered] => 
+                    [post_parent] => 0
+                    [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83526
+                    [menu_order] => 0
+                    [post_type] => ymap_stores
+                    [post_mime_type] => 
+                    [comment_count] => 0
+                    [filter] => raw
+                )
+
+        )
+
+    [post_count] => 4
+    [current_post] => -1
+    [in_the_loop] => 
+    [post] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+        )
+
+    [comment_count] => 0
+    [current_comment] => -1
+    [found_posts] => 4
+    [max_num_pages] => 1
+    [max_num_comment_pages] => 0
+    [is_single] => 
+    [is_preview] => 
+    [is_page] => 
+    [is_archive] => 
+    [is_date] => 
+    [is_year] => 
+    [is_month] => 
+    [is_day] => 
+    [is_time] => 
+    [is_author] => 
+    [is_category] => 
+    [is_tag] => 
+    [is_tax] => 
+    [is_search] => 
+    [is_feed] => 
+    [is_comment_feed] => 
+    [is_trackback] => 
+    [is_home] => 1
+    [is_404] => 
+    [is_embed] => 
+    [is_paged] => 
+    [is_admin] => 
+    [is_attachment] => 
+    [is_singular] => 
+    [is_robots] => 
+    [is_posts_page] => 
+    [is_post_type_archive] => 
+    [query_vars_hash:WP_Query:private] => 0fc776eb41bb9b75495a5fb8e8df1e7e
+    [query_vars_changed:WP_Query:private] => 
+    [thumbnails_cached] => 
+    [stopwords:WP_Query:private] => 
+    [compat_fields:WP_Query:private] => Array
+        (
+            [0] => query_vars_hash
+            [1] => query_vars_changed
+        )
+
+    [compat_methods:WP_Query:private] => Array
+        (
+            [0] => init_query_flags
+            [1] => parse_tax_query
+        )
+
+)
+

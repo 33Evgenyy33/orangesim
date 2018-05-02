@@ -1,0 +1,42 @@
+<?php
+/**
+ WORDPRESS SPECIFIC AJAX HANDLER (because admin-ajax.php does not render plugin shortcodes).
+ by alexandre@pixeline.be
+ credits: Raz Ohad https://coderwall.com/p/of7y2q/faster-ajax-for-wordpress
+*/
+
+//mimic the actual admin-ajax
+define('DOING_AJAX', true);
+
+if (!isset( $_REQUEST['action']))
+	die('-1');
+
+
+//define('SHORTINIT', true);
+//require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-settings.php' );
+
+
+require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' );
+//Typical headers
+header('Content-Type: text/html; charset=utf-8');
+send_nosniff_header();
+//Disable caching
+header('Cache-Control: no-cache');
+header('Pragma: no-cache');
+//wp_plugin_directory_constants();
+
+$action = esc_attr(trim($_REQUEST['action']));
+// Declare all actions that you will use this ajax handler for, as an added security measure.
+$allowed_actions = array(
+	'dothis_dothat',
+	'ymapsl_search_stores'
+);
+// Change DUMMY_ to something unique to your project.
+if(in_array($action, $allowed_actions)) {
+	if(is_user_logged_in())
+		do_action('DUMMY_'.$action);
+	else
+		do_action('DUMMY_nopriv_'.$action);
+} else {
+	die('-1');
+}

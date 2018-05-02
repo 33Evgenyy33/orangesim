@@ -116,3 +116,26 @@ Stack trace:
 
 2018-04-23T21:45:12+00:00 CRITICAL Out of memory (allocated 1115684864) (tried to allocate 1052672 bytes)
 
+2018-05-02T15:10:53+00:00 CRITICAL Out of memory (allocated 773849088) (tried to allocate 1052672 bytes)
+
+2018-05-03T02:13:13+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\ymap-store-locator\ymap-store-locator.php:331. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console
+
+2018-05-03T02:13:15+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\ymap-store-locator\ymap-store-locator.php:331. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console
+
+2018-05-03T02:13:17+00:00 CRITICAL Uncaught Exception: Unable to process response data, headers already sent in C:\OpenServer\domains\orangesim\wp-content\plugins\ymap-store-locator\ymap-store-locator.php:331. Try to use ob_start() and don't use flush(). in C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php:519
+Stack trace:
+#0 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(512): PhpConsole\Connector->setHeaderData('{"protocol":5,"...', 'PHP-Console-Pos...', true)
+#1 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(132): PhpConsole\Connector->setPostponeHeader()
+#2 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console\php-console\src\PhpConsole\Connector.php(96): PhpConsole\Connector->initConnection()
+#3 C:\OpenServer\domains\orangesim\wp-content\plugins\wp-php-console\vendor\php-console
+

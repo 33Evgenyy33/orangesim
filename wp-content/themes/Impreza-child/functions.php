@@ -883,8 +883,3 @@ function woocommerce_checkout_shipping() {
     </style>
 	<?php
 }
-
-//add_action( 'woocommerce_checkout_create_order', 'add_domain_to_order_meta', 10, 1 );
-function add_domain_to_order_meta( $order ) {
-	$order->add_meta_data( 'euro_rate', '78' );
-}

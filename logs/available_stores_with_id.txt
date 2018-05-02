@@ -6914,3 +6914,3184 @@ Array
 
 )
 
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 50
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 49
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 45
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83485
+            [post_author] => 1
+            [post_date] => 2018-04-28 00:11:28
+            [post_date_gmt] => 2018-04-27 21:11:28
+            [post_content] => 
+            [post_title] => Ливерпуль Тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => liverpul-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 00:11:28
+            [post_modified_gmt] => 2018-04-27 21:11:28
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83485
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 48
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => WP_Post Object
+        (
+            [ID] => 83532
+            [post_author] => 1
+            [post_date] => 2018-04-28 01:41:15
+            [post_date_gmt] => 2018-04-27 22:41:15
+            [post_content] => 
+            [post_title] => Онлайн-тур
+            [post_excerpt] => 
+            [post_status] => publish
+            [comment_status] => closed
+            [ping_status] => closed
+            [post_password] => 
+            [post_name] => onlajn-tur
+            [to_ping] => 
+            [pinged] => 
+            [post_modified] => 2018-04-28 01:41:15
+            [post_modified_gmt] => 2018-04-27 22:41:15
+            [post_content_filtered] => 
+            [post_parent] => 0
+            [guid] => http://orangesim/?post_type=ymap_stores&#038;p=83532
+            [menu_order] => 0
+            [post_type] => ymap_stores
+            [post_mime_type] => 
+            [comment_count] => 0
+            [filter] => raw
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [(wp_postmeta.meta_key = '_ymapsl_city')] => 1
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [meta_value] => Москва
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [meta_value] => Москва
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [meta_value] => Москва
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [meta_key] => _ymapsl_city
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83493
+            [post_title] => Студио Туризмо
+            [qty] => 10
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83491
+            [post_title] => СВ-вояж
+            [qty] => 8
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83532
+            [post_title] => Онлайн-тур
+            [qty] => 44
+        )
+
+)
+
+Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 83485
+            [post_title] => Ливерпуль Тур
+            [qty] => 47
+        )
+
+)
+

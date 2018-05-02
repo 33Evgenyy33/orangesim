@@ -118,14 +118,16 @@ jQuery(document).ready(function ($) {
                     src_res +=
                         '<li>' +
                           '<div class="ymapsl-store-details">' +
-                            '<p>' +
-                              '<a href="#" data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '">' + json[0].address[i].name + '</a>' +
-                              '<span><strong>в наличии: <span class="store-sim-qty">'+ json[0].address[i].qty +'</span></strong></span>' +
-                              '<span><strong>город: </strong>'+ json[0].address[i].city +'</span>' +
-                              '<span><strong>адрес: </strong>'+ json[0].address[i].address +'</span>' +
-                              '<span><strong>режим работы: </strong>' +json[0].address[i].opening_hours +'</span>' +
-                              '<span><strong>тел.: </strong>'+ json[0].address[i].phone +'</span>' +
-                            '</p>' +
+                              '<div class="ymapsl-store-name">' +
+                                '<span>' + json[0].address[i].name + '</span>' +
+                                '<div>' +
+                                    '<span class="store-sim-qty-title">кол-во: </span>' +
+                                    '<span class="store-sim-qty">'+ json[0].address[i].qty +'</span>' +
+                                '</div>' +
+                                '</div>' +
+                              '<div class="ymapsl-store-address"><a href="#" data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="fas fa-map-marker-alt"></i> ' + json[0].address[i].city + ', ' + json[0].address[i].address + '</span></a></div>' +
+                              '<div class="ymapsl-store-schedule"><i class="fas fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
+                              '<div class="ymapsl-store-contact"><i class="fas fa-phone"></i> ' + json[0].address[i].phone + '</div>' +
                              storeComment +
                           '</div>' +
                         '</li>';

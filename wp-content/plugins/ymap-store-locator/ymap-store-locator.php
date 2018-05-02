@@ -157,7 +157,7 @@ function ymapsl_add_custom_box() {
 
 function ymapsl_custom_box_html( $post ) {
 
-	$meta_fields = apply_filters( 'ymapsl_meta_fields', '' );
+//	$meta_fields = apply_filters( 'ymapsl_meta_fields', '' ); // Получаем все мета поля ymapsl_meta_fields
 
 	?>
     <div class="ymapsl-form">
@@ -246,29 +246,11 @@ function ymapsl_save_postdata( $post_id ) {
 			update_post_meta( $post_id, '_ymapsl_' . $field_key, $_POST[ 'ymapsl_' . $field_key ] );
 		}
 	}
-
-	$args = array(
-		'post_type'   => 'ymap_stores',
-		'post_status' => 'publish',
-		'meta_query'  => array(
-			array(
-				'key'   => '_ymapsl_city',
-				'value' => 'Пенза'
-			)
-		)
-	);
-//	$query = new WP_Query();
-
-//	$my_posts = $query->query( $args );
-
-//	foreach ( $my_posts as $pst ) {
-//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/WP_Query.txt", print_r( $pst, true ) . "\r\n", FILE_APPEND | LOCK_EX );
-//	}
 }
 
 add_action( 'wp_enqueue_scripts', 'load_scripts_for_frontend' );
 function load_scripts_for_frontend() {
-	if ( ! is_front_page() ) { //Важно!!! для главной страницы заменить на ( is_front_page() )
+	if ( ! is_front_page() ) { //Важно!!! для главной страницы заменить на ( is_front_page() т.е. убираем знак ! )
 
 		$style_url  = plugins_url( '/css/', __FILE__ );
 		$script_url = plugins_url( '/js/', __FILE__ );
@@ -280,14 +262,14 @@ function load_scripts_for_frontend() {
 
 		wp_localize_script( 'jquery', 'ymapsl_ajax',
 			array(
-				'url' => admin_url('admin-ajax.php')
+				'url' => 'http://orangesim/wp-content/plugins/ymap-store-locator/ajax-handler-wp.php'
 			)
 		);
 
 		wp_register_script( 'ymaps-frontend-js', 'http://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 		wp_enqueue_script( 'ymaps-frontend-js' );
 
-		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
+		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
 		wp_enqueue_script( 'ymapsl-frontend-js', $script_url . 'frontend-script.js', array(
 			'jquery',
 			'ymaps-frontend-js',
@@ -296,6 +278,168 @@ function load_scripts_for_frontend() {
 
 	}
 }
+
+
+/**
+ * custom option and settings
+ */
+
+function ymapsl_settings_init() {
+	// register a new setting for "wporg" page
+	register_setting( 'ymapsl_settings', 'ymapsl_settings' );
+
+	// register a new section in the "wporg" page
+	add_settings_section(
+		'ymapsl_section_developers',
+		__( 'The Matrix has you.', 'wporg' ),
+		'ymapsl_section_developers_cb',
+		'ymapsl_settings'
+	);
+
+	// register a new field in the "wporg_section_developers" section, inside the "wporg" page
+	add_settings_field(
+		'ymapsl_field_pill', // as of WP 4.6 this value is used only internally
+		// use $args' label_for to populate the id inside the callback
+		__( 'Pill', 'wporg' ),
+		'ymapsl_field_pill_cb',
+		'ymapsl_settings',
+		'ymapsl_section_developers',
+		[
+			'label_for' => 'ymapsl_field_pill',
+			'class' => 'ymapsl_row',
+			'ymapsl_custom_data' => 'custom',
+		]
+	);
+}
+
+/**
+ * register our wporg_settings_init to the admin_init action hook
+ */
+add_action( 'admin_init', 'ymapsl_settings_init' );
+
+/**
+ * custom option and settings:
+ * callback functions
+ */
+
+// developers section cb
+
+// section callbacks can accept an $args parameter, which is an array.
+// $args have the following keys defined: title, id, callback.
+// the values are defined at the add_settings_section() function.
+function ymapsl_section_developers_cb( $args ) {
+	?>
+    <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e( 'Follow the white rabbit.', 'wporg' ); ?></p>
+	<?php
+}
+
+// pill field cb
+
+// field callbacks can accept an $args parameter, which is an array.
+// $args is defined at the add_settings_field() function.
+// wordpress has magic interaction with the following keys: label_for, class.
+// the "label_for" key value is used for the "for" attribute of the <label>.
+// the "class" key value is used for the "class" attribute of the <tr> containing the field.
+// you can add custom key value pairs to be used inside your callbacks.
+function ymapsl_field_pill_cb( $args ) {
+	// get the value of the setting we've registered with register_setting()
+	$options = get_option( 'ymapsl_settings' );
+	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1options.txt", print_r( $options, true ) . "\r\n", FILE_APPEND | LOCK_EX );
+
+	// output the field
+	?>
+    <select id="<?php echo esc_attr( $args['label_for'] ); ?>"
+            data-custom="<?php echo esc_attr( $args['ymapsl_custom_data'] ); ?>"
+            name="ymapsl_settings[<?php echo esc_attr( $args['label_for'] ); ?>][]"
+            multiple="multiple"
+    >
+        <option value="red" <?= (isset( $options[ $args['label_for'] ] ) && array_search('red', $options[ $args['label_for'] ]) !== false) ? ( 'selected="selected"' ) : ( '' ); ?>>
+			<?php esc_html_e( 'red pill', 'wporg' ); ?>
+        </option>
+        <option value="blue" <?= (isset( $options[ $args['label_for'] ] ) && array_search('blue', $options[ $args['label_for'] ]) !== false ) ? ('selected="selected"') : ( '' ); ?>>
+			<?php esc_html_e( 'blue pill', 'wporg' ); ?>
+        </option>
+    </select>
+    <p class="description">
+		<?php esc_html_e( 'You take the blue pill and the story ends. You wake in your bed and you believe whatever you want to believe.', 'wporg' ); ?>
+    </p>
+    <p class="description">
+		<?php esc_html_e( 'You take the red pill and you stay in Wonderland and I show you how deep the rabbit-hole goes.', 'wporg' ); ?>
+    </p>
+	<?php
+}
+
+/**
+ * top level menu
+ */
+function ymapsl_settings_page() {
+	// add top level menu page
+
+	add_submenu_page(
+		'edit.php?post_type=ymap_stores',
+		'WPOrg Options',
+		'WPOrg Options',
+		'manage_options',
+		'ymapsl_settings',
+		'ymapsl_settings_page_html'
+	);
+}
+
+/**
+ * register our ymapsl_settings_page to the admin_menu action hook
+ */
+add_action( 'admin_menu', 'ymapsl_settings_page' );
+
+/**
+ * top level menu:
+ * callback functions
+ */
+function ymapsl_settings_page_html() {
+	// check user capabilities
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	// add error/update messages
+
+	// check if the user have submitted the settings
+	// wordpress will add the "settings-updated" $_GET parameter to the url
+	if ( isset( $_GET['settings-updated'] ) ) {
+		// add settings saved message with the class of "updated"
+		add_settings_error( 'ymapsl_messages', 'ymapsl_message', __( 'Settings Saved', 'wporg' ), 'updated' );
+	}
+
+	// show error/update messages
+	settings_errors( 'ymapsl_messages' );
+	?>
+    <div class="wrap">
+        <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+        <form action="options.php" method="post">
+			<?php
+			// output security fields for the registered setting "wporg"
+			settings_fields( 'ymapsl_settings' );
+			// output setting sections and their fields
+			// (sections are registered for "wporg", each field is registered to a specific section)
+			do_settings_sections( 'ymapsl_settings' );
+			// output save settings button
+			submit_button( 'Save Settings' );
+			?>
+        </form>
+    </div>
+	<?php
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 add_filter( 'ymapsl_cities', 'get_ymapsl_cities' );
 function get_ymapsl_cities( $content ) {
@@ -327,7 +471,7 @@ function ymapsl_frontend() {
 	$ymapsl_cities = apply_filters( 'ymapsl_cities', '' );
 
 	$output = '';
-	$output .= '<div id="ymapsl_wrap">'. "\r\n";
+	$output .= '<div id="ymapsl_wrap">' . "\r\n";
 	$output .= "\t" . '<div class="ymapsl-loader-wrap">' . "\r\n";
 	$output .= "\t\t" . '<div class="ymapsl-loader">' . "\r\n";
 	$output .= "\t\t\t" . '<div class="ymapsl-loader-bounceball"></div>' . "\r\n";
@@ -356,173 +500,4 @@ function ymapsl_frontend() {
 	$output .= '</div>';
 
 	return $output;
-}
-
-add_action( 'wp_ajax_nopriv_ymapsl_search_stores', 'ymapsl_search_stores' );
-add_action( 'wp_ajax_ymapsl_search_stores', 'ymapsl_search_stores' );
-function ymapsl_search_stores() {
-	global $wpdb;
-	// проверяем nonce код, если проверка не пройдена прерываем обработку
-//	check_ajax_referer( 'myajax-nonce', 'nonce_code' );
-	// или так
-//	if( ! wp_verify_nonce( $_POST['nonce_code'], 'myajax-nonce' ) ) die( 'Stop!');
-
-	if ( isset( $_POST['city'] ) ) {
-		$selected_city = $_POST['city'];
-
-		if ( empty( $selected_city ) ) {
-			die();
-		}
-
-		$args = array(
-			'post_type'   => 'ymap_stores',
-			'post_status' => 'publish',
-			'meta_query'  => array(
-				array(
-					'key'   => '_ymapsl_city',
-					'value' => $selected_city
-				)
-			),
-            'orderby' => 'date',
-            'order' => 'DESC'
-		);
-
-		$query = new WP_Query();
-
-		$my_posts = $query->query( $args );
-
-		$addressshop         = array();
-		$addressshop[1]['type'] = 'FeatureCollection';
-
-//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/all_stores.txt", print_r( $my_posts, true ) . "\r\n", FILE_APPEND | LOCK_EX );
-
-        if (empty($my_posts)){
-            echo json_encode(array());
-            die();
-        }
-
-		$stores_without_id = array();
-		$stores_with_id = array();
-		$urls = array();
-		foreach ($my_posts as $one_post) {
-			$ta_id = get_post_meta( $one_post->ID, '_ymapsl_id_ta', true );
-
-			if (!$ta_id) {
-//				array_push($stores_without_id, $one_post);
-				continue;
-			}
-
-			array_push($urls, "http://seller.sgsim.ru/euroroaming_order_submit?operation=get_simcards_new&ta=$ta_id");
-			array_push($stores_with_id, $one_post);
-		}
-		$available_stores_with_id = array();
-		$res = array();
-		$mh = curl_multi_init();
-		foreach ($urls as $i => $url) {
-			$conn[$i] = curl_init($url);
-			curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, 1);  //ничего в браузер не давать
-			curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 10); //таймаут соединения
-			curl_multi_add_handle($mh, $conn[$i]);
-		}//Пока все соединения не отработают
-		do {
-			curl_multi_exec($mh, $active);
-		} while ($active);
-
-		//разбор полетов
-		for ($i = 0; $i < count($urls); $i++) {
-			//ответ сервера в переменную
-			$resp      = curl_multi_getcontent( $conn[ $i ] );
-			$res[ $i ] = $resp;
-			//Если вернулся пустой массив, то сим-карт нет в наличие, пункт не отображается
-			if ( empty( $resp ) ) {
-				continue;
-			}
-
-			$array_of_simcard = (array) json_decode( $resp );
-
-			file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1array_of_simcard.txt", print_r( $array_of_simcard, true ) . "\r\n", FILE_APPEND | LOCK_EX );
-
-			$exist_operators = array();
-			foreach ($array_of_simcard as $key => $numbers) {
-				array_push($exist_operators, $key);
-			}
-
-			//Заполнения массива имен сим-карт, полученных с селлера
-            if (!in_array('orange', $exist_operators)) continue;
-
-			$stores_with_id[$i]->qty = count($array_of_simcard['orange']);
-            array_push($available_stores_with_id, $stores_with_id[$i]);
-
-			curl_multi_remove_handle($mh, $conn[$i]);
-			curl_close($conn[$i]);
-		}
-		curl_multi_close($mh);
-
-		if (empty($available_stores_with_id)){
-			echo json_encode(array());
-			die();
-		}
-
-		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/available_stores_with_id.txt", print_r( $available_stores_with_id, true ) . "\r\n", FILE_APPEND | LOCK_EX );
-
-		$icon_num = 1;
-		foreach ( $available_stores_with_id as $store ) {
-			$store_id            = $store->ID;
-			$store_sim_qty       = $store->qty;
-			$store_name          = $store->post_title;
-			$store_city          = get_post_meta( $store_id, '_ymapsl_city', true );
-			$store_address       = get_post_meta( $store_id, '_ymapsl_address', true );
-			$store_phone         = get_post_meta( $store_id, '_ymapsl_phone', true );
-			$store_opening_hours = get_post_meta( $store_id, '_ymapsl_opening_hours', true );
-			$store_comment       = get_post_meta( $store_id, '_ymapsl_comment', true );
-			$store_lng           = get_post_meta( $store_id, '_ymapsl_lng', true );
-			$store_lat           = get_post_meta( $store_id, '_ymapsl_lat', true );
-
-			if (!empty($store_comment)){
-				$store_comment_map = '<strong>Прмечание: </strong>' . $store_comment;
-				$store_comment_list = $store_comment;
-            } else {
-				$store_comment_map = '';
-				$store_comment_list = '';
-            }
-
-			if (empty($store_opening_hours)){
-				$store_opening_hours = 'уточнять по телефону';
-            }
-
-			$addressshop[1]['features'][] = array(
-				"type"       => "Feature",
-				"id"         => intval( $store_id ),
-				"geometry"   => array(
-					"type"        => "Point",
-					"coordinates" => [ floatval( $store_lng ), floatval( $store_lat ) ]
-				),
-				"properties" => array(
-					"balloonContentHeader" => "<div style='color:#2977e0;font-weight:bold'> {$store_name} </div>",
-					"balloonContentBody"   => "<div style='font-size:13px;'><div><strong>Адрес: </strong>{$store_address}<br><strong>Режим работы: </strong>{$store_opening_hours}<br><strong>Тел.: </strong>{$store_phone}<br>{$store_comment_map}</div></div>",
-                    "iconContent"          => $store_name
-                    )
-			);
-
-			$addressshop[0]['address'][] = array(
-				'id'            => intval( $store_id ),
-				'qty'           => $store_sim_qty,
-				'name'          => $store_name,
-				'city'          => $store_city,
-				'address'       => $store_address,
-				'phone'         => $store_phone,
-				'opening_hours' => $store_opening_hours,
-				'comment'       => $store_comment_list
-			);
-
-			$icon_num++;
-
-		}
-
-		$json = json_encode(array($addressshop[0],$addressshop[1]), JSON_UNESCAPED_UNICODE );
-
-		echo $json;
-	}
-
-	wp_die();
 }
