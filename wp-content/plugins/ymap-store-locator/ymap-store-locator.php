@@ -367,6 +367,7 @@ function ymapsl_field_pill_cb( $args ) {
 		<?php esc_html_e( 'You take the red pill and you stay in Wonderland and I show you how deep the rabbit-hole goes.', 'wporg' ); ?>
     </p>
 	<?php
+
 }
 
 /**
