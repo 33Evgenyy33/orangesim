@@ -91,6 +91,7 @@ function load_scripts_for_admin( $hook ) {
 }
 
 
+
 add_filter( 'ymapsl_meta_fields', 'get_ymapsl_meta_fields' );
 function get_ymapsl_meta_fields( $content ) {
 
