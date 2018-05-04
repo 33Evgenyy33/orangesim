@@ -143,7 +143,6 @@ function get_ymapsl_meta_fields( $content ) {
 }
 
 
-
 add_action( 'add_meta_boxes', 'ymapsl_add_custom_box' );
 function ymapsl_add_custom_box() {
 
