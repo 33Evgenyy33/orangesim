@@ -26,7 +26,7 @@ const WPSL_VERSION_NUM = '1.0';
 
 add_action( 'init', 'ymapsl_custom_post_type' );
 function ymapsl_custom_post_type() {
-	register_post_type( 'ymap_stores',
+	register_post_type( 'ymapsl_stores',
 		array(
 			'labels'              => array(
 				'name'               => 'Пункты выдачи',
@@ -47,7 +47,7 @@ function ymapsl_custom_post_type() {
 			'show_ui'             => true,
 			'capability_type'     => 'store',
 			'map_meta_cap'        => true,
-			'query_var'           => 'ymap_stores',
+			'query_var'           => 'ymapsl_stores',
 			'supports'            => array( 'title', 'author', 'revisions' )
 		)
 	);
@@ -58,7 +58,7 @@ function change_default_title( $title ) {
 
 	$screen = get_current_screen();
 
-	if ( $screen->post_type == 'ymap_stores' ) {
+	if ( $screen->post_type == 'ymapsl_stores' ) {
 		$title = 'Введите название пункта выдачи';
 	}
 
@@ -71,13 +71,13 @@ function load_scripts_for_admin( $hook ) {
 //	if ( ( get_post_type() == 'wpsl_stores' ) || ( isset( $_GET['post_type'] ) && ( $_GET['post_type'] == 'wpsl_stores' ) ) ) {
 
 	if ( $hook == 'post-new.php' || $hook == 'post.php' ) {
-		if ( 'ymap_stores' === get_post_type() ) {
+		if ( 'ymapsl_stores' === get_post_type() ) {
 			$style_url  = plugins_url( '/css/', __FILE__ );
 			$script_url = plugins_url( '/js/', __FILE__ );
 
 			wp_enqueue_style( 'ymapsl-admin-css', $style_url . 'ymapsl-admin.css', false, WPSL_VERSION_NUM );
 
-			wp_register_script( 'ymaps', 'http://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
+			wp_register_script( 'ymaps', 'https://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 			wp_enqueue_script( 'ymaps' );
 
 			wp_enqueue_script( 'ymapsl-admin-js', $script_url . 'ymapsl-admin.js', array(
@@ -146,7 +146,7 @@ function get_ymapsl_meta_fields( $content ) {
 add_action( 'add_meta_boxes', 'ymapsl_add_custom_box' );
 function ymapsl_add_custom_box() {
 
-	$screen = 'ymap_stores';
+	$screen = 'ymapsl_stores';
 	add_meta_box(
 		'ymapsl_box_id',           // Unique ID
 		'Данные ТА',  // Box title
@@ -158,7 +158,7 @@ function ymapsl_add_custom_box() {
 function ymapsl_custom_box_html( $post ) {
 
 //	$meta_fields = apply_filters( 'ymapsl_meta_fields', '' ); // Получаем все мета поля ymapsl_meta_fields
-
+	wp_nonce_field( 'save_store_meta', 'ymapsl_meta_nonce' );
 	?>
     <div class="ymapsl-form">
         <div class="ymapsl-fields">
@@ -226,17 +226,24 @@ function ymapsl_custom_box_html( $post ) {
 add_action( 'save_post', 'ymapsl_save_postdata' );
 function ymapsl_save_postdata( $post_id ) {
 
+	if ( empty( $_POST['ymapsl_meta_nonce'] ) || !wp_verify_nonce( $_POST['ymapsl_meta_nonce'], 'save_store_meta' ) )
+		return;
+
+	if ( !isset( $_POST['post_type'] ) || 'ymapsl_stores' !== $_POST['post_type'] )
+		return;
+
 	if ( ! isset( $_POST['ymapsl_city'] ) || ! isset( $_POST['ymapsl_address'] ) ) {
 		return;
 	}
 
-	if ( is_int( wp_is_post_revision( $post_id ) ) ) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 		return;
-	}
 
-	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+	if ( is_int( wp_is_post_revision( $post_id ) ) )
 		return;
-	}
+
+	if ( !current_user_can( 'edit_post', $post_id ) )
+		return;
 
 	add_filter( 'post_updated_messages', 'your_message' );
 
@@ -252,6 +259,7 @@ add_action( 'wp_enqueue_scripts', 'load_scripts_for_frontend' );
 function load_scripts_for_frontend() {
 	if ( ! is_front_page() ) { //Важно!!! для главной страницы заменить на ( is_front_page() т.е. убираем знак ! )
 
+	    $plugin_url = plugins_url('/',__FILE__);
 		$style_url  = plugins_url( '/css/', __FILE__ );
 		$script_url = plugins_url( '/js/', __FILE__ );
 
@@ -262,11 +270,11 @@ function load_scripts_for_frontend() {
 
 		wp_localize_script( 'jquery', 'ymapsl_ajax',
 			array(
-				'url' => 'http://orangesim/wp-content/plugins/ymap-store-locator/ajax-handler-wp.php'
+				'url' => $plugin_url . '/ajax-handler-wp.php'
 			)
 		);
 
-		wp_register_script( 'ymaps-frontend-js', 'http://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
+		wp_register_script( 'ymaps-frontend-js', 'https://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 		wp_enqueue_script( 'ymaps-frontend-js' );
 
 		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
@@ -344,7 +352,7 @@ function ymapsl_section_developers_cb( $args ) {
 function ymapsl_field_pill_cb( $args ) {
 	// get the value of the setting we've registered with register_setting()
 	$options = get_option( 'ymapsl_settings' );
-	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1options.txt", print_r( $options, true ) . "\r\n", FILE_APPEND | LOCK_EX );
+//	file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1options.txt", print_r( $options, true ) . "\r\n", FILE_APPEND | LOCK_EX );
 
 	// output the field
 	?>
@@ -367,7 +375,6 @@ function ymapsl_field_pill_cb( $args ) {
 		<?php esc_html_e( 'You take the red pill and you stay in Wonderland and I show you how deep the rabbit-hole goes.', 'wporg' ); ?>
     </p>
 	<?php
-
 }
 
 /**
@@ -377,7 +384,7 @@ function ymapsl_settings_page() {
 	// add top level menu page
 
 	add_submenu_page(
-		'edit.php?post_type=ymap_stores',
+		'edit.php?post_type=ymapsl_stores',
 		'WPOrg Options',
 		'WPOrg Options',
 		'manage_options',

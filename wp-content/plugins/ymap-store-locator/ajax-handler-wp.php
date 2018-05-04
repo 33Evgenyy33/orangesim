@@ -50,7 +50,7 @@ function ymapsl_search_stores() {
 
 		$my_posts = $wpdb->get_results($wpdb->prepare("SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID,wp_posts.post_title FROM wp_posts  INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id ) WHERE 1=1  AND ( 
   ( wp_postmeta.meta_key = '_ymapsl_city' AND wp_postmeta.meta_value = %s) 
-) AND wp_posts.post_type = 'ymap_stores' AND ((wp_posts.post_status = 'publish')) GROUP BY wp_posts.ID ORDER BY wp_posts.post_date DESC LIMIT 0, 10", $selected_city ));
+) AND wp_posts.post_type = 'ymapsl_stores' AND ((wp_posts.post_status = 'publish')) GROUP BY wp_posts.ID ORDER BY wp_posts.post_date DESC LIMIT 0, 10", $selected_city ));
 
 		$addressshop         = array();
 		$addressshop[1]['type'] = 'FeatureCollection';
@@ -173,7 +173,7 @@ function get_stores_with_simcards($my_posts){
 
 		$array_of_simcard = (array) json_decode( $resp );
 
-		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1array_of_simcard.txt", print_r( $array_of_simcard, true ) . "\r\n", FILE_APPEND | LOCK_EX );
+//		file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1array_of_simcard.txt", print_r( $array_of_simcard, true ) . "\r\n", FILE_APPEND | LOCK_EX );
 
 		$exist_operators = array();
 		foreach ($array_of_simcard as $key => $numbers) {

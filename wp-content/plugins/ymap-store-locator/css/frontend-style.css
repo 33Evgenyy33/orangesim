@@ -92,13 +92,26 @@
 .ymapsl-store-name > span {
     font-weight: 700;
     font-size: 1rem;
-    text-align: center;
+    padding-right: 7px;
+    height: 100%;
+    line-height: 23px;
+}
+
+.ymapsl-store-details .ymapsl-store-name div {
+    text-align: right;
+    line-height: 17px;
+    align-self: center;
+    padding-left: 7px;
+    height: 100%;
+    position: relative;
+    border-left: 1px solid #c3c3c3;
 }
 
 .store-sim-qty-title {
     font-size: 0.8rem;
     font-weight: 700;
     color: #818181;
+    white-space: nowrap;
 }
 
 .store-sim-qty {
@@ -467,5 +480,9 @@
     #ymapsl_result_list,
     #ymapsl_map_wrap{
         width: 100%;
+    }
+    #ymapsl_stores {
+        height: auto;
+        max-height: 600px;
     }
 }

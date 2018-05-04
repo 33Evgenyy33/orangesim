@@ -125,7 +125,7 @@ jQuery(document).ready(function ($) {
                                     '<span class="store-sim-qty">'+ json[0].address[i].qty +'</span>' +
                                 '</div>' +
                                 '</div>' +
-                              '<div class="ymapsl-store-address"><a href="#" data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="fas fa-map-marker-alt"></i> ' + json[0].address[i].city + ', ' + json[0].address[i].address + '</span></a></div>' +
+                              '<div class="ymapsl-store-address"><a data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="fas fa-map-marker-alt"></i> ' + json[0].address[i].address + '</span></a></div>' +
                               '<div class="ymapsl-store-schedule"><i class="fas fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
                               '<div class="ymapsl-store-contact"><i class="fas fa-phone"></i> ' + json[0].address[i].phone + '</div>' +
                              storeComment +
