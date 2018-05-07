@@ -1314,7 +1314,8 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
             "6058",
             "6059",
             "645",
-            "658"
+            "658",
+            "685"
         );
 
         $check_num = substr($num, 0, 4);
@@ -1483,46 +1484,6 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
 
 
                             if ($orange_validation == 0) {
-                                continue 2;
-                            }
-                        }
-                        if ($product_id == 18438) {
-                            if (!in_array('vodafone', $exist_operators)) {
-                                continue 2;
-                            }//Есть ли Vodafone на селлере
-                        }
-                        if ($product_id == 18446) {
-                            if (!in_array('ortel', $exist_operators)) {
-                                continue 2;
-                            }//Есть ли ortel на селлере
-                        }
-                        if ($product_id == 18455) {
-                            if (!in_array('globalsim--classic', $exist_operators)) {
-                                continue 2;
-                            }
-                        }
-                        if ($product_id == 18453 || $product_id == 83041) {
-                            if (!in_array('globalsim--gsim_internet', $exist_operators)) {
-                                continue 2;
-                            }
-                        }
-                        if ($product_id == 41120) {
-                            if (!in_array('globalsim--travelchat', $exist_operators)) {
-                                continue 2;
-                            }
-                        }
-                        if ($product_id == 48067) {
-                            if (!in_array('globalsim--tariff_usa', $exist_operators)) {
-                                continue 2;
-                            }
-                        }
-                        if ($product_id == 28328) {
-                            if (!in_array('globalsim--europasim', $exist_operators)) {
-                                continue 2;
-                            }
-                        }
-                        if ($product_id == 55050 || $product_id == 88406) {
-                            if (!in_array('three', $exist_operators)) {
                                 continue 2;
                             }
                         }

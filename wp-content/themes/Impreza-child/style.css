@@ -16,7 +16,7 @@ Author URI: http://us-themes.com/
 }
 
 .l-header.bg_transparent:not(.sticky) .w-img.with_transparent img.for_transparent {
-    filter: drop-shadow(0 1px 2px rgba(100,0,0,0.5));
+    filter: drop-shadow(0 1px 2px rgba(100, 0, 0, 0.5));
 }
 
 .header_hor .l-header.pos_fixed.bg_transparent:not(.sticky) nav.w-nav.type_desktop .level_1 > .menu-item:not(:first-child) > a span.w-nav-title {
@@ -25,6 +25,13 @@ Author URI: http://us-themes.com/
     text-shadow: 0 1px 3px rgb(100, 56, 0);
 }
 
+.header_hor header .ush_menu_1.type_desktop .w-nav-list.level_1 > .menu-item > a {
+    padding: 0 9px;
+}
+
+body .ush_menu_1.type_desktop .w-nav-list>.menu-item.level_1 {
+    font-size: 0.9rem;
+}
 
 .header_hor.home .l-header.pos_fixed .my-logo * {
     transition: color 0.3s;
@@ -43,8 +50,9 @@ Author URI: http://us-themes.com/
 }
 
 .header-phones a {
-    color: #3e396b;
+    color: #0f0d20;
     font-weight: 600;
+    font-size: 14px;
 }
 
 .my-logo {
@@ -211,6 +219,57 @@ h3.vc_custom_heading strong:after {
 #our-advantages > .vc_column_container p:not(:last-child) {
     /*border-bottom: 1px solid #cbcbcb;*/
 }
+
+.flag-icon {
+    background: url(https://orangesim.ru/wp-content/uploads/2018/04/flagi-stran-1-min.png);
+    position: relative;
+    width: 18px;
+    height: 14px;
+    float: left;
+    top: 7px;
+    margin-right: 4px;
+}
+.flag-icon-at {background-position: 0 0}
+.flag-icon-pt {background-position: -20px -30px}
+.flag-icon-fi {background-position: -139px -30px}
+.flag-icon-be {background-position: -59px 0}
+.flag-icon-bg {background-position: -79px 0}
+.flag-icon-gb {background-position: -99px 0}
+.flag-icon-hu {background-position: -118px 0}
+.flag-icon-gp {background-position: -138px 0}
+.flag-icon-de {background-position: -158px 0}
+.flag-icon-gi {background-position: -178px 0}
+.flag-icon-gr {background-position: -198px 0}
+.flag-icon-dk {background-position: -218px 0}
+.flag-icon-ie {background-position: -238px 0}
+.flag-icon-is {background-position: 0 -15px}
+.flag-icon-es {background-position: -20px -15px}
+.flag-icon-it {background-position: -40px -15px}
+.flag-icon-cy {background-position: -60px -15px}
+.flag-icon-lv {background-position: -78px -15px}
+.flag-icon-lt {background-position: -98px -15px}
+.flag-icon-li {background-position: -118px -15px}
+.flag-icon-lu {background-position: -138px -15px}
+.flag-icon-pt {background-position: -20px -30px}
+.flag-icon-yt {background-position: -178px -15px}
+.flag-icon-mt {background-position: -198px -15px}
+.flag-icon-mq {background-position: -218px -15px}
+.flag-icon-nl {background-position: -238px -15px}
+.flag-icon-no {background-position: -258px -15px}
+.flag-icon-pl {background-position: 0 -30px}
+.flag-icon-pt {background-position: -20px -30px}
+.flag-icon-re {background-position: -40px -30px}
+.flag-icon-ro {background-position: -60px -30px}
+.flag-icon-mf {background-position: -80px -30px}
+.flag-icon-sk {background-position: -100px -30px}
+.flag-icon-si {background-position: -120px -30px}
+.flag-icon-fi {background-position: -139px -30px}
+.flag-icon-fr {background-position: -159px -30px}
+.flag-icon-gf {background-position: -179px -30px}
+.flag-icon-hr {background-position: -199px -30px}
+.flag-icon-cz {background-position: -219px -30px}
+.flag-icon-se {background-position: -238px -30px}
+.flag-icon-ee {background-position: -258px -30px}
 
 .about-roaming p {
     margin-bottom: 3px;
@@ -1349,7 +1408,7 @@ blockquote.blockquote-atten > p {
     display: flex;
 }
 
-blockquote.blockquote-atten p:not(:first-child){
+blockquote.blockquote-atten p:not(:first-child) {
     line-height: 17px;
     font-size: 0.7rem;
 }
@@ -1854,7 +1913,7 @@ div#callback_request {
 h3.gform_title {
     text-align: center;
     font-size: 1.2rem;
-    font-weight: 600!important;
+    font-weight: 600 !important;
     /*color: #fff;*/
 }
 
@@ -1863,7 +1922,8 @@ form#gform_1 ul#gform_fields_1 > li {
     justify-content: center;
     flex-wrap: wrap;
 }
-.gchoice_1_4_1 input[type="checkbox"]:checked+label {
+
+.gchoice_1_4_1 input[type="checkbox"]:checked + label {
     color: #3e396b;
 }
 
@@ -1925,7 +1985,8 @@ form#gform_2 .instruction.validation_message {
 }
 
 form#gform_2 label#label_2_9_1 {
-    color: #ff4343;
+    color: #ffffff;
+
 }
 
 .gform_confirmation_wrapper .gform_confirmation_message p {
@@ -2666,7 +2727,6 @@ a#popup__toggle {
     }
 }
 
-
 /**********Balance************/
 #balance-orange-product-form {
     position: relative;
@@ -2727,7 +2787,7 @@ a#popup__toggle {
     margin: 20px auto;
 }
 
-#orange_balance_total_price_wrap p{
+#orange_balance_total_price_wrap p {
     margin: 0;
 }
 
@@ -2736,7 +2796,7 @@ a#popup__toggle {
     line-height: 23px;
 }
 
-div#balance-orange-product-form .orange-balance-total-price-wrap:not(.disable){
+div#balance-orange-product-form .orange-balance-total-price-wrap:not(.disable) {
     box-shadow: 0 1px 12px -3px rgb(0, 141, 58);
 }
 
@@ -2748,31 +2808,27 @@ span.orange-balance-validation {
 }
 
 /*#orange_balance_total_price_wrap:not(.disable):after {*/
-    /*content: "";*/
-    /*border-radius: 5px;*/
-    /*position: absolute;*/
-    /*z-index: -1;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);*/
-    /*-webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);*/
-    /*transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);*/
+/*content: "";*/
+/*border-radius: 5px;*/
+/*position: absolute;*/
+/*z-index: -1;*/
+/*top: 0;*/
+/*left: 0;*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);*/
+/*-webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);*/
+/*transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);*/
 /*}*/
-
-
 
 #balance-orange-product-form #orange_number:focus {
     box-shadow: 0 0 0 2px #FF8F00;
     border-color: transparent;
 }
 
-
 div#balance-orange-product-form div.disable {
     background: #d5d5d5;
 }
-
 
 .product-variation {
     margin: 5px 10px 5px 0;
@@ -2782,7 +2838,7 @@ div#balance-orange-product-form div.disable {
     padding: 10px;
     text-align: center;
     cursor: pointer;
-    border: 1px solid rgba(0, 14, 57, 0.21)!important;
+    border: 1px solid rgba(0, 14, 57, 0.21) !important;
     background: #ffffff;
     border-radius: 3px;
     /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.20); */
@@ -2790,8 +2846,8 @@ div#balance-orange-product-form div.disable {
     font-size: 1.2rem;
     background: #ffffff;
     line-height: 30px;
-    border-color: #4360e9!important;
-    border-width: 1px!important;
+    border-color: #4360e9 !important;
+    border-width: 1px !important;
     color: #375adc;
     display: block;
     position: relative;
@@ -2804,26 +2860,28 @@ div#balance-orange-product-form div.disable {
 
 #balance-orange-product-form .woocommerce-invalid input#orange_number {
     box-shadow: 0 0 0 2px red;
-    border-color: transparent!important;
+    border-color: transparent !important;
 }
+
 .orange-number-valid #orange_number {
-    background: linear-gradient(45deg, #23db6d 30%, #00C853 100%)!important;
+    background: linear-gradient(45deg, #23db6d 30%, #00C853 100%) !important;
     /* color: #fff!important; */
-    border-color: transparent!important;
-    box-shadow: 0 0 0 2px transparent!important;
-    color: #ffffff!important;
+    border-color: transparent !important;
+    box-shadow: 0 0 0 2px transparent !important;
+    color: #ffffff !important;
 }
+
 .product-variation.active {
     background: #00C853;
-    background: linear-gradient(45deg, #23db6d 30%, #00C853 100%)!important;
+    background: linear-gradient(45deg, #23db6d 30%, #00C853 100%) !important;
     color: #09c152;
     color: #fff;
-    border-color: transparent!important;
+    border-color: transparent !important;
 }
 
 .orange_balance_commission {
     border-bottom: 1px solid #fff;
-    margin-bottom: 7px!important;
+    margin-bottom: 7px !important;
     padding-bottom: 3px;
 }
 
@@ -2841,7 +2899,7 @@ div#balance-orange-product-form div.disable {
 
 }
 
-.product_balance_title{
+.product_balance_title {
     margin-bottom: 0;
 }
 
@@ -2962,4 +3020,8 @@ div#balance-orange-product-form div.disable {
     height: 10px;
     background-color: #fff;
     animation: corners 3s ease both infinite
+}
+
+.liveinternet + script + a {
+    display: none;
 }

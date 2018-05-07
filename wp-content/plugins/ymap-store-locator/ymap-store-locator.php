@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-const WPSL_VERSION_NUM = '1.0';
+const YMAPSL_VERSION_NUM = '1.0';
 
 add_action( 'init', 'ymapsl_custom_post_type' );
 function ymapsl_custom_post_type() {
@@ -75,7 +75,7 @@ function load_scripts_for_admin( $hook ) {
 			$style_url  = plugins_url( '/css/', __FILE__ );
 			$script_url = plugins_url( '/js/', __FILE__ );
 
-			wp_enqueue_style( 'ymapsl-admin-css', $style_url . 'ymapsl-admin.css', false, WPSL_VERSION_NUM );
+			wp_enqueue_style( 'ymapsl-admin-css', $style_url . 'ymapsl-admin.css', false, YMAPSL_VERSION_NUM );
 
 			wp_register_script( 'ymaps', 'https://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 			wp_enqueue_script( 'ymaps' );
@@ -83,9 +83,9 @@ function load_scripts_for_admin( $hook ) {
 			wp_enqueue_script( 'ymapsl-admin-js', $script_url . 'ymapsl-admin.js', array(
 				'jquery',
 				'ymaps'
-			), WPSL_VERSION_NUM, true );
+			), YMAPSL_VERSION_NUM, true );
 
-			wp_enqueue_script( 'parsley-admin-js', $script_url . 'parsley.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
+			wp_enqueue_script( 'parsley-admin-js', $script_url . 'parsley.min.js', array( 'jquery' ), YMAPSL_VERSION_NUM, true );
 		}
 	}
 }
@@ -110,6 +110,10 @@ function get_ymapsl_meta_fields( $content ) {
 			'address'       => array(
 				'label'    => 'Адрес',
 				'required' => true
+			),
+			'metro' => array(
+				'label'    => 'Станция метро',
+				'required' => false
 			),
 			'opening_hours' => array(
 				'label'    => 'График работы',
@@ -178,6 +182,13 @@ function ymapsl_custom_box_html( $post ) {
                     <input name="ymapsl_city" id="ymapsl_city"
                            value="<?= get_post_meta( $post->ID, '_ymapsl_city', true ); ?>" required="">
                 </p>
+                <p id="ymapsl_metro_field">
+                    <label for="ymapsl_field">Станция метро </label>
+                    <input name="ymapsl_metro" id="ymapsl_metro"
+                           value="<?= get_post_meta( $post->ID, '_ymapsl_metro', true ); ?>">
+                </p>
+            </div>
+            <div class="ymapsl-fields-row">
                 <p id="ymapsl_address_field">
                     <label for="ymapsl_field">Адрес <abbr class="required" title="обязательно">*</abbr></label>
                     <input name="ymapsl_address" id="ymapsl_address"
@@ -262,8 +273,8 @@ function load_scripts_for_frontend() {
 		$script_url = plugins_url( '/js/', __FILE__ );
 
 
-//		wp_enqueue_style( 'ymapsl-select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', false, WPSL_VERSION_NUM );
-		wp_enqueue_style( 'ymapsl-frontend-css', $style_url . 'frontend-style.css', false, WPSL_VERSION_NUM );
+//		wp_enqueue_style( 'ymapsl-select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', false, YMAPSL_VERSION_NUM );
+		wp_enqueue_style( 'ymapsl-frontend-css', $style_url . 'frontend-style.css', false, YMAPSL_VERSION_NUM );
 
 
 		wp_localize_script( 'jquery', 'ymapsl_ajax',
@@ -275,12 +286,12 @@ function load_scripts_for_frontend() {
 		wp_register_script( 'ymaps-frontend-js', 'https://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 		wp_enqueue_script( 'ymaps-frontend-js' );
 
-		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.min.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
+		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.min.js', array( 'jquery' ), YMAPSL_VERSION_NUM, true );
 		wp_enqueue_script( 'ymapsl-frontend-js', $script_url . 'frontend-script.js', array(
 			'jquery',
 			'ymaps-frontend-js',
 			'ymapsl-select2-js'
-		), WPSL_VERSION_NUM, true );
+		), YMAPSL_VERSION_NUM, true );
 
 	}
 }

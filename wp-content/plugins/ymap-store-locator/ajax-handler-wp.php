@@ -76,6 +76,7 @@ function ymapsl_search_stores() {
 
 			$store_city          = ymapsl_get_meta_value( $store_id, '_ymapsl_city');
 			$store_address       = ymapsl_get_meta_value(  $store_id, '_ymapsl_address');
+			$store_metro         = ymapsl_get_meta_value(  $store_id, '_ymapsl_metro');
 			$store_phone         = ymapsl_get_meta_value(  $store_id, '_ymapsl_phone');
 			$store_opening_hours = ymapsl_get_meta_value(  $store_id, '_ymapsl_opening_hours');
 			$store_comment       = ymapsl_get_meta_value(  $store_id, '_ymapsl_comment');
@@ -91,6 +92,14 @@ function ymapsl_search_stores() {
 				$store_comment_list = '';
 			}
 
+			if (!empty($store_metro)){
+				$store_metro_map = '<br><span class="ymaps-map-metro">'.$store_metro.'</span>';
+				$store_metro_list = $store_metro;
+			} else {
+				$store_metro_map = '';
+				$store_metro_list = '';
+			}
+
 			if (empty($store_opening_hours)){
 				$store_opening_hours = 'уточнять по телефону';
 			}
@@ -104,7 +113,7 @@ function ymapsl_search_stores() {
 				),
 				"properties" => array(
 					"balloonContentHeader" => "<div style='color:#2977e0;font-weight:bold'> {$store_name} </div>",
-					"balloonContentBody"   => "<div style='font-size:13px;' class='ymaps-map-balloon'><i class=\"fas fa-map-marker-alt\"></i> {$store_city}, {$store_address}<br><i class=\"fas fa-clock\"></i> {$store_opening_hours}<br><i class=\"fas fa-phone\"></i> {$store_phone}<br>{$store_comment_map}</div>",
+					"balloonContentBody"   => "<div style='font-size:13px;' class='ymaps-map-balloon'><i class=\"far fa-map-marker-alt\"></i> {$store_city}, {$store_address}{$store_metro_map}<br><i class=\"far fa-clock\"></i> {$store_opening_hours}<br><i class=\"far fa-phone\"></i> {$store_phone}<br>{$store_comment_map}</div>",
 					"iconContent"          => $store_name
 				)
 			);
@@ -115,6 +124,7 @@ function ymapsl_search_stores() {
 				'name'          => $store_name,
 				'city'          => $store_city,
 				'address'       => $store_address,
+				'metro'         => $store_metro_list,
 				'phone'         => $store_phone,
 				'opening_hours' => $store_opening_hours,
 				'comment'       => $store_comment_list

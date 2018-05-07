@@ -80,9 +80,10 @@
 }
 
 .ymapsl-store-details > div{
-    padding: 3px 10px;
+    padding: 6px 10px;
     font-weight: 600;
     font-size: 0.9rem;
+    line-height: 20px;
 }
 
 .ymapsl-store-details i {
@@ -131,6 +132,16 @@
     line-height: 24px;
 }
 
+.ymapsl-store-address i {
+    font-size: 17px;
+}
+
+.ymapsl-store-details-metro span {
+    padding-left: 21px;
+    background: url(http://orangesim/wp-content/uploads/2018/05/c1deac267354bca81329730d92171f91.svg) no-repeat 0;
+    background-size: 16px;
+}
+
 #ymapsl_map_wrap {
     width: 70%;
     height: 600px;
@@ -144,6 +155,16 @@
     border-left: 1px solid #FFA000;
     border-bottom: 1px solid #FFA000;
     border-right: 1px solid #FFA000;
+}
+
+.ymaps-map-balloon i {
+    width: 14px;
+}
+
+.ymaps-map-metro {
+    padding-left: 18px;
+    background: url(http://orangesim/wp-content/uploads/2018/05/c1deac267354bca81329730d92171f91.svg) no-repeat 0;
+    background-size: 14px;
 }
 
 .ymapsl-loader-wrap {
@@ -268,22 +289,17 @@
     overflow: visible;
     font: inherit;
     touch-action: manipulation;
-    margin: 0;
     line-height: inherit;
     border-radius: 0;
     box-sizing: inherit;
     display: block;
-    width: 100%;
     color: #29254c;
     background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    padding: .5rem 0 .6rem;
-    font-size: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    padding: .6rem 0 .6rem;
     background-color: transparent;
     background-image: none;
-    border-radius: 0;
-    margin-top: .2rem;
-    margin-bottom: 1rem;
+    margin: .2rem 0 1rem;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -302,7 +318,10 @@
 }
 
 .select2-container--material .select2-selection--single .select2-selection__rendered {
-    float: left;
+    /*float: left;*/
+    float: none;
+    text-align: center;
+    display: block;
 }
 
 .select2-container--material .select2-selection--single .select2-selection__arrow {

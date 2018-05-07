@@ -883,3 +883,11 @@ function woocommerce_checkout_shipping() {
     </style>
 	<?php
 }
+
+add_filter( 'woocommerce_shop_order_search_fields', 'woocommerce_shop_order_search_order_total' );
+function woocommerce_shop_order_search_order_total( $search_fields ) {
+	$search_fields[] = 'orange_replenishment';
+	$search_fields[] = 'number_simcard';
+
+	return $search_fields;
+}

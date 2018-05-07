@@ -10,8 +10,8 @@ jQuery(document).ready(function ($) {
     ymaps.ready({
         successCallback: function () {
             ymapslMap = new ymaps.Map('ymapsl_map', {
-                center: [56.326944, 44.0075],
-                zoom: 10,
+                center: [55.755814, 37.617635],
+                zoom: 9,
                 type: 'yandex#map',
                 controls: []
             });
@@ -53,7 +53,7 @@ jQuery(document).ready(function ($) {
                 ymapslDisplayLoader('show', 'ПОИСК ПУНКТОВ ВЫДАЧИ');
 
                 $('html, body').animate({
-                    scrollTop: $("#ymapsl_map_container").offset().top - ($('header.l-header').outerHeight() + $('div#wpadminbar').outerHeight())
+                    scrollTop: $("#ymapsl_search").offset().top - ($('header.l-header').outerHeight() + $('div#wpadminbar').outerHeight())
                 }, 1000);
                 searchStoresAjax($(this).val());
             });
@@ -109,6 +109,12 @@ jQuery(document).ready(function ($) {
                     // myCollection.add(placemark);
                     // src_res = src_res + '<p>' + sch + '. ' + '<a href="#" onclick="myFunction(' + json[i].lat + ', ' + json[i].lon + ",'" + json[i].address + "')" + '\">' + json[i].address + '</a></p>';
 
+                    let storeMetro = '';
+                    if (json[0].address[i].metro){
+                        // storeComment = '<span><strong>примечание: </strong>'+json[0].address[i].comment+'</span>';
+                        storeMetro = '<div class="ymapsl-store-details-metro"><span>'+json[0].address[i].metro+'</span></div>';
+                    }
+
                     let storeComment = '';
                     if (json[0].address[i].comment){
                         // storeComment = '<span><strong>примечание: </strong>'+json[0].address[i].comment+'</span>';
@@ -125,9 +131,10 @@ jQuery(document).ready(function ($) {
                                     '<span class="store-sim-qty">'+ json[0].address[i].qty +'</span>' +
                                 '</div>' +
                                 '</div>' +
-                              '<div class="ymapsl-store-address"><a data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="fas fa-map-marker-alt"></i> ' + json[0].address[i].address + '</span></a></div>' +
-                              '<div class="ymapsl-store-schedule"><i class="fas fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
-                              '<div class="ymapsl-store-contact"><i class="fas fa-phone"></i> ' + json[0].address[i].phone + '</div>' +
+                              '<div class="ymapsl-store-address"><a data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="far fa-map-marker-alt"></i> ' + json[0].address[i].address + '</span></a></div>' +
+                              storeMetro +
+                              '<div class="ymapsl-store-schedule"><i class="far fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
+                              '<div class="ymapsl-store-contact"><i class="far fa-phone"></i> ' + json[0].address[i].phone + '</div>' +
                              storeComment +
                           '</div>' +
                         '</li>';

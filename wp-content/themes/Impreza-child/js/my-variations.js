@@ -129,6 +129,7 @@ jQuery(document).ready(function ($) {
         if (validError === 0){
             orangeNumberValidation.hide();
             orangeBalanceValidation.hide();
+            $('.loader.loader-border').addClass('is-active');
             addBalanceToCartAjax();
         }
 
@@ -487,13 +488,13 @@ jQuery(document).ready(function ($) {
 
 });
 
-var myAcc = document.getElementsByClassName("my-accordion");
-var i;
+let myAcc = document.getElementsByClassName("my-accordion");
+let i;
 
 for (i = 0; i < myAcc.length; i++) {
     myAcc[i].addEventListener("click", function () {
         this.classList.toggle("active");
-        var panel = this.nextElementSibling;
+        let panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
         } else {
