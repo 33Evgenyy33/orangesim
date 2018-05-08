@@ -11,11 +11,6 @@
     justify-content: center;
 }
 
-
-
-
-
-
 .ymapsl-fields {
     max-width: 570px;
     width: 100%;
@@ -117,6 +112,165 @@ li.parsley-required {
 #ymapsl_id_ta::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.ymapsl-store-hours-row {
+    background: #fff;
+    padding: 17px;
+    border: 1px solid #000;
+    margin: 1em 0;
+}
+
+#ymapsl-store-hours {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#ymapsl-store-hours th {
+    text-align: left;
+    padding: 8px 10px 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#ymapsl-store-hours .ymapsl-opening-day {
+    min-width: 80px;
+    padding: 17px 17px 0 0;
+    text-align: left;
+    vertical-align: top;
+}
+
+#ymapsl-store-hours td {
+    border-bottom: 1px solid #eee;
+    padding: 7px 10px 7px 0;
+    vertical-align: top;
+}
+
+.ymapsl-twentyfour-format .ymapsl-opening-hours {
+    width: 310px;
+}
+
+#ymapsl-store-hours .ymapsl-store-closed {
+    border: none;
+    background: 0 0;
+    margin-top: 9px;
+    margin-bottom: 0;
+}
+
+#ymapsl-store-hours .ymapsl-add-period {
+    height: 30px;
+}
+
+#ymapsl-store-hours div {
+    margin: 0;
+    padding: 3px;
+    background: #eee;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.ymapsl-add-period {
+    border: none;
+    background: #eee;
+    border-radius: 3px;
+    font-size: 13px;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.ymapsl-current-period {
+    cursor: pointer;
+}
+
+#ymapsl-store-hours .ymapsl-icon-cancel-circled, #ymapsl-store-hours .ymapsl-icon-plus-circled {
+    margin-top: 1px;
+    font-size: 18px;
+    display: inline-block;
+    color: #999;
+}
+
+#ymapsl-store-hours .ymapsl-current-period .ymapsl-icon-cancel-circled:hover,
+#ymapsl-store-hours .ymapsl-add-period:hover .ymapsl-icon-plus-circled {
+    color: #444;
+}
+
+.ymapsl-icon-plus-circled:before {
+    content: "\f055";
+}
+
+[class*=" ymapsl-icon-"]:before, [class^=ymapsl-icon-]:before {
+    font-weight: 400;
+    display: inline-block;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ymapsl-info:before, [class*=" ymapsl-icon-"]:before, [class^=ymapsl-icon-]:before {
+    font-family: 'fontawesome';
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    font-variant: normal;
+    text-transform: none;
+}
+
+#ymapsl-store-hours div {
+    margin: 0;
+    padding: 3px;
+    background: #eee;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+#ymapsl-store-hours input {
+    float: left;
+    width: 120px;
+}
+
+.ymapsl-add-period, .ymapsl-current-period {
+    float: left;
+}
+
+.ymapsl-add-period span, .ymapsl-current-period span {
+    float: left;
+    margin: 6px 7px 0;
+}
+
+.ymapsl-icon-cancel-circled:before {
+    content: "\f057";
+}
+
+[class*=" ymapsl-icon-"]:before, [class^=ymapsl-icon-]:before {
+    font-weight: 400;
+    display: inline-block;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ymapsl-info:before, [class*=" ymapsl-icon-"]:before, [class^=ymapsl-icon-]:before {
+    font-family: 'fontawesome';
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    font-variant: normal;
+    text-transform: none;
+}
+
+#ymapsl-store-hours .ymapsl-multiple-periods {
+    float: left;
+    clear: both;
+    margin-top: 8px;
 }
 
 @media only screen and (max-width: 570px) {

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 4.9.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-03-22 15:56:45+0000\n"
+"PO-Revision-Date: 2018-04-30 03:01:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,6 +25,10 @@ msgstr "3"
 msgctxt "start of week"
 msgid "1"
 msgstr "1"
+
+#: wp-admin/includes/plugin-install.php:595
+msgid "Requires PHP Version:"
+msgstr "Требуемая версия PHP:"
 
 #: wp-admin/customize.php:80
 msgid "This changeset cannot be further modified."
@@ -498,7 +502,7 @@ msgstr "Установка плагина"
 msgid "Custom installation script."
 msgstr "Пользовательский скрипт установки."
 
-#: wp-admin/includes/plugin-install.php:594
+#: wp-admin/includes/plugin-install.php:602
 msgid "Active Installations:"
 msgstr "Активные установки:"
 
@@ -750,7 +754,7 @@ msgid "&#8220;%s&#8221; is locked"
 msgstr "&#8220;%s&#8221; заблокирована"
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:604
-#: wp-admin/includes/plugin-install.php:598
+#: wp-admin/includes/plugin-install.php:606
 msgctxt "Active plugin installations"
 msgid "Less Than 10"
 msgstr "Менее 10"
@@ -760,7 +764,7 @@ msgid "Sorry, you are not allowed to attach files to this post."
 msgstr "Извините, Вам не разрешено делать вложения файлов к этой записи."
 
 #: wp-admin/freedoms.php:47 wp-admin/includes/plugin-install.php:239
-#: wp-admin/includes/plugin-install.php:604 wp-admin/plugin-install.php:82
+#: wp-admin/includes/plugin-install.php:612 wp-admin/plugin-install.php:82
 #: wp-admin/plugins.php:418
 msgid "https://wordpress.org/plugins/"
 msgstr "https://ru.wordpress.org/plugins/"
@@ -1441,18 +1445,18 @@ msgstr "Нажмите на изображение, чтобы изменить 
 
 #. translators: 1: number of stars (used to determine singular/plural), 2:
 #. number of reviews
-#: wp-admin/includes/plugin-install.php:625
+#: wp-admin/includes/plugin-install.php:633
 msgid "Reviews with %1$d star: %2$s. Opens in a new window."
 msgid_plural "Reviews with %1$d stars: %2$s. Opens in a new window."
 msgstr[0] "Отзывов с оценкой в %1$d звезду: %2$s. Ссылка откроется в новой вкладке."
 msgstr[1] "Отзывов с оценкой в %1$d звезды: %2$s. Ссылка откроется в новой вкладке."
 msgstr[2] "Отзывов с оценкой в %1$d звёзд: %2$s. Ссылка откроется в новой вкладке."
 
-#: wp-admin/includes/plugin-install.php:619
+#: wp-admin/includes/plugin-install.php:627
 msgid "Read all reviews on WordPress.org or write your own!"
 msgstr "Посмотрите все отзывы на WordPress.org или напишите свой!"
 
-#: wp-admin/includes/plugin-install.php:618
+#: wp-admin/includes/plugin-install.php:626
 msgid "Reviews"
 msgstr "Отзывы"
 
@@ -2767,7 +2771,7 @@ msgid "Plugins updated successfully."
 msgstr "Плагины успешно обновлены."
 
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:602
-#: wp-admin/includes/plugin-install.php:596
+#: wp-admin/includes/plugin-install.php:604
 msgctxt "Active plugin installations"
 msgid "1+ Million"
 msgstr "Более миллиона"
@@ -3244,7 +3248,7 @@ msgstr "<strong>Совместим</strong> с вашей версией WordPre
 msgid "<strong>Incompatible</strong> with your version of WordPress"
 msgstr "<strong>Несовместим</strong> с вашей версией WordPress."
 
-#: wp-admin/includes/plugin-install.php:632
+#: wp-admin/includes/plugin-install.php:640
 msgid "%d star"
 msgid_plural "%d stars"
 msgstr[0] "%d звезда"
@@ -3282,12 +3286,12 @@ msgctxt "Button label for a theme"
 msgid "Previous"
 msgstr "Предыдущая"
 
-#: wp-admin/includes/plugin-install.php:642
+#: wp-admin/includes/plugin-install.php:650
 msgid "Contributors"
 msgstr "Участники разработки"
 
-#: wp-admin/includes/plugin-install.php:608
-#: wp-admin/includes/plugin-install.php:662
+#: wp-admin/includes/plugin-install.php:616
+#: wp-admin/includes/plugin-install.php:670
 msgid "Donate to this plugin &#187;"
 msgstr "Сделать пожертвование &#187;"
 
@@ -5490,7 +5494,7 @@ msgstr "Изменения"
 msgid "You should update your web.config now."
 msgstr "Теперь необходимо обновить файл web.config."
 
-#: wp-admin/includes/plugin-install.php:606
+#: wp-admin/includes/plugin-install.php:614
 msgid "Plugin Homepage &#187;"
 msgstr "Страница плагина &#187;"
 
@@ -9372,19 +9376,19 @@ msgstr "Один из плагинов неработоспособен."
 msgid "The plugin generated unexpected output."
 msgstr "Плагин произвёл неожиданный вывод на экран."
 
-#: wp-admin/includes/plugin-install.php:673
+#: wp-admin/includes/plugin-install.php:681
 msgid "<strong>Warning:</strong> This plugin has <strong>not been marked as compatible</strong> with your version of WordPress."
 msgstr "<strong>Внимание:</strong> Этот плагин не был помечен как <strong>совместимый</strong> с вашей версией WordPress."
 
-#: wp-admin/includes/plugin-install.php:671
+#: wp-admin/includes/plugin-install.php:679
 msgid "<strong>Warning:</strong> This plugin has <strong>not been tested</strong> with your current version of WordPress."
 msgstr "<strong>Внимание:</strong> Этот плагин <strong>не был протестирован</strong> с вашей версией WordPress."
 
-#: wp-admin/includes/plugin-install.php:612
+#: wp-admin/includes/plugin-install.php:620
 msgid "Average Rating"
 msgstr "Средний рейтинг"
 
-#: wp-admin/includes/plugin-install.php:604
+#: wp-admin/includes/plugin-install.php:612
 msgid "WordPress.org Plugin Page &#187;"
 msgstr "Страница на WordPress.org &#187;"
 
@@ -9392,8 +9396,9 @@ msgstr "Страница на WordPress.org &#187;"
 msgid "Compatible up to:"
 msgstr "Совместим вплоть до:"
 
-#. translators: %s: WordPress version
+#. translators: %s: version number
 #: wp-admin/includes/plugin-install.php:588
+#: wp-admin/includes/plugin-install.php:598
 msgid "%s or higher"
 msgstr "%s или выше"
 
@@ -9406,20 +9411,20 @@ msgstr "Требуемая версия WordPress:"
 msgid "Last Updated:"
 msgstr "Обновление:"
 
-#: wp-admin/includes/plugin-install.php:710
+#: wp-admin/includes/plugin-install.php:718
 msgid "Latest Version Installed"
 msgstr "Установлена свежая версия"
 
 #. translators: %s: Plugin version
-#: wp-admin/includes/plugin-install.php:707
+#: wp-admin/includes/plugin-install.php:715
 msgid "Newer Version (%s) Installed"
 msgstr "Установлена более новая версия (%s)"
 
-#: wp-admin/includes/plugin-install.php:702
+#: wp-admin/includes/plugin-install.php:710
 msgid "Install Update Now"
 msgstr "Установить обновление"
 
-#: wp-admin/includes/plugin-install.php:614
+#: wp-admin/includes/plugin-install.php:622
 msgid "(based on %s rating)"
 msgid_plural "(based on %s ratings)"
 msgstr[0] "(всего %s голос)"

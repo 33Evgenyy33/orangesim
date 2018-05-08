@@ -148,4 +148,65 @@ jQuery(document).ready(function ($) {
 
     });
 
+
+    if ( $( "#ymapsl-store-hours" ).length ) {
+        initHourEvents();
+    }
+
+    function initHourEvents() {
+        $( "#ymapsl-store-hours .ymapsl-icon-cancel-circled" ).off();
+        $( "#ymapsl-store-hours .ymapsl-icon-cancel-circled" ).on( "click", function() {
+            removePeriod( $( this ) );
+        });
+    }
+
+    // Add new openings period to the openings hours table.
+    $( ".ymapsl-add-period" ).on( "click", function( e ) {
+        let newPeriod,
+            hours		= {},
+            returnList  = true,
+            $tr			= $( this ).parents( "tr" ),
+            periodCount = currentPeriodCount( $( this ) ),
+            periodCss   = ( periodCount >= 1 ) ? "ymapsl-current-period ymapsl-multiple-periods" : "ymapsl-current-period",
+            day 	    = $tr.find( ".ymapsl-opening-hours" ).attr( "data-day" ),
+            selectName  = ( $( "#ymapsl-settings-form" ).length ) ? "ymapsl_editor[dropdown]" : "ymapsl[hours]";
+
+        newPeriod = '<div class="' + periodCss +'">';
+        newPeriod += '<input name="' + selectName + '[' + day + '_open][]" class="ymapsl-open-hour">';
+        newPeriod += '<span> - </span>';
+        newPeriod += '<input name="' + selectName + '[' + day + '_close][]" class="ymapsl-close-hour">';
+        newPeriod += '<div class="ymapsl-icon-cancel-circled"></div>';
+        newPeriod += '</div>';
+
+        $tr.find( ".ymapsl-store-closed" ).remove();
+        $( "#ymapsl-hours-" + day + "" ).append( newPeriod ).end();
+
+        initHourEvents();
+
+        e.preventDefault();
+    });
+
+    function removePeriod( elem ) {
+        let periodsLeft	= currentPeriodCount( elem ),
+            $tr			= elem.parents( "tr" ),
+            day 	    = $tr.find( ".ymapsl-opening-hours" ).attr( "data-day" );
+
+        // If there was 1 opening hour left then we add the 'Closed' text.
+        if ( periodsLeft === 1 ) {
+            $tr.find( ".ymapsl-opening-hours" ).html( "<p class='ymapsl-store-closed'>Закрыто<input type='hidden' name='ymapsl[hours][" + day + "_open]' value='' /></p>" );
+        }
+
+        // Remove the selected openings period.
+        elem.parent().closest( ".ymapsl-current-period" ).remove();
+
+        // If the first element has the multiple class, then we need to remove it.
+        if ( $tr.find( ".ymapsl-opening-hours div:first-child" ).hasClass( "ymapsl-multiple-periods" ) ) {
+            $tr.find( ".ymapsl-opening-hours div:first-child" ).removeClass( "ymapsl-multiple-periods" );
+        }
+    }
+
+    function currentPeriodCount( elem ) {
+        return elem.parents("tr").find(".ymapsl-current-period").length;
+    }
+
 });

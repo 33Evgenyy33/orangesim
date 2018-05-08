@@ -68,7 +68,7 @@ function change_default_title( $title ) {
 add_action( 'admin_enqueue_scripts', 'load_scripts_for_admin', 10, 1 );
 function load_scripts_for_admin( $hook ) {
 
-//	if ( ( get_post_type() == 'wpsl_stores' ) || ( isset( $_GET['post_type'] ) && ( $_GET['post_type'] == 'wpsl_stores' ) ) ) {
+//	if ( ( get_post_type() == 'ymapsl_stores' ) || ( isset( $_GET['post_type'] ) && ( $_GET['post_type'] == 'ymapsl_stores' ) ) ) {
 
 	if ( $hook == 'post-new.php' || $hook == 'post.php' ) {
 		if ( 'ymapsl_stores' === get_post_type() ) {
@@ -119,6 +119,10 @@ function get_ymapsl_meta_fields( $content ) {
 				'label'    => 'График работы',
 				'required' => false
 			),
+			'hours'         => array(
+				'label'    => 'Часы работы',
+				'required' => false
+            ),
 			'comment'       => array(
 				'label'    => 'Комментарий',
 				'required' => false
@@ -161,6 +165,7 @@ function ymapsl_custom_box_html( $post ) {
 
 //	$meta_fields = apply_filters( 'ymapsl_meta_fields', '' ); // Получаем все мета поля ymapsl_meta_fields
 	wp_nonce_field( 'save_store_meta', 'ymapsl_meta_nonce' );
+
 	?>
     <div class="ymapsl-form">
         <div class="ymapsl-fields">
@@ -202,6 +207,187 @@ function ymapsl_custom_box_html( $post ) {
                            value="<?= get_post_meta( $post->ID, '_ymapsl_opening_hours', true ); ?>">
                 </p>
             </div>
+
+            <div class="ymapsl-store-hours-row">
+<!--                <table id="ymapsl-store-hours" class="ymapsl-twentyfour-format">-->
+<!--                    <tbody>-->
+<!--                    <tr>-->
+<!--                        <th>Дни недели</th>-->
+<!--                        <th>Часы работы</th>-->
+<!--                        <th></th>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="ymapsl-opening-day">Понедельник</td>-->
+<!--                        <td id="ymapsl-hours-monday" class="ymapsl-opening-hours ymapsl-active" data-day="monday">-->
+<!--                            <p class="ymapsl-store-closed">Закрыто<input type="hidden" name="ymapsl[hours][monday_open]" value=""></p>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <div class="ymapsl-add-period">-->
+<!--                                <div class="ymapsl-icon-plus-circled"></div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="ymapsl-opening-day">Вторник</td>-->
+<!--                        <td id="ymapsl-hours-tuesday" class="ymapsl-opening-hours ymapsl-active" data-day="tuesday">-->
+<!--                            <p class="ymapsl-store-closed">Закрыто<input type="hidden" name="ymapsl[hours][tuesday_open]" value=""></p>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <div class="ymapsl-add-period">-->
+<!--                                <div class="ymapsl-icon-plus-circled"></div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="ymapsl-opening-day">Среда</td>-->
+<!--                        <td id="ymapsl-hours-wednesday" class="ymapsl-opening-hours ymapsl-active" data-day="wednesday">-->
+<!--                            <p class="ymapsl-store-closed">Закрыто<input type="hidden" name="ymapsl[hours][wednesday_open]" value=""></p>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <div class="ymapsl-add-period">-->
+<!--                                <div class="ymapsl-icon-plus-circled"></div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="ymapsl-opening-day">Четверг</td>-->
+<!--                        <td id="ymapsl-hours-thursday" class="ymapsl-opening-hours ymapsl-active" data-day="thursday">-->
+<!--                            <p class="ymapsl-store-closed">Закрыто<input type="hidden" name="ymapsl[hours][thursday_open]" value=""></p>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <div class="ymapsl-add-period">-->
+<!--                                <div class="ymapsl-icon-plus-circled"></div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="ymapsl-opening-day">Пятница</td>-->
+<!--                        <td id="ymapsl-hours-friday" class="ymapsl-opening-hours ymapsl-active" data-day="friday">-->
+<!--                            <p class="ymapsl-store-closed">Закрыто<input type="hidden" name="ymapsl[hours][friday_open]" value=""></p>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <div class="ymapsl-add-period">-->
+<!--                                <div class="ymapsl-icon-plus-circled"></div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="ymapsl-opening-day">Суббота</td>-->
+<!--                        <td id="ymapsl-hours-saturday" class="ymapsl-opening-hours ymapsl-active" data-day="saturday">-->
+<!--                            <p class="ymapsl-store-closed">Закрыто<input type="hidden" name="ymapsl[hours][saturday]" value="closed"></p>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <div class="ymapsl-add-period">-->
+<!--                                <div class="ymapsl-icon-plus-circled"></div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="ymapsl-opening-day">Воскресенье</td>-->
+<!--                        <td id="ymapsl-hours-sunday" class="ymapsl-opening-hours ymapsl-active" data-day="sunday">-->
+<!--                            <p class="ymapsl-store-closed">Закрыто<input type="hidden" name="ymapsl[hours][sunday]" value="closed"></p>-->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            <div class="ymapsl-add-period">-->
+<!--                                <div class="ymapsl-icon-plus-circled"></div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+
+                <?php
+                $opening_days = array(
+	                'monday'    => 'Понедельник',
+	                'tuesday'   => 'Вторник',
+	                'wednesday' => 'Среда',
+	                'thursday'  => 'Четверг',
+	                'friday'    => 'Пятница',
+	                'saturday'  => 'Суббота',
+	                'sunday'    => 'Воскресенье'
+                );
+                $opening_hours_default = array(
+	                'dropdown' => array(
+		                'monday'    => '',
+		                'tuesday'   => '',
+		                'wednesday' => '',
+		                'thursday'  => '',
+		                'friday'    => '',
+		                'saturday'  => '',
+		                'sunday'    => ''
+	                )
+                );
+
+                $opening_hours = get_post_meta( $post->ID, '_ymapsl_hours' );
+
+//                file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1hours.txt", print_r( $opening_hours, true ) . "\r\n", FILE_APPEND | LOCK_EX );
+
+
+                if ( !isset( $opening_hours[0]['monday'] ) ) {
+	                $opening_hours = $opening_hours_default['dropdown'];
+                } else {
+	                $opening_hours = $opening_hours[0];
+                }
+                ?>
+
+                <table id="ymapsl-store-hours" class="ymapsl-twentyfour-format">
+                    <tr>
+                        <th>Дни недели</th>
+                        <th>Часы работы</th>
+                        <th></th>
+                    </tr>
+		            <?php
+		            foreach ( $opening_days as $index => $day ) {
+			            $i          = 0;
+			            $hour_count = count( $opening_hours[$index] );
+			            ?>
+                        <tr>
+                            <td class="ymapsl-opening-day"><?php echo esc_html( $day ); ?></td>
+                            <td id="ymapsl-hours-<?php echo esc_attr( $index ); ?>" class="ymapsl-opening-hours" data-day="<?php echo esc_attr( $index ); ?>">
+					            <?php
+					            if ( $hour_count > 0 ) {
+						            // Loop over the opening periods.
+						            while ( $i < $hour_count ) {
+							            if ( isset( $opening_hours[$index][$i] ) ) {
+								            $hours = explode( ',', $opening_hours[$index][$i] );
+							            } else {
+								            $hours = '';
+							            }
+
+							            // If we don't have two parts or one of them is empty, then we set the store to closed.
+							            if ( ( count( $hours ) == 2 ) && ( !empty( $hours[0] ) ) && ( !empty( $hours[1] ) ) ) {
+								            ?>
+                                            <div class="ymapsl-current-period <?php if ( $i > 0 ) { echo 'ymapsl-multiple-periods'; } ?>">
+                                                <input name="ymapsl[hours][<?= $index ?>_open][]" class="ymapsl-open-hour" value="<?=$hours[0]?>">
+                                                <span> - </span>
+                                                <input name="ymapsl[hours][<?= $index ?>_close][]" class="ymapsl-open-hour" value="<?=$hours[1]?>">
+                                                <div class="ymapsl-icon-cancel-circled"></div>
+                                            </div>
+								            <?php
+							            } else {
+								            echo '<p class="ymapsl-store-closed">Закрыто <input type="hidden" name="ymapsl[hours][' . esc_attr( $index ) . ']" value="closed"></p>';
+							            }
+
+							            $i++;
+						            }
+					            } else {
+						            echo '<p class="ymapsl-store-closed">Закрыто <input type="hidden" name="ymapsl[hours][' . esc_attr( $index ) . ']" value="closed"></p>';
+					            }
+					            ?>
+                            </td>
+                            <td>
+                                <div class="ymapsl-add-period">
+                                    <div class="ymapsl-icon-plus-circled"></div>
+                                </div>
+                            </td>
+                        </tr>
+			            <?php
+		            }
+		            ?>
+                </table>
+
+            </div>
+
             <div class="ymapsl-fields-row">
                 <p id="ymapsl_comment_field">
                     <label for="ymapsl_field">Комментарий</label>
@@ -235,6 +421,8 @@ function ymapsl_custom_box_html( $post ) {
 add_action( 'save_post', 'ymapsl_save_postdata' );
 function ymapsl_save_postdata( $post_id ) {
 
+
+
 	if ( empty( $_POST['ymapsl_meta_nonce'] ) || !wp_verify_nonce( $_POST['ymapsl_meta_nonce'], 'save_store_meta' ) )
 		return;
 
@@ -256,11 +444,52 @@ function ymapsl_save_postdata( $post_id ) {
 
 	add_filter( 'post_updated_messages', 'your_message' );
 
+
+
 	$meta_fields = apply_filters( 'ymapsl_meta_fields', '' );
 	foreach ( $meta_fields['Адрес'] as $field_key => $field_data ) {
-		if ( array_key_exists( 'ymapsl_' . $field_key, $_POST ) ) {
+
+
+
+//		if ( array_key_exists( 'ymapsl_' . $field_key, $_POST ) ) {
+
+		    if ($field_key == 'hours'){
+
+			    $week_days = array(
+				    'monday'    => 'Понедельник',
+				    'tuesday'   => 'Вторник',
+				    'wednesday' => 'Среда',
+				    'thursday'  => 'Четверг',
+				    'friday'    => 'Пятница',
+				    'saturday'  => 'Суббота',
+				    'sunday'    => 'Воскресенье'
+			    );
+
+			    foreach ( $week_days as $day => $value ) {
+				    $i       = 0;
+				    $periods = array();
+				    $store_hours = $_POST['ymapsl']['hours'];
+
+				    if ( isset( $store_hours[$day . '_open'] ) && $store_hours[$day . '_open'] ) {
+					    foreach ( $store_hours[$day . '_open'] as $opening_hour ) {
+						    $hours     =  $store_hours[$day.'_open'][$i]  . ',' .  $store_hours[$day.'_close'][$i];
+						    $periods[] = $hours;
+						    $i++;
+					    }
+				    }
+
+				    $opening_hours[$day] = $periods;
+			    }
+
+			    file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/1hours.txt", print_r( $opening_hours, true ) . "\r\n", FILE_APPEND | LOCK_EX );
+
+
+			    update_post_meta( $post_id, '_ymapsl_' . $field_key, $opening_hours );
+		        continue;
+            }
+
 			update_post_meta( $post_id, '_ymapsl_' . $field_key, $_POST[ 'ymapsl_' . $field_key ] );
-		}
+//		}
 	}
 }
 
