@@ -1317,3 +1317,35 @@ Array
 
 )
 
+Array
+(
+    [monday] => Array
+        (
+        )
+
+    [tuesday] => Array
+        (
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+        )
+
+)
+

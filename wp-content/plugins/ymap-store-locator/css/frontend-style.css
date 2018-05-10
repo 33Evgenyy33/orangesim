@@ -29,7 +29,7 @@
 
 #ymapsl_result_list {
     /*background: #fafafa;*/
-    width: 30%;
+    width: 35%;
 }
 
 #ymapsl_stores {
@@ -50,7 +50,7 @@
     overflow: hidden;
     list-style: none!important;
     text-indent: 0;
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
     margin-bottom: 12px;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .ymapsl-store-details  .ymapsl-store-name{
-    padding: 7px 10px;
+    padding: 7px 12px;
     background: #edeef2;
     display: flex;
     justify-content: space-between;
@@ -81,7 +81,7 @@
 }
 
 .ymapsl-store-details > div{
-    padding: 6px 10px;
+    padding: 6px 12px;
     font-weight: 500;
     font-size: 0.9rem;
     line-height: 20px;
@@ -98,6 +98,14 @@
 
 .ymapsl-store-details > div:not(.ymapsl-store-address) i {
     color: #2977e0;
+}
+
+.ymapsl-store-details > div:nth-child(2) {
+    padding-top: 12px;
+}
+
+.ymapsl-store-details > div:last-child {
+    padding-bottom: 12px;
 }
 
 
@@ -182,6 +190,35 @@ tr.closed td:last-child {
 #ymapsl_stores .ymapsl-store-schedule__dropdown ul li {
     margin-bottom: 4px;
 }
+#ymapsl_stores .ymapsl-store-schedule__dropdown tr td:first-child {
+    position: relative;
+    padding-left: 30px;
+}
+#ymapsl_stores .ymapsl-store-schedule__dropdown tr.today td:first-child:after {
+    content: "\00B7";
+    position: absolute;
+    font-size: 50px;
+    left: 0;
+    color: #478d00;
+    padding-left: 10px;
+}
+
+#ymapsl_stores .ymapsl-store-schedule__dropdown tr.closed.today td:first-child:after {
+    color: #d7506b;
+}
+
+span.openorclosed.open {
+    color: #43A047;
+}
+span.openorclosed.closed {
+    color: #d7506b;
+}
+span.openorclosed {
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 7px;
+}
+
 .ymapsl-store-details-metro span {
     padding-left: 30px;
     background: url(http://orangesim/wp-content/uploads/2018/05/c1deac267354bca81329730d92171f91.svg) no-repeat 0;
@@ -189,7 +226,7 @@ tr.closed td:last-child {
 }
 
 #ymapsl_map_wrap {
-    width: 70%;
+    width: 65%;
     height: 600px;
     background: #eaeaea;
 }

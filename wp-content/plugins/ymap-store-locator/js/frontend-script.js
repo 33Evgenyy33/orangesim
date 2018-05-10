@@ -132,24 +132,80 @@ jQuery(document).ready(function ($) {
                         storeComment = '<p class="ymapsl-store-details-comment"><span><strong>Примечание: </strong>'+json[0].address[i].comment+'</span></p>';
                     }
 
+                    let currentDate = new Date();
+                    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    let today = days[currentDate.getDay()];
+                    today = today.toLowerCase();
+
+                    let currentTimeHours = currentDate.getHours();
+                    currentTimeHours = currentTimeHours < 10 ? "0" + currentTimeHours : currentTimeHours;
+                    let currentTimeMinutes = currentDate.getMinutes();
+                    let timeNow = currentTimeHours + "" + currentTimeMinutes;
+
+                    let storeHoursHeader = '';
                     let storeHoursHtml = '<table>';
-                    if (json[0].address[i].hours) {
+                    if (json[0].address[i].hours && json[0].address[i].hours !== 'need to clarify') {
                         $.each(json[0].address[i].hours, function(index, value) {
-                            let localIndex = localDeys[index];
+                            let localizedIndex = localDeys[index];
                             if (value.length > 0 && value.length < 2) {
-                                storeHoursHtml += '<tr><td>'+localIndex+'</td><td>'+value+'</td></tr>';
-                            } else if (value.length > 0 && value.length >= 2){
-                                let weekDayRange = '';
-                                weekDayRange += '<ul>';
-                                for (let j = 0; j < value.length; j++) {
-                                    weekDayRange += '<li>' + value[j] + '</li>';
+
+                                let timeWithoutLunchBreak = value[0].replace("-", " – ");
+                                if (today === index) {
+                                    storeHoursHtml += '<tr class="today"><td>'+localizedIndex+'</td><td>'+timeWithoutLunchBreak+'</td></tr>';
+
+                                    let openTimex = value[0].split('-')[0].split(':')[0]+""+value[0].split('-')[0].split(':')[1];
+                                    let closeTimex = value[0].split('-')[1].split(':')[0]+""+value[0].split('-')[1].split(':')[1];
+                                    console.log('timeNow: ' + timeNow);
+                                    console.log('openTimex: ' + openTimex);
+                                    console.log('closeTimex: ' + closeTimex);
+
+                                    let openorclosedClass = '';
+                                    let openorclosedText = '';
+                                    if (timeNow >= openTimex && timeNow <= closeTimex) {
+                                        openorclosedClass = 'openorclosed open';
+                                        openorclosedText = 'Открыто';
+                                    } else {
+                                        openorclosedClass = 'openorclosed closed';
+                                        openorclosedText = 'Закрыто';
+                                    }
+                                    storeHoursHeader = 'Сегодня: <span class="ymapsl-store-schedule__header-time">'+timeWithoutLunchBreak+'</span><span class="'+openorclosedClass+'"> '+openorclosedText+'</span>'
+                                } else {
+                                    storeHoursHtml += '<tr><td>'+localizedIndex+'</td><td>'+timeWithoutLunchBreak+'</td></tr>';
                                 }
-                                weekDayRange += '</ul>';
-                                storeHoursHtml += '<tr><td>'+localIndex+'</td><td>'+weekDayRange+'</td></tr>';
+
+                            } else if (value.length > 0 && value.length >= 2){
+
+                                let timeWithLunchBreak = '<ul>';
+                                for (let j = 0; j < value.length; j++) {
+                                    timeWithLunchBreak += '<li>' + value[j].replace("-", " – ") + '</li>';
+                                }
+                                timeWithLunchBreak += '</ul>';
+
+                                if (today === index) {
+                                    storeHoursHtml += '<tr class="today"><td>'+localizedIndex+'</td><td>'+timeWithLunchBreak+'</td></tr>';
+
+                                    let openTime = value[0].split('-')[0];
+                                    let closeTime = value[value.length - 1].split('-')[1];
+                                    storeHoursHeader = 'Сегодня: <span class="ymapsl-store-schedule__header-time">'+openTime+' – '+closeTime+'</span>';
+                                } else {
+                                    storeHoursHtml += '<tr><td>'+localizedIndex+'</td><td>'+timeWithLunchBreak+'</td></tr>';
+                                }
+
                             } else {
-                                storeHoursHtml += '<tr class="closed"><td>'+localIndex+'</td><td>Выходной</td></tr>';
+
+                                if (today === index) {
+                                    storeHoursHtml += '<tr class="closed today"><td>'+localizedIndex+'</td><td>Выходной</td></tr>';
+                                    storeHoursHeader = 'Сегодня: <span class="ymapsl-store-schedule__header-time">Выходной</span>';
+                                } else {
+                                    storeHoursHtml += '<tr class="closed"><td>'+localizedIndex+'</td><td>Выходной</td></tr>';
+                                }
+
                             }
                         });
+
+                    } else if (json[0].address[i].hours && json[0].address[i].hours === 'need to clarify') {
+                        storeHoursHeader = 'уточнять по телефону';
+                        console.log(storeHoursHeader);
                     }
                     storeHoursHtml += '</table>';
 
@@ -168,7 +224,7 @@ jQuery(document).ready(function ($) {
                               // '<div class="ymapsl-store-schedule"><i class="far fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
                               '<div class="ymapsl-store-schedule">' +
                                   '<div class="ymapsl-store-schedule__header">' +
-                                      '<i class="far fa-clock"></i> Режим работы' +
+                                      '<i class="far fa-clock"></i> ' + storeHoursHeader +
                                   '</div>' +
                                   '<div class="ymapsl-store-schedule__dropdown" style="display: none">' +
                                        storeHoursHtml +
@@ -201,10 +257,6 @@ jQuery(document).ready(function ($) {
                 //     });
                 //     ymapslMap.setZoom(17, {duration: 300});
                 // }
-
-                let currentDay = new Date();
-                let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                console.log(days[currentDay.getDay()]);
 
                 $('.ymapsl-store-schedule').click(function() {
                     $(this).toggleClass('active');
