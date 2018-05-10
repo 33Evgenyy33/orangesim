@@ -82,14 +82,24 @@
 
 .ymapsl-store-details > div{
     padding: 6px 10px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.9rem;
     line-height: 20px;
 }
 
-.ymapsl-store-details i {
-    width: 17px;
+.ymapsl-store-details > div:not(:first-child):hover {
+    background-color: rgba(0,0,0,.03);
 }
+
+.ymapsl-store-details i {
+    width: 25px;
+    font-size: 17px;
+}
+
+.ymapsl-store-details > div:not(.ymapsl-store-address) i {
+    color: #2977e0;
+}
+
 
 .ymapsl-store-name > span {
     font-weight: 700;
@@ -129,18 +139,16 @@
     font-size: 0.9rem;
 }
 
-.ymapsl-store-address {
-    line-height: 24px;
-}
-
-.ymapsl-store-address i {
-    font-size: 17px;
+.ymapsl-store-details .ymapsl-store-address {
+    cursor: pointer;
+    color: #2977e0;
+    font-weight: 600;
 }
 
 .ymapsl-store-details-metro span {
-    padding-left: 21px;
+    padding-left: 30px;
     background: url(http://orangesim/wp-content/uploads/2018/05/c1deac267354bca81329730d92171f91.svg) no-repeat 0;
-    background-size: 16px;
+    background-size: 17px;
 }
 
 #ymapsl_map_wrap {

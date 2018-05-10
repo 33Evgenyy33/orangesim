@@ -913,3 +913,38 @@ Array
 
 )
 
+Array
+(
+    [monday] => Array
+        (
+            [0] => 10:00,12:00
+            [1] => 12:00,13:00
+        )
+
+    [tuesday] => Array
+        (
+            [0] => 12:00,17:00
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+        )
+
+)
+

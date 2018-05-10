@@ -32,7 +32,7 @@ jQuery(document).ready(function ($) {
                 clusterOpenBalloonOnClick: false,
             });
 
-            objectManager.objects.options.set('preset', 'islands#blueStretchyIcon');
+            objectManager.objects.options.set('preset', 'islands#darkblueStretchyIcon');
             // objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
             ymapslMap.geoObjects.add(objectManager);
 
@@ -59,7 +59,7 @@ jQuery(document).ready(function ($) {
             });
 
 
-            ymapslStoresList.on("click", "a", function () {
+            ymapslStoresList.on("click", ".ymapsl-store-address", function () {
                 myFunction($(this).data('object-id'))
             });
 
@@ -131,7 +131,7 @@ jQuery(document).ready(function ($) {
                                     '<span class="store-sim-qty">'+ json[0].address[i].qty +'</span>' +
                                 '</div>' +
                                 '</div>' +
-                              '<div class="ymapsl-store-address"><a data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="far fa-map-marker-alt"></i> ' + json[0].address[i].address + '</span></a></div>' +
+                              '<div class="ymapsl-store-address" data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="fas fa-map-marker-alt"></i> ' + json[0].address[i].address + '</span></div>' +
                               storeMetro +
                               '<div class="ymapsl-store-schedule"><i class="far fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
                               '<div class="ymapsl-store-contact"><i class="far fa-phone"></i> ' + json[0].address[i].phone + '</div>' +
