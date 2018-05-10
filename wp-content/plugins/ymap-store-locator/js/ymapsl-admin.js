@@ -151,6 +151,22 @@ jQuery(document).ready(function ($) {
 
     if ( $( "#ymapsl-store-hours" ).length ) {
         initHourEvents();
+        if ($( ".ymapsl-current-period" ).length) {
+            $("input.ymapsl-open-hour").flatpickr({
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                //defaultDate: "10:00"
+            });
+            $("input.ymapsl-close-hour").flatpickr({
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                //defaultDate: "19:00"
+            });
+        }
     }
 
     function initHourEvents() {
@@ -179,7 +195,28 @@ jQuery(document).ready(function ($) {
         newPeriod += '</div>';
 
         $tr.find( ".ymapsl-store-closed" ).remove();
+
         $( "#ymapsl-hours-" + day + "" ).append( newPeriod ).end();
+
+        let appendEl = $( "#ymapsl-hours-" + day + "" ).find('.ymapsl-current-period:last-child');
+
+        appendEl.find("input.ymapsl-open-hour").flatpickr({
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true,
+            defaultDate: "10:00"
+        });
+        appendEl.find("input.ymapsl-close-hour").flatpickr({
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true,
+            defaultDate: "19:00"
+        });
+
+
+        console.log(appendEl);
 
         initHourEvents();
 
@@ -195,6 +232,11 @@ jQuery(document).ready(function ($) {
         if ( periodsLeft === 1 ) {
             $tr.find( ".ymapsl-opening-hours" ).html( "<p class='ymapsl-store-closed'>Закрыто<input type='hidden' name='ymapsl[hours][" + day + "_open]' value='' /></p>" );
         }
+
+        // Удаление flatpickr объекста
+        let removedEl = elem.parent().closest( ".ymapsl-current-period" );
+        removedEl.find("input.ymapsl-open-hour")[0]._flatpickr.destroy();
+        removedEl.find("input.ymapsl-close-hour")[0]._flatpickr.destroy();
 
         // Remove the selected openings period.
         elem.parent().closest( ".ymapsl-current-period" ).remove();

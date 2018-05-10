@@ -79,6 +79,7 @@ function ymapsl_search_stores() {
 			$store_metro         = ymapsl_get_meta_value(  $store_id, '_ymapsl_metro');
 			$store_phone         = ymapsl_get_meta_value(  $store_id, '_ymapsl_phone');
 			$store_opening_hours = ymapsl_get_meta_value(  $store_id, '_ymapsl_opening_hours');
+			$store_hours         = ymapsl_get_meta_value(  $store_id, '_ymapsl_hours');
 			$store_comment       = ymapsl_get_meta_value(  $store_id, '_ymapsl_comment');
 			$store_lng           = ymapsl_get_meta_value(  $store_id, '_ymapsl_lng');
 			$store_lat           = ymapsl_get_meta_value(  $store_id, '_ymapsl_lat');
@@ -127,6 +128,7 @@ function ymapsl_search_stores() {
 				'metro'         => $store_metro_list,
 				'phone'         => $store_phone,
 				'opening_hours' => $store_opening_hours,
+				'hours'         => maybe_unserialize( $store_hours ),
 				'comment'       => $store_comment_list
 			);
 

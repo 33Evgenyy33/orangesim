@@ -79,6 +79,7 @@ jQuery(document).ready(function ($) {
             },
             url: ymapsl_ajax.url,
             beforeSend: function () {
+                $('.ymapsl-store-schedule__header').off();
 
             },
             success: function (json) {
@@ -93,6 +94,16 @@ jQuery(document).ready(function ($) {
                     ymapslDisplayLoader('hide');
                     return;
                 }
+
+                let localDeys = {
+                    'monday' : 'Понедельник',
+                    'tuesday' : 'Вторник',
+                    'wednesday' : 'Среда',
+                    'thursday' : 'Четверг',
+                    'friday' : 'Пятница',
+                    'saturday' : 'Суббота',
+                    'sunday' : 'Воскресенье'
+                };
 
                 // Выводим список пунктов выдочи
                 let src_res = '';
@@ -121,6 +132,27 @@ jQuery(document).ready(function ($) {
                         storeComment = '<p class="ymapsl-store-details-comment"><span><strong>Примечание: </strong>'+json[0].address[i].comment+'</span></p>';
                     }
 
+                    let storeHoursHtml = '<table>';
+                    if (json[0].address[i].hours) {
+                        $.each(json[0].address[i].hours, function(index, value) {
+                            let localIndex = localDeys[index];
+                            if (value.length > 0 && value.length < 2) {
+                                storeHoursHtml += '<tr><td>'+localIndex+'</td><td>'+value+'</td></tr>';
+                            } else if (value.length > 0 && value.length >= 2){
+                                let weekDayRange = '';
+                                weekDayRange += '<ul>';
+                                for (let j = 0; j < value.length; j++) {
+                                    weekDayRange += '<li>' + value[j] + '</li>';
+                                }
+                                weekDayRange += '</ul>';
+                                storeHoursHtml += '<tr><td>'+localIndex+'</td><td>'+weekDayRange+'</td></tr>';
+                            } else {
+                                storeHoursHtml += '<tr class="closed"><td>'+localIndex+'</td><td>Выходной</td></tr>';
+                            }
+                        });
+                    }
+                    storeHoursHtml += '</table>';
+
                     src_res +=
                         '<li>' +
                           '<div class="ymapsl-store-details">' +
@@ -133,7 +165,15 @@ jQuery(document).ready(function ($) {
                                 '</div>' +
                               '<div class="ymapsl-store-address" data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="fas fa-map-marker-alt"></i> ' + json[0].address[i].address + '</span></div>' +
                               storeMetro +
-                              '<div class="ymapsl-store-schedule"><i class="far fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
+                              // '<div class="ymapsl-store-schedule"><i class="far fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
+                              '<div class="ymapsl-store-schedule">' +
+                                  '<div class="ymapsl-store-schedule__header">' +
+                                      '<i class="far fa-clock"></i> Режим работы' +
+                                  '</div>' +
+                                  '<div class="ymapsl-store-schedule__dropdown" style="display: none">' +
+                                       storeHoursHtml +
+                                  '</div>' +
+                              '</div>' +
                               '<div class="ymapsl-store-contact"><i class="far fa-phone"></i> ' + json[0].address[i].phone + '</div>' +
                              storeComment +
                           '</div>' +
@@ -161,6 +201,15 @@ jQuery(document).ready(function ($) {
                 //     });
                 //     ymapslMap.setZoom(17, {duration: 300});
                 // }
+
+                let currentDay = new Date();
+                let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                console.log(days[currentDay.getDay()]);
+
+                $('.ymapsl-store-schedule').click(function() {
+                    $(this).toggleClass('active');
+                    $(this).find('.ymapsl-store-schedule__dropdown').slideToggle();
+                });
 
                 ymapslDisplayLoader('hide');
             }

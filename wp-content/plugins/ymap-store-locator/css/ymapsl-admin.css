@@ -231,6 +231,7 @@ li.parsley-required {
 #ymapsl-store-hours input {
     float: left;
     width: 120px;
+    background: #ffffff;
 }
 
 .ymapsl-add-period, .ymapsl-current-period {

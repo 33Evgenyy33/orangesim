@@ -28,7 +28,7 @@
 }
 
 #ymapsl_result_list {
-    background: #fafafa;
+    /*background: #fafafa;*/
     width: 30%;
 }
 
@@ -44,7 +44,7 @@
     padding-top: 10px;
 }
 
-#ymapsl_stores ul li {
+#ymapsl_stores > ul > li {
     background: #fff;
     margin-left: 0;
     overflow: hidden;
@@ -118,14 +118,12 @@
     position: relative;
     border-left: 1px solid #c3c3c3;
 }
-
 .store-sim-qty-title {
     font-size: 0.8rem;
     font-weight: 700;
     color: #818181;
     white-space: nowrap;
 }
-
 .store-sim-qty {
     background: #f98200;
     border-radius: 0.9em;
@@ -138,13 +136,51 @@
     line-height: 27px;
     font-size: 0.9rem;
 }
-
 .ymapsl-store-details .ymapsl-store-address {
     cursor: pointer;
     color: #2977e0;
     font-weight: 600;
 }
-
+.ymapsl-store-schedule{
+    cursor: pointer;
+}
+.ymapsl-store-schedule.active {
+    background-color: rgba(0,0,0,.03);
+}
+.ymapsl-store-schedule__header {
+    position: relative;
+}
+.ymapsl-store-schedule__header:after {
+    content: "\f078";
+    font-family: FontAwesome;
+    right: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.4s ease;
+}
+.ymapsl-store-schedule.active .ymapsl-store-schedule__header:after {
+    transform: rotateZ(180deg);
+}
+.ymapsl-store-schedule__dropdown {
+    margin-top: 10px;
+}
+.ymapsl-store-schedule .ymapsl-store-schedule__dropdown {
+    background: #ffffff;
+}
+#ymapsl_stores .ymapsl-store-schedule__dropdown td {
+    padding: 7px 7px;
+    font-size: 14px;
+}
+tr.closed td:last-child {
+    color: #d7506b;
+}
+#ymapsl_stores .ymapsl-store-schedule__dropdown ul {
+    padding: 0;
+    margin: 0;
+}
+#ymapsl_stores .ymapsl-store-schedule__dropdown ul li {
+    margin-bottom: 4px;
+}
 .ymapsl-store-details-metro span {
     padding-left: 30px;
     background: url(http://orangesim/wp-content/uploads/2018/05/c1deac267354bca81329730d92171f91.svg) no-repeat 0;
