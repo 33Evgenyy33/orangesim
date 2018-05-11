@@ -3,6 +3,7 @@
     position: relative;
     overflow: auto;
     box-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
+    box-shadow: 0 12px 80px 6px #ffa0002b, 0px 2px 20px -3px #ffa00026;
 }
 
 #ymapsl_search {
@@ -46,12 +47,12 @@
 
 #ymapsl_stores > ul > li {
     background: #fff;
-    margin-left: 0;
     overflow: hidden;
     list-style: none!important;
     text-indent: 0;
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    margin-bottom: 12px;
+    max-width: 357px;
+    margin: 7px auto 16px;
 }
 
 .ymapsl-stores-empty-list {
@@ -71,7 +72,7 @@
 
 .ymapsl-store-details  .ymapsl-store-name{
     padding: 7px 12px;
-    background: #edeef2;
+    background: #fafafa;
     display: flex;
     justify-content: space-between;
 }
@@ -124,7 +125,7 @@
     padding-left: 7px;
     height: 100%;
     position: relative;
-    border-left: 1px solid #c3c3c3;
+    /*border-left: 1px solid #c3c3c3;*/
 }
 .store-sim-qty-title {
     font-size: 0.8rem;
@@ -180,7 +181,7 @@
     font-size: 14px;
 }
 tr.closed td:last-child {
-    color: #d7506b;
+    /*color: #d7506b;*/
 }
 
 #ymapsl_stores .ymapsl-store-schedule__dropdown ul {
@@ -199,11 +200,14 @@ tr.closed td:last-child {
     position: absolute;
     font-size: 50px;
     left: 0;
-    color: #478d00;
     padding-left: 10px;
 }
 
-#ymapsl_stores .ymapsl-store-schedule__dropdown tr.closed.today td:first-child:after {
+tr.today.open td:first-child:after {
+    color: #478d00;
+}
+
+tr.today.closed td:first-child:after {
     color: #d7506b;
 }
 
@@ -217,6 +221,16 @@ span.openorclosed {
     font-size: 14px;
     font-weight: 600;
     padding-left: 7px;
+}
+
+tr.today.open td:last-child, tr.today.closed td:last-child{
+    font-weight: 600;
+}
+tr.today.open td:last-child{
+    color: #478d00;
+}
+tr.today.closed td:last-child{
+    color: #d7506b;
 }
 
 .ymapsl-store-details-metro span {
@@ -235,9 +249,9 @@ span.openorclosed {
     width: 100%;
     height: 100%;
     background: #eaeaea;
-    border-left: 1px solid #FFA000;
-    border-bottom: 1px solid #FFA000;
-    border-right: 1px solid #FFA000;
+    /*border-left: 1px solid #FFA000;*/
+    /*border-bottom: 1px solid #FFA000;*/
+    /*border-right: 1px solid #FFA000;*/
 }
 
 .ymaps-map-balloon i {

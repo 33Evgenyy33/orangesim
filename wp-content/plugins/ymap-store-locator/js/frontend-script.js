@@ -1,3 +1,5 @@
+"use strict";
+
 jQuery(document).ready(function ($) {
 
     let ymapslMap;
@@ -44,7 +46,7 @@ jQuery(document).ready(function ($) {
                         return "Такого города нет...";
                     }
                 }
-            }).on('select2:select', function (e) {
+            }).on('select2:select', function () {
                 console.log($(this).val());
 
                 ymapslStoresList.html('');
@@ -58,16 +60,35 @@ jQuery(document).ready(function ($) {
                 searchStoresAjax($(this).val());
             });
 
-
             ymapslStoresList.on("click", ".ymapsl-store-address", function () {
                 myFunction($(this).data('object-id'))
             });
-
         },
         errorCallback: function (ymapslMapInitError) {
             console.log('Ошибка загрузки Яндекс Карты:' + ymapslMapInitError);
         }
     });
+
+    function isToday(day) {
+        let currentDate = new Date();
+        let days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+        let today = days[currentDate.getDay()];
+
+        return (day === today);
+    }
+
+    function isOpen(timeRange) {
+        let currentDate = new Date();
+        let currentTimeHours = currentDate.getHours();
+        currentTimeHours = currentTimeHours < 10 ? "0" + currentTimeHours : currentTimeHours;
+        let currentTimeMinutes = currentDate.getMinutes();
+        let timeNow = currentTimeHours + "" + currentTimeMinutes;
+
+        let openTimex = timeRange[0].split('-')[0].split(':')[0] + "" + timeRange[0].split('-')[0].split(':')[1];
+        let closeTimex = timeRange[0].split('-')[1].split(':')[0] + "" + timeRange[0].split('-')[1].split(':')[1];
+
+        return (timeNow >= openTimex && timeNow <= closeTimex);
+    }
 
     function searchStoresAjax(selectedCity) {
         $.ajax({
@@ -80,14 +101,12 @@ jQuery(document).ready(function ($) {
             url: ymapsl_ajax.url,
             beforeSend: function () {
                 $('.ymapsl-store-schedule__header').off();
-
             },
             success: function (json) {
+                console.log(json);
 
                 // Ближайшая станция метро (возможно пригодится!!!)
                 // ymaps.geoQuery(ymaps.geocode([55.852508, 37.494944], { kind: 'metro', results: 1 })).addToMap(ymapslMap);
-
-                console.log(json);
 
                 if ($.isEmptyObject(json)) {
                     ymapslStoresList.html('<li class="ymapsl-stores-empty-list">Во всех пунктах города закончились карты =(</li>');
@@ -96,84 +115,74 @@ jQuery(document).ready(function ($) {
                 }
 
                 let localDeys = {
-                    'monday' : 'Понедельник',
-                    'tuesday' : 'Вторник',
-                    'wednesday' : 'Среда',
-                    'thursday' : 'Четверг',
-                    'friday' : 'Пятница',
-                    'saturday' : 'Суббота',
-                    'sunday' : 'Воскресенье'
+                    'monday': 'Понедельник',
+                    'tuesday': 'Вторник',
+                    'wednesday': 'Среда',
+                    'thursday': 'Четверг',
+                    'friday': 'Пятница',
+                    'saturday': 'Суббота',
+                    'sunday': 'Воскресенье'
                 };
 
                 // Выводим список пунктов выдочи
                 let src_res = '';
                 for (let i = 0; i < json[0]['address'].length; i++) {
-                    let sch = i + 1;
-                    // var placemark = new ymaps.Placemark([json[i].lon, json[i].lat], {
-                    //     iconContent: sch,
-                    //     balloonContentHeader: '<div style="color:#ff0303;font-weight:bold">' + json[i].address + '</div>',
-                    //     balloonContentBody: '<div style="font-size:13px;"><div><strong>Адрес:</strong> ' + json[i].address + '<br>' + '<strong>Режим работы:</strong> ' + json[i].rrab + '<br></div></div>'
-                    // }, {
-                    //     // Опции
-                    //     preset: 'twirl#nightStretchyIcon' // иконка растягивается под контент
-                    // });
-                    // myCollection.add(placemark);
-                    // src_res = src_res + '<p>' + sch + '. ' + '<a href="#" onclick="myFunction(' + json[i].lat + ', ' + json[i].lon + ",'" + json[i].address + "')" + '\">' + json[i].address + '</a></p>';
 
                     let storeMetro = '';
-                    if (json[0].address[i].metro){
-                        // storeComment = '<span><strong>примечание: </strong>'+json[0].address[i].comment+'</span>';
-                        storeMetro = '<div class="ymapsl-store-details-metro"><span>'+json[0].address[i].metro+'</span></div>';
+                    if (json[0].address[i].metro) {
+                        storeMetro =
+                            '<div class="ymapsl-store-details-metro">' +
+                              '<span>' + json[0].address[i].metro + '</span>' +
+                            '</div>';
                     }
 
                     let storeComment = '';
-                    if (json[0].address[i].comment){
-                        // storeComment = '<span><strong>примечание: </strong>'+json[0].address[i].comment+'</span>';
-                        storeComment = '<p class="ymapsl-store-details-comment"><span><strong>Примечание: </strong>'+json[0].address[i].comment+'</span></p>';
+                    if (json[0].address[i].comment) {
+                        storeComment =
+                            '<p class="ymapsl-store-details-comment">' +
+                              '<span><strong>Примечание: </strong>' + json[0].address[i].comment + '</span>' +
+                            '</p>';
                     }
 
-                    let currentDate = new Date();
-                    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                    let today = days[currentDate.getDay()];
-                    today = today.toLowerCase();
-
-                    let currentTimeHours = currentDate.getHours();
-                    currentTimeHours = currentTimeHours < 10 ? "0" + currentTimeHours : currentTimeHours;
-                    let currentTimeMinutes = currentDate.getMinutes();
-                    let timeNow = currentTimeHours + "" + currentTimeMinutes;
-
-                    let storeHoursHeader = '';
-                    let storeHoursHtml = '<table>';
+                    let storeHoursHeaderHtml = '';
+                    let storeHoursTableHtml = '<table>';
                     if (json[0].address[i].hours && json[0].address[i].hours !== 'need to clarify') {
-                        $.each(json[0].address[i].hours, function(index, value) {
+                        $.each(json[0].address[i].hours, function (index, value) {
                             let localizedIndex = localDeys[index];
                             if (value.length > 0 && value.length < 2) {
 
                                 let timeWithoutLunchBreak = value[0].replace("-", " – ");
-                                if (today === index) {
-                                    storeHoursHtml += '<tr class="today"><td>'+localizedIndex+'</td><td>'+timeWithoutLunchBreak+'</td></tr>';
-
-                                    let openTimex = value[0].split('-')[0].split(':')[0]+""+value[0].split('-')[0].split(':')[1];
-                                    let closeTimex = value[0].split('-')[1].split(':')[0]+""+value[0].split('-')[1].split(':')[1];
-                                    console.log('timeNow: ' + timeNow);
-                                    console.log('openTimex: ' + openTimex);
-                                    console.log('closeTimex: ' + closeTimex);
-
-                                    let openorclosedClass = '';
-                                    let openorclosedText = '';
-                                    if (timeNow >= openTimex && timeNow <= closeTimex) {
-                                        openorclosedClass = 'openorclosed open';
-                                        openorclosedText = 'Открыто';
+                                if (isToday(index)) {
+                                    if (isOpen(value)) {
+                                        storeHoursHeaderHtml =
+                                            '<span class="openorclosed open">Открыто: </span>' +
+                                            '<span class="ymapsl-store-schedule__header-time">' +
+                                            timeWithoutLunchBreak + '</span>';
+                                        storeHoursTableHtml +=
+                                            '<tr class="today open">' +
+                                              '<td>' + localizedIndex + '</td>' +
+                                              '<td>' + timeWithoutLunchBreak + '</td>' +
+                                            '</tr>';
                                     } else {
-                                        openorclosedClass = 'openorclosed closed';
-                                        openorclosedText = 'Закрыто';
+                                        storeHoursHeaderHtml =
+                                            '<span class="openorclosed closed">Закрыто. </span>' +
+                                            '<span class="ymapsl-store-schedule__header-time">' +
+                                            timeWithoutLunchBreak + '</span>';
+                                        storeHoursTableHtml +=
+                                            '<tr class="today closed">' +
+                                              '<td>' + localizedIndex + '</td>' +
+                                              '<td>' + timeWithoutLunchBreak + '</td>' +
+                                            '</tr>';
                                     }
-                                    storeHoursHeader = 'Сегодня: <span class="ymapsl-store-schedule__header-time">'+timeWithoutLunchBreak+'</span><span class="'+openorclosedClass+'"> '+openorclosedText+'</span>'
                                 } else {
-                                    storeHoursHtml += '<tr><td>'+localizedIndex+'</td><td>'+timeWithoutLunchBreak+'</td></tr>';
+                                    storeHoursTableHtml +=
+                                        '<tr>' +
+                                          '<td>' + localizedIndex + '</td>' +
+                                          '<td>' + timeWithoutLunchBreak + '</td>' +
+                                        '</tr>';
                                 }
 
-                            } else if (value.length > 0 && value.length >= 2){
+                            } else if (value.length > 0 && value.length >= 2) {
 
                                 let timeWithLunchBreak = '<ul>';
                                 for (let j = 0; j < value.length; j++) {
@@ -181,57 +190,83 @@ jQuery(document).ready(function ($) {
                                 }
                                 timeWithLunchBreak += '</ul>';
 
-                                if (today === index) {
-                                    storeHoursHtml += '<tr class="today"><td>'+localizedIndex+'</td><td>'+timeWithLunchBreak+'</td></tr>';
+                                if (isToday(index)) {
+                                    storeHoursTableHtml +=
+                                        '<tr class="today">' +
+                                          '<td>' + localizedIndex + '</td>' +
+                                          '<td>' + timeWithLunchBreak + '</td>' +
+                                        '</tr>';
 
                                     let openTime = value[0].split('-')[0];
                                     let closeTime = value[value.length - 1].split('-')[1];
-                                    storeHoursHeader = 'Сегодня: <span class="ymapsl-store-schedule__header-time">'+openTime+' – '+closeTime+'</span>';
+                                    storeHoursHeaderHtml =
+                                        'Сегодня: <span class="ymapsl-store-schedule__header-time">' +
+                                                    openTime + ' – ' + closeTime +
+                                                 '</span>';
                                 } else {
-                                    storeHoursHtml += '<tr><td>'+localizedIndex+'</td><td>'+timeWithLunchBreak+'</td></tr>';
+                                    storeHoursTableHtml +=
+                                        '<tr>' +
+                                          '<td>' + localizedIndex + '</td>' +
+                                          '<td>' + timeWithLunchBreak + '</td>' +
+                                        '</tr>';
                                 }
 
                             } else {
 
-                                if (today === index) {
-                                    storeHoursHtml += '<tr class="closed today"><td>'+localizedIndex+'</td><td>Выходной</td></tr>';
-                                    storeHoursHeader = 'Сегодня: <span class="ymapsl-store-schedule__header-time">Выходной</span>';
+                                if (isToday(index)) {
+                                    storeHoursTableHtml +=
+                                        '<tr class="closed today">' +
+                                          '<td>' + localizedIndex + '</td>' +
+                                          '<td>Выходной</td>' +
+                                        '</tr>';
+                                    storeHoursHeaderHtml =
+                                        'Сегодня: <span class="ymapsl-store-schedule__header-time">' +
+                                                    'Выходной' +
+                                                 '</span>';
                                 } else {
-                                    storeHoursHtml += '<tr class="closed"><td>'+localizedIndex+'</td><td>Выходной</td></tr>';
+                                    storeHoursTableHtml +=
+                                        '<tr class="closed">' +
+                                          '<td>' + localizedIndex + '</td>' +
+                                          '<td>Выходной</td>' +
+                                        '</tr>';
                                 }
 
                             }
                         });
 
                     } else if (json[0].address[i].hours && json[0].address[i].hours === 'need to clarify') {
-                        storeHoursHeader = 'уточнять по телефону';
-                        console.log(storeHoursHeader);
+                        storeHoursHeaderHtml = 'уточнять по телефону';
+                        console.log(storeHoursHeaderHtml);
                     }
-                    storeHoursHtml += '</table>';
+                    storeHoursTableHtml += '</table>';
 
                     src_res +=
                         '<li>' +
                           '<div class="ymapsl-store-details">' +
-                              '<div class="ymapsl-store-name">' +
-                                '<span>' + json[0].address[i].name + '</span>' +
-                                '<div>' +
-                                    '<span class="store-sim-qty-title">кол-во: </span>' +
-                                    '<span class="store-sim-qty">'+ json[0].address[i].qty +'</span>' +
-                                '</div>' +
-                                '</div>' +
-                              '<div class="ymapsl-store-address" data-object-id="' + json[0].address[i].id + '" data-address="' + json[0].address[i].address + '"><span><i class="fas fa-map-marker-alt"></i> ' + json[0].address[i].address + '</span></div>' +
-                              storeMetro +
-                              // '<div class="ymapsl-store-schedule"><i class="far fa-clock"></i> ' +json[0].address[i].opening_hours +'</div>' +
-                              '<div class="ymapsl-store-schedule">' +
-                                  '<div class="ymapsl-store-schedule__header">' +
-                                      '<i class="far fa-clock"></i> ' + storeHoursHeader +
-                                  '</div>' +
-                                  '<div class="ymapsl-store-schedule__dropdown" style="display: none">' +
-                                       storeHoursHtml +
-                                  '</div>' +
+                            '<div class="ymapsl-store-name">' +
+                              '<span>' + json[0].address[i].name + '</span>' +
+                              '<div>' +
+                                '<span class="store-sim-qty-title">кол-во: </span>' +
+                                '<span class="store-sim-qty">' + json[0].address[i].qty + '</span>' +
                               '</div>' +
-                              '<div class="ymapsl-store-contact"><i class="far fa-phone"></i> ' + json[0].address[i].phone + '</div>' +
-                             storeComment +
+                            '</div>' +
+                            '<div class="ymapsl-store-address" data-object-id="' + json[0].address[i].id + '" ' +
+                                 'data-address="' + json[0].address[i].address + '">' +
+                              '<span><i class="fas fa-map-marker-alt"></i> ' + json[0].address[i].address + '</span>' +
+                            '</div>' +
+                            storeMetro +
+                            '<div class="ymapsl-store-schedule">' +
+                              '<div class="ymapsl-store-schedule__header">' +
+                                '<i class="far fa-clock"></i> ' + storeHoursHeaderHtml +
+                              '</div>' +
+                              '<div class="ymapsl-store-schedule__dropdown" style="display: none">' +
+                                storeHoursTableHtml +
+                              '</div>' +
+                            '</div>' +
+                            '<div class="ymapsl-store-contact">' +
+                              '<i class="far fa-phone"></i> ' + json[0].address[i].phone +
+                            '</div>' +
+                            storeComment +
                           '</div>' +
                         '</li>';
                 }
@@ -241,24 +276,11 @@ jQuery(document).ready(function ($) {
                 // Добавляем элементы на карту
                 objectManager.add(json[1]);
 
-                // objectManager.options.set({gridSize: 80});
-                // ymapslMap.margin.setDefaultMargin(70);
                 ymapslMap.setBounds(objectManager.getBounds(), {
                     checkZoomRange: true,
                 });
 
-                // if (json[0]['address'].length > 1){
-                //     ymapslMap.setBounds(objectManager.getBounds(), {
-                //         checkZoomRange: true,
-                //     });
-                // } else if (json[0]['address'].length === 1) {
-                //     ymapslMap.setBounds(objectManager.getBounds(), {
-                //         checkZoomRange: false,
-                //     });
-                //     ymapslMap.setZoom(17, {duration: 300});
-                // }
-
-                $('.ymapsl-store-schedule').click(function() {
+                $('.ymapsl-store-schedule').click(function () {
                     $(this).toggleClass('active');
                     $(this).find('.ymapsl-store-schedule__dropdown').slideToggle();
                 });
@@ -269,37 +291,16 @@ jQuery(document).ready(function ($) {
     }
 
     function myFunction(id) {
-
-        if ($( "#ymapsl_stores ul li" ).length === 1) {
+        if ($("#ymapsl_stores ul li").length === 1) {
             objectManager.objects.balloon.open(id);
             return;
         }
-
         // Плавное перемещение без приближения
         ymapslMap.panTo(objectManager.objects.getById(id).geometry.coordinates, {
-            checkZoomRange:true,
+            checkZoomRange: true,
         }).then(function () {
             objectManager.objects.balloon.open(id);
         });
-
-        //Установка цента
-        // ymapslMap.setCenter(objectManager.objects.getById(id).geometry.coordinates, 17,{
-        //     duration:1000
-        // }).then(function () {
-        //     objectManager.objects.balloon.open(id);
-        // });
-
-        // Плавное перемещение с приближением
-        // ymapslMap.panTo(objectManager.objects.getById(id).geometry.coordinates, {
-        //     checkZoomRange:true,
-        //     duration:2000
-        // }).then(function () {
-        //     ymapslMap.setZoom(17, {duration: 1000}).then(function () {
-        //         objectManager.objects.balloon.open(id);
-        //     });
-        // });
-
-
     }
 
     function ymapslDisplayLoader(state, message) {
@@ -313,8 +314,9 @@ jQuery(document).ready(function ($) {
     }
 
     $('#ymapsl_map_wrap').resize(function () {
-        $('#ymapsl_map').width($(window).width());
-        $('#ymapsl_map').height($(window).height());
+        let ymapslMapSize = $('#ymapsl_map');
+        ymapslMapSize.width($(window).width());
+        ymapslMapSize.height($(window).height());
     });
 
 });
