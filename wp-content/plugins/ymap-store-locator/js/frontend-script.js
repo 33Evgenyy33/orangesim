@@ -114,7 +114,7 @@ jQuery(document).ready(function ($) {
                     return;
                 }
 
-                let localDeys = {
+                let localizedDeys = {
                     'monday': 'Понедельник',
                     'tuesday': 'Вторник',
                     'wednesday': 'Среда',
@@ -148,14 +148,14 @@ jQuery(document).ready(function ($) {
                     let storeHoursTableHtml = '<table>';
                     if (json[0].address[i].hours && json[0].address[i].hours !== 'need to clarify') {
                         $.each(json[0].address[i].hours, function (index, value) {
-                            let localizedIndex = localDeys[index];
+                            let localizedIndex = localizedDeys[index];
                             if (value.length > 0 && value.length < 2) {
 
                                 let timeWithoutLunchBreak = value[0].replace("-", " – ");
                                 if (isToday(index)) {
                                     if (isOpen(value)) {
                                         storeHoursHeaderHtml =
-                                            '<span class="openorclosed open">Открыто: </span>' +
+                                            '<span class="openorclosed open">Открыто. </span>' +
                                             '<span class="ymapsl-store-schedule__header-time">' +
                                             timeWithoutLunchBreak + '</span>';
                                         storeHoursTableHtml +=
@@ -220,7 +220,7 @@ jQuery(document).ready(function ($) {
                                           '<td>Выходной</td>' +
                                         '</tr>';
                                     storeHoursHeaderHtml =
-                                        'Сегодня: <span class="ymapsl-store-schedule__header-time">' +
+                                        'Сегодня: <span class="ymapsl-store-schedule__header-time closed">' +
                                                     'Выходной' +
                                                  '</span>';
                                 } else {
@@ -280,9 +280,9 @@ jQuery(document).ready(function ($) {
                     checkZoomRange: true,
                 });
 
-                $('.ymapsl-store-schedule').click(function () {
-                    $(this).toggleClass('active');
-                    $(this).find('.ymapsl-store-schedule__dropdown').slideToggle();
+                $('.ymapsl-store-schedule__header').click(function (e) {
+                    $(this).parent().toggleClass('active');
+                    $(this).parent().find('.ymapsl-store-schedule__dropdown').slideToggle();
                 });
 
                 ymapslDisplayLoader('hide');

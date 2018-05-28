@@ -1,19 +1,18 @@
 #ymapsl_wrap {
     display: block;
     position: relative;
-    overflow: auto;
-    box-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
+    box-shadow: 0 10px 40px 0 rgba(62, 57, 107, 0.07), 0 2px 9px 0 rgba(62, 57, 107, 0.06);
     box-shadow: 0 12px 80px 6px #ffa0002b, 0px 2px 20px -3px #ffa00026;
 }
 
 #ymapsl_search {
     display: flex;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
-    box-shadow: 0 6px 12px -10px rgba(0,0,0,.2), 0 6px 5px -2px rgba(0,0,0,.14), 0 3px 10px -6px rgba(0,0,0,.12);
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 6px 12px -10px rgba(0, 0, 0, .2), 0 6px 5px -2px rgba(0, 0, 0, .14), 0 3px 10px -6px rgba(0, 0, 0, .12);
     height: 100%;
     position: relative;
     z-index: 1;
-    background-color: #fff!important;
+    background-color: #fff !important;
 }
 
 #ymapsl_search span.select2-container {
@@ -48,11 +47,12 @@
 #ymapsl_stores > ul > li {
     background: #fff;
     overflow: hidden;
-    list-style: none!important;
+    list-style: none !important;
     text-indent: 0;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
     max-width: 357px;
     margin: 7px auto 16px;
+    border-radius: 3px;
 }
 
 .ymapsl-stores-empty-list {
@@ -61,7 +61,7 @@
     color: #f68100;
 }
 
-#ymapsl_stores ul li p{
+#ymapsl_stores ul li p {
     margin: 0;
     padding: 10px
 }
@@ -70,18 +70,18 @@
     background: #fafafa;
 }
 
-.ymapsl-store-details  .ymapsl-store-name{
+.ymapsl-store-details .ymapsl-store-name {
     padding: 7px 12px;
     background: #fafafa;
     display: flex;
     justify-content: space-between;
 }
 
-.ymapsl-store-details > *:last-child{
+.ymapsl-store-details > *:last-child {
     padding-bottom: 7px;
 }
 
-.ymapsl-store-details > div{
+.ymapsl-store-details > div {
     padding: 6px 12px;
     font-weight: 500;
     font-size: 0.9rem;
@@ -89,7 +89,7 @@
 }
 
 .ymapsl-store-details > div:not(:first-child):hover {
-    background-color: rgba(0,0,0,.03);
+    background-color: rgba(0, 0, 0, .03);
 }
 
 .ymapsl-store-details i {
@@ -109,10 +109,9 @@
     padding-bottom: 12px;
 }
 
-
 .ymapsl-store-name > span {
     font-weight: 700;
-    font-size: 1rem;
+    /*font-size: 1rem;*/
     padding-right: 7px;
     height: 100%;
     line-height: 23px;
@@ -127,12 +126,14 @@
     position: relative;
     /*border-left: 1px solid #c3c3c3;*/
 }
+
 .store-sim-qty-title {
     font-size: 0.8rem;
     font-weight: 700;
     color: #818181;
     white-space: nowrap;
 }
+
 .store-sim-qty {
     background: #f98200;
     border-radius: 0.9em;
@@ -145,41 +146,64 @@
     line-height: 27px;
     font-size: 0.9rem;
 }
+
 .ymapsl-store-details .ymapsl-store-address {
     cursor: pointer;
     color: #2977e0;
     font-weight: 600;
 }
-.ymapsl-store-schedule{
-    cursor: pointer;
+
+div#ymapsl_stores .ymapsl-store-schedule {
+    padding: 0 0;
+    cursor: default;
 }
-.ymapsl-store-schedule.active {
-    background-color: rgba(0,0,0,.03);
+
+div#ymapsl_stores .ymapsl-store-schedule:hover {
+    background: #fff;
 }
+
 .ymapsl-store-schedule__header {
     position: relative;
+    padding: 6px 12px;
+    cursor: pointer;
 }
+
+.ymapsl-store-schedule__header:hover {
+    background: rgba(0, 0, 0, .03);
+}
+
 .ymapsl-store-schedule__header:after {
     content: "\f078";
     font-family: FontAwesome;
-    right: 0;
+    right: 7px;
     position: absolute;
-    top: 0;
+    top: 6px;
     transition: all 0.4s ease;
 }
+
 .ymapsl-store-schedule.active .ymapsl-store-schedule__header:after {
     transform: rotateZ(180deg);
 }
-.ymapsl-store-schedule__dropdown {
-    margin-top: 10px;
+
+.ymapsl-store-schedule__header-time.closed {
+    color: #d7506b;
+    font-weight: 600;
 }
+
 .ymapsl-store-schedule .ymapsl-store-schedule__dropdown {
-    background: #ffffff;
+    padding: 8px;
+    background: #fafafa;
 }
+
+.ymapsl-store-schedule .ymapsl-store-schedule__dropdown table {
+    background: #fff;
+}
+
 #ymapsl_stores .ymapsl-store-schedule__dropdown td {
     padding: 7px 7px;
     font-size: 14px;
 }
+
 tr.closed td:last-child {
     /*color: #d7506b;*/
 }
@@ -188,13 +212,16 @@ tr.closed td:last-child {
     padding: 0;
     margin: 0;
 }
+
 #ymapsl_stores .ymapsl-store-schedule__dropdown ul li {
     margin-bottom: 4px;
 }
+
 #ymapsl_stores .ymapsl-store-schedule__dropdown tr td:first-child {
     position: relative;
     padding-left: 30px;
 }
+
 #ymapsl_stores .ymapsl-store-schedule__dropdown tr.today td:first-child:after {
     content: "\00B7";
     position: absolute;
@@ -213,23 +240,28 @@ tr.today.closed td:first-child:after {
 
 span.openorclosed.open {
     color: #43A047;
+    color: #478d00;
 }
+
 span.openorclosed.closed {
     color: #d7506b;
 }
+
 span.openorclosed {
-    font-size: 14px;
+    /*font-size: 14px;*/
     font-weight: 600;
-    padding-left: 7px;
+    /*padding-left: 7px;*/
 }
 
-tr.today.open td:last-child, tr.today.closed td:last-child{
+tr.today td {
     font-weight: 600;
 }
-tr.today.open td:last-child{
+
+tr.today.open td {
     color: #478d00;
 }
-tr.today.closed td:last-child{
+
+tr.today.closed td {
     color: #d7506b;
 }
 
@@ -527,7 +559,7 @@ tr.today.closed td:last-child{
     background-color: #fff;
     margin: 0;
     min-width: 100px;
-    max-height: 370px!important;
+    max-height: 370px !important;
     overflow-y: auto !important;
     z-index: 999;
     will-change: width, height;
@@ -580,9 +612,10 @@ tr.today.closed td:last-child{
 
 @media only screen and (max-width: 860px) {
     #ymapsl_result_list,
-    #ymapsl_map_wrap{
+    #ymapsl_map_wrap {
         width: 100%;
     }
+
     #ymapsl_stores {
         height: auto;
         max-height: 600px;

@@ -77,7 +77,7 @@ function load_scripts_for_admin( $hook ) {
 
 			wp_enqueue_style( 'ymapsl-admin-css', $style_url . 'ymapsl-admin.css', false, YMAPSL_VERSION_NUM );
 
-			wp_register_script( 'yandex-maps-admin-js', 'https://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
+			wp_register_script( 'yandex-maps-admin-js', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 			wp_enqueue_script( 'yandex-maps-admin-js' );
 
 			wp_enqueue_style( 'flatpickr-admin-css', $style_url . 'flatpickr.min.css', false, YMAPSL_VERSION_NUM );
@@ -517,7 +517,7 @@ function load_scripts_for_frontend() {
 			)
 		);
 
-		wp_register_script( 'ymaps-frontend-js', 'https://api-maps.yandex.ru/2.1.64/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
+		wp_register_script( 'ymaps-frontend-js', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array( 'jquery' ), '2.1.64', true );
 		wp_enqueue_script( 'ymaps-frontend-js' );
 
 		wp_enqueue_script( 'ymapsl-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.1/js/select2.min.js', array( 'jquery' ), YMAPSL_VERSION_NUM, true );

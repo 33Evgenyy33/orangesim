@@ -143,3 +143,5 @@ Stack trace:
 
 2018-05-11T16:24:39+00:00 CRITICAL Maximum execution time of 180 seconds exceeded
 
+2018-05-27T19:39:35+00:00 CRITICAL Out of memory (allocated 1285554176) (tried to allocate 1052672 bytes)
+

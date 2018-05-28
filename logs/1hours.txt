@@ -1615,3 +1615,111 @@ Array
 
 )
 
+Array
+(
+    [monday] => Array
+        (
+            [0] => 08:30-09:30
+            [1] => 10:00-19:00
+            [2] => 10:00-19:00
+        )
+
+    [tuesday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+            [0] => 17:00-17:30
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+            [0] => 20:30-21:30
+        )
+
+)
+
+Array
+(
+    [monday] => Array
+        (
+            [0] => 08:30-09:30
+            [1] => 10:00-19:00
+            [2] => 10:00-19:00
+        )
+
+    [tuesday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+            [0] => 17:00-17:30
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+            [0] => 20:30-23:30
+        )
+
+)
+
+Array
+(
+    [monday] => Array
+        (
+        )
+
+    [tuesday] => Array
+        (
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+        )
+
+)
+
