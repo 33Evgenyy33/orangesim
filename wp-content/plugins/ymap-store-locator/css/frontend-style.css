@@ -168,6 +168,14 @@ div#ymapsl_stores .ymapsl-store-schedule:hover {
     cursor: pointer;
 }
 
+.ymapsl-store-schedule__header.need-clarify {
+    cursor: auto;
+}
+
+.ymapsl-store-schedule__header.need-clarify:after {
+    content: "";
+}
+
 .ymapsl-store-schedule__header:hover {
     background: rgba(0, 0, 0, .03);
 }

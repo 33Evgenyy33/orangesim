@@ -526,7 +526,7 @@ function custom_woocommerce_states( $states ) {
 		'Ханты-Мансийский Автономный округ - Югра' => 'Ханты-Мансийский автономный округ - Югра',
 		'Чукотский АО'                             => 'Чукотский автономный округ',
 		'Ямало-Ненецкий АО'                        => 'Ямало-Ненецкий автономный округ',
-		'-'                                        => '-',
+        '-'                                        => '-'
 	);
 
 	return $states;
@@ -535,17 +535,17 @@ function custom_woocommerce_states( $states ) {
 //=======================================================================================================
 // Название полей формы заказа
 //=======================================================================================================
-add_filter( 'woocommerce_default_address_fields', 'bbloomer_override_postcode_validation', 10, 1 );
+//add_filter( 'woocommerce_default_address_fields', 'bbloomer_override_postcode_validation', 10, 1 );
 function bbloomer_override_postcode_validation( $address_fields ) {
-	$address_fields['postcode']['required']     = false;
-	$address_fields['postcode']['label']        = 'Почтовый индекс (для почты РФ)';
-	$address_fields['city']['label']            = 'Город (населенный пункт)';
-	$address_fields['address_1']['placeholder'] = 'Улица, номер дома ';
-
-	$address_fields['country']['required']   = false;
-	$address_fields['state']['required']     = false;
-	$address_fields['city']['required']      = false;
-	$address_fields['address_1']['required'] = false;
+//	$address_fields['postcode']['required']     = false;
+//	$address_fields['postcode']['label']        = 'Почтовый индекс (для почты РФ)';
+//	$address_fields['city']['label']            = 'Город (населенный пункт)';
+//	$address_fields['address_1']['placeholder'] = 'Улица, номер дома ';
+//
+//	$address_fields['country']['required']   = false;
+//	$address_fields['state']['required']     = false;
+//	$address_fields['city']['required']      = false;
+//	$address_fields['address_1']['required'] = false;
 
 	return $address_fields;
 }

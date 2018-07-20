@@ -234,8 +234,8 @@ jQuery(document).ready(function ($) {
                             }
                         });
 
-                    } else if (json[0].address[i].hours && json[0].address[i].hours === 'need to clarify') {
-                        storeHoursHeaderHtml = 'уточнять по телефону';
+                    } else if (json[0].address[i].hours === null) { //&& json[0].address[i].hours === 'need to clarify') {
+                        storeHoursHeaderHtml = '<span class="clarify-hours">уточнять по телефону</span>';
                         console.log(storeHoursHeaderHtml);
                     }
                     storeHoursTableHtml += '</table>';
@@ -277,13 +277,15 @@ jQuery(document).ready(function ($) {
                 objectManager.add(json[1]);
 
                 ymapslMap.setBounds(objectManager.getBounds(), {
-                    checkZoomRange: true,
+                    checkZoomRange: true //false,
                 });
 
                 $('.ymapsl-store-schedule__header').click(function (e) {
                     $(this).parent().toggleClass('active');
                     $(this).parent().find('.ymapsl-store-schedule__dropdown').slideToggle();
                 });
+
+                $('.clarify-hours').parent().off('click').addClass('need-clarify');
 
                 ymapslDisplayLoader('hide');
             }

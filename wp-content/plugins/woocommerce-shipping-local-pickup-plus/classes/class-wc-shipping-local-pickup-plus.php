@@ -24,6 +24,12 @@
 
 defined('ABSPATH') or exit;
 
+//require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+//require_once __DIR__ . 'vendor/autoload.php';
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise;
+
 /**
  * The Local Pickup Plus shipping method
  *
@@ -377,22 +383,22 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
      */
     public function admin_options()
     {
-	    global $wp_version;
+        global $wp_version;
 
-	    // NOTE:  an index is not specified in the arrayed input elements below as in the original
-	    //  example I followed because there's a bug with that approach where if you have three
-	    //  rows with specified indexes 0, 1, 2 and you delete the middle row and add a new
-	    //  row, the specified indexes will be 0, 2, 2 and only the first and last rows
-	    //  will be posted.  Letting the array indexes default with [] fixes the bug and should be fine
+        // NOTE:  an index is not specified in the arrayed input elements below as in the original
+        //  example I followed because there's a bug with that approach where if you have three
+        //  rows with specified indexes 0, 1, 2 and you delete the middle row and add a new
+        //  row, the specified indexes will be 0, 2, 2 and only the first and last rows
+        //  will be posted.  Letting the array indexes default with [] fixes the bug and should be fine
 
-	    $base_country = WC()->countries->get_base_country();
-	    $base_state = WC()->countries->get_base_state();
+        $base_country = WC()->countries->get_base_country();
+        $base_state = WC()->countries->get_base_state();
 
-	    // get the pickup fields
-	    // reserved field names used by this plugin: id, country, cost, note
-	    $pickup_fields = $this->get_pickup_address_fields($base_country);
+        // get the pickup fields
+        // reserved field names used by this plugin: id, country, cost, note
+        $pickup_fields = $this->get_pickup_address_fields($base_country);
 
-	    ?>
+        ?>
         <style type="text/css">
             .shippingrows tr td:first-child input {
                 margin: 0 0 0 8px;
@@ -423,7 +429,7 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
         <h3><?php echo $this->method_title; ?></h3>
         <p><?php echo $this->admin_page_description; ?></p>
         <table class="form-table">
-		    <?php $this->generate_settings_html(); ?>
+            <?php $this->generate_settings_html(); ?>
             <tr valign="top">
                 <th scope="row"
                     class="titledesc">Пункты выдачи:
@@ -433,18 +439,17 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
                         <thead>
                         <tr>
                             <th class="check-column"><input type="checkbox"/></th>
-						    <?php
-//						    echo '<pre>' . print_r( $pickup_fields, true ) . '</pre>';
-						    foreach ($pickup_fields as $key => $field) {
-							    if ($key === 0) continue;
-							    echo "<th>{$field['label']}</th>";
-						    }
-						    ?>
+                            <?php
+                            foreach ($pickup_fields as $key => $field) {
+                                if ($key === 0) continue;
+                                echo "<th>{$field['label']}</th>";
+                            }
+                            ?>
                             <th>
-							    <?php
-							    esc_html_e('ID ТА', 'woocommerce-shipping-local-pickup-plus');
-							    echo wc_help_tip('ID кабинета ТА (если есть на селлере)');
-							    ?>
+                                <?php
+                                esc_html_e('ID ТА', 'woocommerce-shipping-local-pickup-plus');
+                                echo wc_help_tip('ID кабинета ТА (если есть на селлере)');
+                                ?>
                             </th>
                         </tr>
                         </thead>
@@ -459,58 +464,57 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
                         </tr>
                         </tfoot>
                         <tbody class="pickup_locations">
-					    <?php
-					    if ($this->pickup_locations) {
+                        <?php
 
-						    //file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/pickup.txt", print_r( $this->pickup_locations, true ), FILE_APPEND | LOCK_EX );
+                        if ($this->pickup_locations) {
 
-//                            echo '<pre>',print_r($this->pickup_locations,1),'</pre>';
+                            foreach ($this->pickup_locations as $location) {
 
-						    foreach ($this->pickup_locations as $location) {
-							    echo '<tr class="pickup_location">
+                                echo '<tr class="pickup_location">
 								<td class="check-column" style="width:20px;"><input type="checkbox" name="select" />';
-							    echo '<input type="hidden" name="' . $this->id . '_id[]" value="' . $location['id'] . '" />';
-							    echo '<input type="hidden" name="' . $this->id . '_country[]" value="' . $location['country'] . '" />';
-							    echo '</td>';
+                                echo '<input type="hidden" name="' . $this->id . '_id[]" value="' . $location['id'] . '" />';
+                                echo '<input type="hidden" name="' . $this->id . '_country[]" value="' . $location['country'] . '" />';
+                                echo '</td>';
 
-//	                            echo '<pre>' . print_r( $pickup_fields, true ) . '</pre>';
-							    foreach ($pickup_fields as $key => $field) {
-								    if ($key === 0) continue;
-								    echo '<td>';
+                                foreach ($pickup_fields as $key => $field) {
 
-								    if ('state' == $key) {
-									    // handle state field specially
-									    if ($states = WC()->countries->get_states($location['country'])) {
-										    // state select box
-										    echo '<select name="' . $this->id . '_state[]" class="select">';
+                                    if ($key === 0) continue;
 
-										    foreach ($states as $key => $value) {
-											    echo '<option';
-											    if ($location['state'] == $key) {
-												    echo ' selected="selected"';
-											    }
-											    echo ' value="' . $key . '">' . $value . '</option>';
-										    }
+                                    echo '<td>';
 
-									    } else {
-										    // state input box
-										    echo '<input type="text" value="' . $location['state'] . '" name="' . $this->id . '_state[]" />';
-									    }
-								    } else {
-									    // all other fields
-									    echo '<input type="text" name="' . $this->id . '_' . $key . '[]" value="' . $location[$key] . '" placeholder="' . (in_array($key, array(
-											    'company',
-											    'phone'
-										    )) ? 'Если есть' : '') . '" />';
-								    }
+                                    if ('state' == $key) {
+                                        // handle state field specially
+                                        if ($states = WC()->countries->get_states($location['country'])) {
+                                            // state select box
+                                            echo '<select name="' . $this->id . '_state[]" class="select">';
 
-								    echo '</td>';
-							    }
-							    echo '<td><input type="text" name="' . $this->id . '_taid[]" value="' . (isset($location['taid']) ? $location['taid'] : '') . '" placeholder="' . 'ID ТА' . '" /></td>';
-							    echo '</tr>';
-						    }
-					    }
-					    ?>
+                                            foreach ($states as $key1 => $value) {
+                                                echo '<option';
+                                                if ($location['state'] == $key1) {
+                                                    echo ' selected="selected"';
+                                                }
+                                                echo ' value="' . $key1 . '">' . $value . '</option>';
+                                            }
+
+                                        } else {
+                                            // state input box
+                                            echo '<input type="text" value="' . $location['state'] . '" name="' . $this->id . '_state[]" />';
+                                        }
+                                    } else {
+                                        // all other fields
+                                        echo '<input type="text" name="' . $this->id . '_' . $key . '[]" value="' . $location[$key] . '" placeholder="' . (in_array($key, array(
+                                                'company',
+                                                'phone'
+                                            )) ? 'Если есть' : '') . '" />';
+                                    }
+
+                                    echo '</td>';
+                                }
+                                echo '<td><input type="text" name="' . $this->id . '_taid[]" value="' . (isset($location['taid']) ? $location['taid'] : '') . '" placeholder="' . 'ID ТА' . '" /></td>';
+                                echo '</tr>';
+                            }
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </td>
@@ -522,10 +526,19 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
 
                 $('#<?php echo $this->id; ?>_pickup_locations a.add').live('click', function () {
 
-                    var row = '<tr class="pickup_location"><td class="check-column" style="width:20px;"><input type="checkbox" name="select" /><input type="hidden" name="<?php echo $this->id ?>_id[]" value="" /><input type="hidden" name="<?php echo $this->id ?>_country[]" value="<?php echo $base_country; ?>" /></td><?php foreach ( $pickup_fields as $key => $field ) : ?><td><?php if ( 'state' === $key ) : ?><?php if ( $states = WC()->countries->get_states($base_country) ) : ?><select name="<?php echo $this->id . '_state[]'; ?>" class="select"><?php foreach ( $states as $key => $value ) : ?><option <?php echo $base_state === $key ? ' selected="selected"' : ''; echo 'value="' . $key . '">'; echo esc_js($value); ?></option><?php endforeach; ?><?php else : ?><input type="text" value="<?php echo $base_state; ?>" name="<?php echo $this->id . '_state[]'; ?>" /><?php endif; ?><?php else : ?><input type="text" name="<?php echo $this->id . '_' . $key . '[]'; ?>" value="" placeholder="<?php echo(in_array($key, array(
-					    'company',
-					    'phone'
-				    )) ? __('(Optional)', 'woocommerce-shipping-local-pickup-plus') : ''); ?>" /><?php endif; ?></td><?php endforeach;?><td><input type="text" name="<?php echo $this->id ?>_cost[]" value="" placeholder="<?php _e('(Optional)', 'woocommerce-shipping-local-pickup-plus') ?>" /></td></tr>';
+                    var row = '<tr class="pickup_location">' +
+                        '<td class="check-column" style="width:20px;">' +
+                        '<input type="checkbox" name="select" />' +
+                        '<input type="hidden" name="<?php echo $this->id ?>_id[]" value="" />' +
+                        '<input type="hidden" name="<?php echo $this->id ?>_country[]" value="<?php echo $base_country; ?>" />' +
+                        '</td>' +
+                        '<?php foreach ( $pickup_fields as $key => $field ) :
+                            if ($key === 0) continue;?>' +
+                        '<td><?php if ( 'state' === $key ) : ?><?php if ( $states = WC()->countries->get_states($base_country) ) : ?>' +
+                        '<select name="<?php echo $this->id . '_state[]'; ?>" class="select"><?php foreach ( $states as $key => $value ) : ?><option <?php echo $base_state === $key ? ' selected="selected"' : ''; echo 'value="' . $key . '">'; echo esc_js($value); ?></option><?php endforeach; ?><?php else : ?><input type="text" value="<?php echo $base_state; ?>" name="<?php echo $this->id . '_state[]'; ?>" /><?php endif; ?><?php else : ?><input type="text" name="<?php echo $this->id . '_' . $key . '[]'; ?>" value="" placeholder="<?php echo(in_array($key, array(
+                            'company',
+                            'phone'
+                        )) ? __('(Optional)', 'woocommerce-shipping-local-pickup-plus') : ''); ?>" /><?php endif; ?></td><?php endforeach;?><td><input type="text" name="<?php echo $this->id ?>_taid[]" value="" placeholder="<?php _e('(Optional)', 'woocommerce-shipping-local-pickup-plus') ?>" /></td></tr>';
 
                     $('#<?php echo $this->id; ?>_pickup_locations table tbody.pickup_locations').append(row);
 
@@ -545,7 +558,7 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
 
             });
         </script>
-	    <?php
+        <?php
     }
 
 
@@ -658,11 +671,6 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
         foreach ($this->pickup_locations as $location) {
             $max_id = max($max_id, $location['id']);
         }
-
-        //file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/pickup.txt", print_r( $max_id, true ), FILE_APPEND | LOCK_EX );
-
-        //echo '<pre>',print_r($max_id,1),'</pre>';
-
 
         for ($i = 0, $ix = count($ids); $i < $ix; $i++) {
 
@@ -1315,7 +1323,9 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
             "6059",
             "645",
             "658",
-            "685"
+            "685",
+            "665",
+            "652"
         );
 
         $check_num = substr($num, 0, 4);
@@ -1385,121 +1395,77 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
 
                 $stores_sorted_by_region = array();
                 foreach ($this->pickup_locations as $location) {
-
-                    //Вывод ТА привязанных к региону
-//                    $state = WC()->customer->get_shipping_state();
-//                    $bolstate = 0;
-//                    if ($location['state'] != $state) {
-//                        if ($state == 'Московская обл' && $location['state'] == 'г Москва') {
-//                            $bolstate = 1;
-//                        } else if ($state == 'Ленинградская обл' && $location['state'] == 'г Санкт-Петербург') {
-//                            $bolstate = 1;
-//                        }
-//                        if ($bolstate != 1) {
-//                            continue;
-//                        }
-//                    }
                     array_push($stores_sorted_by_region, $location);
-
                 }
 
-	            $stores_sorted_by_region_without_id = array();
-	            $stores_sorted_by_region_with_id = array();
-                $urls = array();
+                $client = new Client(['timeout' => 12.0]); // see how i set a timeout
+                // $stores_without_id = array(); Массив для кабинетов без ID
+
+                $promises = [];
+
+                $stores_sorted_by_region_without_id = array();
+                $stores_sorted_by_region_with_id = array();
+
+                $i = 0;
                 foreach ($stores_sorted_by_region as $store_region) {
-                    $ta_id = $store_region['taid'];
+                    $ta_id = intval($store_region['taid']);
+                    $ta_id_uniq = $store_region['taid'] . '_' . $i;
+                    $i++;
 
                     if (!$ta_id) {
                         array_push($stores_sorted_by_region_without_id, $store_region);
                         continue;
                     }
-                    array_push($urls, "http://seller.sgsim.ru/euroroaming_order_submit?operation=get_simcards_new&ta=$ta_id");
+
                     array_push($stores_sorted_by_region_with_id, $store_region);
+
+                    $promises[$ta_id_uniq] = $client->getAsync("http://seller.sgsim.ru/euroroaming_order_submit?operation=get_simcards_new&ta=$ta_id");
+
                 }
 
-                $available_stores_eith_id = array();
-                $res = array();
+                $results = Promise\settle($promises)->wait();
 
-                $mh = curl_multi_init();
-                foreach ($urls as $i => $url) {
-                    $conn[$i] = curl_init($url);
-                    curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, 1);  //ничего в браузер не давать
-                    curl_setopt($conn[$i], CURLOPT_CONNECTTIMEOUT, 10); //таймаут соединения
-                    curl_multi_add_handle($mh, $conn[$i]);
-                }//Пока все соединения не отработают
-                do {
-                    curl_multi_exec($mh, $active);
-                } while ($active);
-                //разбор полетов
-                for ($i = 0; $i < count($urls); $i++) {
-                    //ответ сервера в переменную
-                    $resp = curl_multi_getcontent($conn[$i]);
-                    $res[$i] = $resp;
-                    //Если вернулся пустой массив, то сим-карт нет в наличие, пункт не отображается
-                    if (empty($resp)) {
-                        continue;
-                    }
-
-                    $array_of_simcard = (array)json_decode($resp);
-
-                    //Заполнения массива имен сим-карт, полученных с селлера
-                    $exist_operators = array();
-                    foreach ($array_of_simcard as $key => $numbers) {
-                        array_push($exist_operators, $key);
-                    }
+                $available_stores_with_id = array();
+                foreach ($results as $key => $result) { //$ta_id =>
 
 
+                    if ($result['state'] === 'fulfilled') {
+                        $response = $result['value'];
+                        if ($response->getStatusCode() == 200) {
 
-                    //Проверка сим-карт в корзине на наличие в ТА
-                    foreach (WC()->cart->get_cart() as $cart_item) {
-                        $product_id = $cart_item['product_id'];
-                        $variation_id = $cart_item['variation_id'];
+                            $res_body = (array)json_decode($result['value']->getBody());
 
-                        //orange
-                        $combo = 0;
-                        $nano = 0;
-                        $orange_validation = 0;
-                        if ($product_id == 1346) {
-                            if (!in_array('orange', $exist_operators)) {
-                                continue 2;
-                            }//Есть ли Orange на селлере
+                            if (array_key_exists('orange', $res_body)) {
 
-                            //Подсчет кол-ва форматов
-                            foreach ($array_of_simcard['orange'] as $num) {
-                                $format_type = $this->check_orange_format($num);
-                                if ($format_type == 'combo') {
-                                    $combo++;
+                                // Подсчет кол - ва форматов
+                                $combo = 0;
+                                $nano = 0;
+                                foreach ($res_body['orange'] as $num) {
+                                    $format_type = $this->check_orange_format($num);
+                                    if ($format_type == 'combo') {
+                                        $combo++;
+                                    }
+                                    if ($format_type == 'nano') {
+                                        $nano++;
+                                    }
                                 }
-                                if ($format_type == 'nano') {
-                                    $nano++;
+
+                                if ($nano == 0) continue;
+
+                                foreach ($stores_sorted_by_region_with_id as $store_with_id) {
+                                    if ($store_with_id['taid'] == strtok($key, '_')) {
+                                        array_push($available_stores_with_id, $store_with_id);
+                                    }
                                 }
                             }
-
-	                        if ($nano !== 0) {
-		                        $orange_validation++;
-	                        }
-
-                            //myfile = fopen("variation1.txt", "w") or die("Unable to open file!");
-                            //file_put_contents("variation1.txt", print_r($cart_item, true), FILE_APPEND | LOCK_EX);
-
-
-                            if ($orange_validation == 0) {
-                                continue 2;
-                            }
+                        } else {
+                            continue;
                         }
                     }
 
-                    array_push($available_stores_eith_id, $stores_sorted_by_region_with_id[$i]);
-
-                    curl_multi_remove_handle($mh, $conn[$i]);
-                    curl_close($conn[$i]);
                 }
-                curl_multi_close($mh);
 
-                //$myfile = fopen("store1.txt", "w") or die("Unable to open file!");
-                //file_put_contents("store1.txt", print_r($available_stores_eith_id, true), FILE_APPEND | LOCK_EX);
-
-                $all_available_stores = array_merge($available_stores_eith_id, $stores_sorted_by_region_without_id);
+                $all_available_stores = array_merge($available_stores_with_id, $stores_sorted_by_region_without_id);
 
                 foreach ($all_available_stores as $location_store) {
                     // determine the chosen pickup location
@@ -1508,28 +1474,12 @@ class WC_Shipping_Local_Pickup_Plus extends WC_Shipping_Method
                     }
 
                     echo '<option value="' . esc_attr($location_store['id']) . '" ' . selected($location_store['id'], $chosen_pickup_location_id, false) . '>';
-                    echo $location_store['city'].' - '.$location_store['company'].' ('.$location_store['address_1'].')';
+                    echo $location_store['city'] . ' - ' . $location_store['company'] . ' (' . $location_store['address_1'] . ')';
 //	                print_r($location_store);
                     echo '</option>';
                 }
 
                 echo '</select>';
-                /*echo '<script>
-jQuery(document).ready(function ($) {
-    $("td > select.pickup_location").select2({
-        language: {
-            noResults: function (params) {
-                return "Пункты выдачи не найдены или не выбраны город и регион";
-            }
-        },
-        escapeMarkup: function (markup) {
-            return markup;
-        }
-    });
-});
-
-    </script>';*/
-                //echo 'Время выполнения скрипта: ' . ( microtime( true ) - $start ) . ' сек.';
 
             } else {
                 // radio styling
@@ -1548,89 +1498,8 @@ jQuery(document).ready(function ($) {
             }
         }
 
-        $products_in_cart = array();
-        foreach (WC()->cart->get_cart() as $cart_item) {
-            $product_id = $cart_item['product_id'];
-
-            switch ($product_id) {
-                case 1346:
-                    if (!array_key_exists(1346, $products_in_cart)) {
-                        $products_in_cart[1346] = 'orange';
-                    }
-
-                    break;
-                case 18438:
-                    if (!array_key_exists(18438, $products_in_cart)) {
-                        $products_in_cart[18438] = 'vodafone';
-                    }
-                    break;
-                case 18446:
-                    if (!array_key_exists(18446, $products_in_cart)) {
-                        $products_in_cart[18446] = 'ortel';
-                    }
-                    break;
-                case 18455:
-                    if (!array_key_exists(18455, $products_in_cart)) {
-                        $products_in_cart[18455] = 'globalsim--classic';
-                    }
-                    break;
-                case 18453:
-                    if (!array_key_exists(18453, $products_in_cart)) {
-                        $products_in_cart[18453] = 'globalsim--gsim_internet';
-                    }
-                    break;
-                case 83041:
-                    if (!array_key_exists(83041, $products_in_cart)) {
-                        $products_in_cart[83041] = 'globalsim--gsim_internet';
-                    }
-                    break;
-                case 41120: //TravelChat
-                    if (!array_key_exists(41120, $products_in_cart)) {
-                        $products_in_cart[41120] = 'globalsim--travelchat';
-                    }
-                    break;
-                case 48067:
-                    if (!array_key_exists(48067, $products_in_cart)) {
-                        $products_in_cart[48067] = 'globalsim--tariff_usa';
-                    }
-                    break;
-                case 28328:
-                    if (!array_key_exists(28328, $products_in_cart)) {
-                        $products_in_cart[28328] = 'globalsim--europasim';
-                    }
-                    break;
-                case 55050:
-	            case 88406:
-                    if (!array_key_exists(59140, $products_in_cart)) {
-                        $products_in_cart[59140] = 'three';
-                    }
-                    break;
-            }
-        }
-
-
         // Если выбранный пункт выдачи имеет ID
         if ($chosen_pickup_location && isset($chosen_pickup_location['taid']) && $chosen_pickup_location['taid']) {
-
-            /*$ta_id = intval(str_replace(" ", "", $chosen_pickup_location['taid']));
-
-            $url = "http://seller.sgsim.ru/euroroaming_order_submit?operation=get_simcards_new&ta=$ta_id";
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //Устанавливаем параметр, чтобы curl возвращал данные, вместо того, чтобы выводить их в браузер.
-            curl_setopt($ch, CURLOPT_URL, $url);
-            $data = curl_exec($ch);
-            curl_close($ch);
-            $array_of_simcard = (array)json_decode($data);
-            krsort($array_of_simcard);*/
-
-            //$content .= '<pre>' . print_r($array_of_simcard, true) . '</pre>';
-
-            $in_stock = "wpsl-sim-card-in_stock";
-            $out_of_stock = "wpsl-sim-card-out_of_stock";
-
-            $store_phone = $chosen_pickup_location['phone'];
-
 
             echo '<div>';
             echo '<span><span class="wpsl-location-address-label" >Пункт выдачи:</span> ' . $chosen_pickup_location['company'] . '</span><br/>';
@@ -2143,8 +2012,6 @@ jQuery(document).ready(function ($) {
             if ($this->id == $shipping_item['method_id'] && isset($shipping_item['pickup_location'])) {
 
                 $location = maybe_unserialize($shipping_item['pickup_location']);
-
-//	            file_put_contents( $_SERVER['DOCUMENT_ROOT'] . "/logs/yandex-order_by.txt", print_r( $location, true ), FILE_APPEND | LOCK_EX );
 
                 // get the note from the global location, if it's still configured
                 $global_location = $this->get_pickup_location_by_id($location['id']);

@@ -1723,3 +1723,246 @@ Array
 
 )
 
+Array
+(
+    [monday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [tuesday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [wednesday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [thursday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [friday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [saturday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [sunday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+)
+
+Array
+(
+    [monday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [tuesday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [wednesday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [thursday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [friday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [saturday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [sunday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+)
+
+Array
+(
+    [monday] => Array
+        (
+        )
+
+    [tuesday] => Array
+        (
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+        )
+
+)
+
+Array
+(
+    [monday] => Array
+        (
+        )
+
+    [tuesday] => Array
+        (
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+        )
+
+)
+
+Array
+(
+    [monday] => Array
+        (
+        )
+
+    [tuesday] => Array
+        (
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+        )
+
+)
+
+Array
+(
+    [monday] => Array
+        (
+        )
+
+    [tuesday] => Array
+        (
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+        )
+
+    [friday] => Array
+        (
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+        )
+
+)
+
+Array
+(
+    [monday] => Array
+        (
+            [0] => 10:10-10:10
+        )
+
+    [tuesday] => Array
+        (
+            [0] => 10:00-19:00
+        )
+
+    [wednesday] => Array
+        (
+        )
+
+    [thursday] => Array
+        (
+            [0] => 10:00-12:00
+        )
+
+    [friday] => Array
+        (
+            [0] => 17:00-17:30
+        )
+
+    [saturday] => Array
+        (
+        )
+
+    [sunday] => Array
+        (
+            [0] => 20:30-21:30
+        )
+
+)
+

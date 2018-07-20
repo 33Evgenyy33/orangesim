@@ -211,9 +211,12 @@ class WC_Local_Pickup_Plus extends SV_WC_Plugin {
 	 */
 	public function load_classes() {
 
-		require_once( $this->get_plugin_path() . '/classes/class-wc-shipping-local-pickup-plus.php' );
+        require_once( $this->get_plugin_path() . '/vendor/autoload.php' );
 
-		// Add class to WC Shipping Methods
+        require_once( $this->get_plugin_path() . '/classes/class-wc-shipping-local-pickup-plus.php' );
+
+
+        // Add class to WC Shipping Methods
 		add_filter( 'woocommerce_shipping_methods', array( $this, 'load_method' ) );
 	}
 
